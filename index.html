@@ -2,60 +2,90 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
   <title>Rassoul Shop - Élégance & Distinction</title>
-  <!-- Font Awesome pour les icônes -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ===== RESET & VARIABLES ===== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    :root {
+      --primary: #8B6B4D;
+      --primary-dark: #4a3729;
+      --secondary: #b89b7b;
+      --text-dark: #1e2a2f;
+      --text-soft: #2c3e4a;
+      --text-light: #6e5c4b;
+      --bg-light: #fcf9f6;
+      --bg-soft: #f5ede5;
+      --bg-card: #ffffff;
+      --border: #f0e4d8;
+      --shadow: 0 10px 30px rgba(0,0,0,0.05);
+      --shadow-hover: 0 20px 40px rgba(84,63,44,0.15);
+      --whatsapp: #25D366;
+      --whatsapp-hover: #20b859;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: #fcf9f6;
-      color: #1e2a2f;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.5;
+      overflow-x: hidden;
     }
 
     .container {
+      width: 100%;
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* ===== NAVIGATION ===== */
+    /* ===== TYPOGRAPHIE ===== */
+    h1, h2, h3, h4, .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+
+    /* ===== HEADER & NAVIGATION ===== */
     header {
-      background: white;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
       position: sticky;
       top: 0;
       z-index: 1000;
+      width: 100%;
     }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
+      padding: 15px 5%;
       max-width: 1400px;
       margin: 0 auto;
+      flex-wrap: wrap;
     }
 
     .logo h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      background: linear-gradient(135deg, #8B6B4D, #4a3729);
+      font-size: clamp(24px, 4vw, 32px);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      line-height: 1.2;
     }
 
     .logo span {
-      font-size: 12px;
-      color: #8b7a6a;
+      font-size: clamp(10px, 2vw, 12px);
+      color: var(--text-light);
       display: block;
       letter-spacing: 2px;
     }
@@ -64,18 +94,20 @@
     .menu {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: clamp(15px, 3vw, 30px);
+      flex-wrap: wrap;
     }
 
-    .menu a {
+    .menu > a {
       text-decoration: none;
-      color: #2c3e4a;
+      color: var(--text-soft);
       font-weight: 500;
-      transition: 0.3s;
+      transition: color 0.3s;
+      font-size: clamp(14px, 2vw, 16px);
     }
 
-    .menu a:hover {
-      color: #b89b7b;
+    .menu > a:hover {
+      color: var(--secondary);
     }
 
     /* Dropdown */
@@ -85,15 +117,16 @@
 
     .dropdown-content {
       position: absolute;
-      top: 30px;
+      top: 100%;
       left: 0;
       background: white;
       min-width: 220px;
       border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow-hover);
       padding: 10px 0;
       display: none;
-      z-index: 100;
+      z-index: 1001;
+      margin-top: 10px;
     }
 
     .dropdown:hover .dropdown-content {
@@ -105,25 +138,27 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      color: #2c3e4a;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: background 0.3s;
     }
 
     .dropdown-content a i {
       width: 20px;
-      color: #b89b7b;
+      color: var(--secondary);
     }
 
     .dropdown-content a:hover {
-      background: #faf5f0;
+      background: var(--bg-soft);
     }
 
-    /* Panier dans la navigation */
+    /* Panier */
     .cart-container {
       position: relative;
     }
 
     .cart-icon {
-      background: #f5ede5;
+      background: var(--bg-soft);
       width: 45px;
       height: 45px;
       border-radius: 50%;
@@ -131,7 +166,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s;
       position: relative;
     }
 
@@ -141,14 +176,14 @@
 
     .cart-icon i {
       font-size: 20px;
-      color: #3a2e25;
+      color: var(--text-dark);
     }
 
     #cart-count {
       position: absolute;
       top: -5px;
       right: -5px;
-      background: #c4a484;
+      background: var(--secondary);
       color: white;
       font-size: 12px;
       font-weight: 600;
@@ -158,6 +193,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 2px solid white;
     }
 
     /* ===== PANIER DÉROULANT ===== */
@@ -166,11 +202,12 @@
       top: 55px;
       right: 0;
       width: 380px;
+      max-width: 90vw;
       background: white;
       border-radius: 25px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
       padding: 20px;
-      z-index: 1000;
+      z-index: 1001;
       display: none;
     }
 
@@ -182,13 +219,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #f0e4d8;
+      border-bottom: 2px solid var(--border);
       padding-bottom: 15px;
       margin-bottom: 15px;
     }
 
     .cart-header h3 {
-      font-family: 'Playfair Display', serif;
       font-size: 20px;
     }
 
@@ -197,12 +233,12 @@
       border: none;
       font-size: 24px;
       cursor: pointer;
-      color: #7b6250;
-      transition: 0.3s;
+      color: var(--text-light);
+      transition: transform 0.3s, color 0.3s;
     }
 
     .close-cart:hover {
-      color: #1e1e1e;
+      color: var(--text-dark);
       transform: rotate(90deg);
     }
 
@@ -216,7 +252,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      background: #faf5f0;
+      background: var(--bg-soft);
       padding: 12px;
       border-radius: 15px;
       margin-bottom: 10px;
@@ -230,21 +266,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #886e58;
+      color: var(--primary);
       font-size: 20px;
+      flex-shrink: 0;
     }
 
     .cart-item-info {
       flex: 1;
+      min-width: 0;
     }
 
     .cart-item-title {
       font-weight: 600;
       margin-bottom: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .cart-item-price {
-      color: #5f4d3d;
+      color: var(--text-light);
       font-size: 14px;
     }
 
@@ -254,11 +295,17 @@
       color: #a66f5c;
       cursor: pointer;
       font-size: 16px;
-      padding: 5px;
+      padding: 8px;
+      transition: color 0.3s;
+      flex-shrink: 0;
+    }
+
+    .cart-item-remove:hover {
+      color: #d32f2f;
     }
 
     .cart-total {
-      border-top: 2px dashed #cfbeae;
+      border-top: 2px dashed var(--border);
       padding-top: 15px;
       margin-bottom: 15px;
       display: flex;
@@ -268,8 +315,8 @@
     }
 
     .whatsapp-btn {
-      background: #25D366;
-      color: #1d2c2f;
+      background: var(--whatsapp);
+      color: var(--text-dark);
       border: none;
       padding: 15px;
       border-radius: 50px;
@@ -281,48 +328,48 @@
       gap: 10px;
       cursor: pointer;
       width: 100%;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
 
     .whatsapp-btn:hover {
-      background: #20b859;
+      background: var(--whatsapp-hover);
     }
 
     /* ===== HERO SECTION ===== */
     .hero {
-      background: linear-gradient(145deg, #fff9f4, #f5ede5);
+      background: linear-gradient(145deg, #fff9f4, var(--bg-soft));
       text-align: center;
       padding: 60px 20px;
-      border-radius: 0 0 50px 50px;
       margin-bottom: 40px;
     }
 
     .hero h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 48px;
+      font-size: clamp(32px, 6vw, 48px);
       font-weight: 400;
       color: #30271f;
       margin-bottom: 20px;
     }
 
     .hero-tags {
-      background: rgba(255,255,240,0.8);
+      background: rgba(255,255,240,0.9);
       display: inline-block;
       padding: 15px 30px;
       border-radius: 50px;
-      font-size: 18px;
-      color: #6e5c4b;
+      font-size: clamp(14px, 2.5vw, 18px);
+      color: var(--text-light);
+      max-width: 100%;
+      white-space: normal;
     }
 
     .hero-tags i {
-      color: #b99b7c;
+      color: var(--secondary);
       margin: 0 10px;
     }
 
     /* ===== SECTION TITRE ===== */
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 36px;
+      font-size: clamp(28px, 5vw, 36px);
       font-weight: 400;
       margin: 50px 0 30px;
       position: relative;
@@ -335,28 +382,31 @@
       left: 0;
       width: 100px;
       height: 3px;
-      background: linear-gradient(90deg, #b89b7b, transparent);
+      background: linear-gradient(90deg, var(--secondary), transparent);
     }
 
     /* ===== GRILLE PRODUITS ===== */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 30px;
+      gap: 25px;
       margin-bottom: 50px;
     }
 
     .product-card {
-      background: white;
+      background: var(--bg-card);
       border-radius: 25px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      transition: 0.3s;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .product-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(84,63,44,0.1);
+      box-shadow: var(--shadow-hover);
     }
 
     .product-image {
@@ -366,18 +416,22 @@
       align-items: center;
       justify-content: center;
       font-size: 50px;
-      color: #ac9b8b;
+      color: var(--text-light);
+      flex-shrink: 0;
     }
 
     .product-details {
       padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .product-category {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: #9b7f6b;
+      color: var(--text-light);
       margin-bottom: 5px;
     }
 
@@ -385,6 +439,7 @@
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 10px;
+      line-height: 1.4;
     }
 
     .product-price {
@@ -396,7 +451,7 @@
 
     .add-btn {
       width: 100%;
-      background: #1e2a2f;
+      background: var(--text-dark);
       color: white;
       border: none;
       padding: 12px;
@@ -407,38 +462,42 @@
       justify-content: center;
       gap: 10px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s;
+      margin-top: auto;
     }
 
     .add-btn:hover {
-      background: #b89b7b;
+      background: var(--secondary);
     }
 
     /* ===== SECTION GROSSISTE ===== */
     .wholesale-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
       margin: 40px 0;
     }
 
     .wholesale-card {
-      background: white;
-      padding: 40px 30px;
+      background: var(--bg-card);
+      padding: 40px 25px;
       border-radius: 30px;
       text-align: center;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-      transition: 0.3s;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .wholesale-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 25px 45px rgba(139,107,77,0.15);
+      box-shadow: var(--shadow-hover);
     }
 
     .wholesale-card i {
       font-size: 50px;
-      color: #b89b7b;
+      color: var(--secondary);
       margin-bottom: 20px;
     }
 
@@ -448,95 +507,101 @@
     }
 
     .wholesale-card p {
-      color: #5f4d3d;
+      color: var(--text-light);
       margin-bottom: 25px;
+      flex: 1;
     }
 
     .wholesale-btn {
-      background: #1e2a2f;
+      background: var(--text-dark);
       color: white;
       border: none;
-      padding: 12px 30px;
+      padding: 12px 25px;
       border-radius: 50px;
       font-weight: 600;
       cursor: pointer;
       width: 100%;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
 
     .wholesale-btn:hover {
-      background: #b89b7b;
+      background: var(--secondary);
     }
 
     /* ===== À PROPOS ===== */
     .about-section {
       background: #f2ebe4;
-      border-radius: 50px;
-      padding: 50px;
+      border-radius: 30px;
+      padding: 40px;
       margin: 50px 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 40px;
       align-items: center;
     }
 
     .about-content h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
+      font-size: clamp(24px, 4vw, 32px);
       margin-bottom: 20px;
     }
 
     .about-content p {
-      color: #4a3f37;
-      font-size: 18px;
+      color: var(--text-light);
+      font-size: 16px;
       line-height: 1.6;
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 15px;
     }
 
     .stat {
       background: white;
-      padding: 25px;
-      border-radius: 25px;
+      padding: 20px;
+      border-radius: 20px;
       text-align: center;
     }
 
     .stat .number {
-      font-size: 36px;
+      font-size: clamp(24px, 4vw, 36px);
       font-weight: 700;
-      color: #b89b7b;
+      color: var(--secondary);
+      line-height: 1.2;
+    }
+
+    .stat div:last-child {
+      font-size: 14px;
+      color: var(--text-light);
     }
 
     /* ===== CONTACT ===== */
     .contact-section {
       background: white;
-      border-radius: 50px;
-      padding: 50px;
+      border-radius: 30px;
+      padding: 40px;
       margin: 50px 0;
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 30px;
     }
 
     .contact-info {
       background: #faf5f0;
-      padding: 30px;
-      border-radius: 30px;
+      padding: 25px;
+      border-radius: 20px;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid #e0d4c8;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
     }
 
     .contact-item:last-child {
@@ -546,97 +611,248 @@
     .contact-item i {
       font-size: 24px;
       width: 40px;
-      color: #b89b7b;
+      color: var(--secondary);
+      flex-shrink: 0;
+    }
+
+    .contact-item h4 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .contact-item p {
+      color: var(--text-light);
+      font-size: 14px;
+      word-break: break-word;
     }
 
     .contact-form {
       background: #faf5f0;
-      padding: 30px;
-      border-radius: 30px;
+      padding: 25px;
+      border-radius: 20px;
+    }
+
+    .contact-form h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .form-group input,
     .form-group select,
     .form-group textarea {
       width: 100%;
-      padding: 15px;
-      border: 2px solid #e0d4c8;
-      border-radius: 15px;
+      padding: 12px 15px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
       font-family: 'Inter', sans-serif;
-      transition: 0.3s;
+      font-size: 15px;
+      transition: border-color 0.3s;
     }
 
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
-      border-color: #b89b7b;
+      border-color: var(--secondary);
       outline: none;
     }
 
     .submit-btn {
-      background: #1e2a2f;
+      background: var(--text-dark);
       color: white;
       border: none;
-      padding: 15px;
-      border-radius: 15px;
+      padding: 14px;
+      border-radius: 12px;
       font-weight: 600;
       cursor: pointer;
       width: 100%;
-      transition: 0.3s;
+      transition: background 0.3s;
+      font-size: 16px;
     }
 
     .submit-btn:hover {
-      background: #b89b7b;
+      background: var(--secondary);
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background: #1e2a2f;
+      background: var(--text-dark);
       color: #e0d6cc;
-      padding: 40px 0 20px;
+      padding: 30px 0 20px;
       margin-top: 50px;
-    }
-
-    .footer-content {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 20px;
       text-align: center;
     }
 
     .footer-content p {
-      margin: 10px 0;
+      margin: 8px 0;
+      font-size: 14px;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 15px;
-      }
-      
-      .menu {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      
-      .hero h2 {
-        font-size: 32px;
-      }
-      
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media screen and (max-width: 1024px) {
       .about-section,
       .contact-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
       }
       
-      .cart-panel {
-        width: 320px;
-        right: 10px;
+      .stats {
+        max-width: 600px;
+        margin: 0 auto;
       }
+    }
+
+    @media screen and (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+      }
+
+      .menu {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .dropdown-content {
+        position: fixed;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 300px;
+      }
+
+      .cart-panel {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 400px;
+      }
+
+      .hero {
+        padding: 40px 15px;
+      }
+
+      .hero-tags {
+        padding: 12px 20px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 15px;
+      }
+
+      .wholesale-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-section,
+      .contact-section {
+        padding: 25px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .stat {
+        padding: 15px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .menu {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .menu > a,
+      .dropdown > a {
+        font-size: 14px;
+      }
+
+      .product-image {
+        height: 160px;
+        font-size: 40px;
+      }
+
+      .product-details {
+        padding: 15px;
+      }
+
+      .product-name {
+        font-size: 16px;
+      }
+
+      .product-price {
+        font-size: 18px;
+      }
+
+      .wholesale-card {
+        padding: 25px 15px;
+      }
+
+      .wholesale-card h3 {
+        font-size: 20px;
+      }
+
+      .contact-item {
+        flex-wrap: wrap;
+      }
+
+      .contact-item i {
+        width: 30px;
+        font-size: 20px;
+      }
+    }
+
+    /* Support des très grands écrans */
+    @media screen and (min-width: 1600px) {
+      .container {
+        max-width: 1400px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Gestion du défilement */
+    .cart-items::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .cart-items::-webkit-scrollbar-track {
+      background: var(--border);
+      border-radius: 10px;
+    }
+
+    .cart-items::-webkit-scrollbar-thumb {
+      background: var(--secondary);
+      border-radius: 10px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .product-card {
+      animation: fadeIn 0.5s ease-out;
     }
   </style>
 </head>
@@ -674,13 +890,14 @@
           <span id="cartCount">0</span>
         </div>
 
-        <!-- Panier déroulant -->
         <div class="cart-panel" id="cartPanel">
           <div class="cart-header">
             <h3>Mon panier</h3>
             <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
           </div>
-          <div class="cart-items" id="cartItems"></div>
+          <div class="cart-items" id="cartItems">
+            <div style="text-align: center; padding: 20px; color: var(--text-light);">Votre panier est vide</div>
+          </div>
           <div class="cart-total">
             <span>Total</span>
             <span id="cartTotal">0 CFA</span>
@@ -695,7 +912,6 @@
 </header>
 
 <main>
-  <!-- Hero Section -->
   <section class="hero" id="accueil">
     <h2>L'élégance à portée de main</h2>
     <div class="hero-tags">
@@ -704,11 +920,9 @@
   </section>
 
   <div class="container">
-    <!-- Section Produits -->
     <h2 class="section-title" id="produits">Notre Collection</h2>
     <div class="products-grid" id="productsGrid"></div>
 
-    <!-- Section Grossiste -->
     <section id="grossiste">
       <h2 class="section-title">Devenez Revendeur</h2>
       <div class="wholesale-grid">
@@ -739,12 +953,11 @@
       </div>
     </section>
 
-    <!-- Section À Propos -->
     <section id="apropos">
       <div class="about-section">
         <div class="about-content">
           <h3>À propos de Rassoul Shop</h3>
-          <p>Depuis 2018, nous sélectionnons pour vous le meilleur de la mode et de l'équipement domestique. Qualité et authenticité sont nos maîtres-mots.</p>
+          <p>Depuis 2018, nous sélectionnons pour vous le meilleur de la mode et de l'équipement domestique. Qualité et authenticité sont nos maîtres-mots. Basés à Dakar, nous livrons partout au Sénégal.</p>
         </div>
         <div class="stats">
           <div class="stat">
@@ -763,7 +976,6 @@
       </div>
     </section>
 
-    <!-- Section Contact -->
     <section id="contact">
       <div class="contact-section">
         <h2 class="section-title">Contactez-nous</h2>
@@ -840,49 +1052,45 @@
 <footer>
   <div class="footer-content">
     <p>© 2026 Rassoul Shop - Tous droits réservés</p>
-    <p>+221 77 439 74 27 | Dakar, Sénégal</p>
+    <p>+221 77 439 74 27 | contact@rassoulshop.sn</p>
+    <p>Dakar, Sénégal</p>
   </div>
 </footer>
 
 <script>
-  // ===== PRODUITS =====
+  // Produits
   const products = [
-    // Hommes
     { id: 1, name: 'Costume cérémonie', category: 'HOMME', price: 55000, icon: 'fa-user-tie' },
     { id: 2, name: 'Chemise luxe', category: 'HOMME', price: 18500, icon: 'fa-shirt' },
     { id: 3, name: 'Pantalon habillé', category: 'HOMME', price: 22000, icon: 'fa-user' },
-    // Femmes
     { id: 4, name: 'Robe de soirée', category: 'FEMME', price: 45000, icon: 'fa-fan' },
     { id: 5, name: 'Ensemble deux pièces', category: 'FEMME', price: 38000, icon: 'fa-fan' },
     { id: 6, name: 'Caftan luxe', category: 'FEMME', price: 52000, icon: 'fa-fan' },
-    // Chaussures
     { id: 7, name: 'Derbies homme cuir', category: 'CHAUSSURES', price: 29500, icon: 'fa-shoe-prints' },
     { id: 8, name: 'Escarpins femme', category: 'CHAUSSURES', price: 22500, icon: 'fa-high-heels' },
     { id: 9, name: 'Baskets mode', category: 'CHAUSSURES', price: 18500, icon: 'fa-shoe-prints' },
-    // Accessoires
     { id: 10, name: 'Montre dorée', category: 'ACCESSOIRES', price: 12500, icon: 'fa-clock' },
     { id: 11, name: 'Lunettes soleil', category: 'ACCESSOIRES', price: 8900, icon: 'fa-sun' },
     { id: 12, name: 'Sac à main', category: 'ACCESSOIRES', price: 18500, icon: 'fa-bag-shopping' },
-    // Parfums
     { id: 13, name: 'Parfum Oud Royal', category: 'PARFUMS', price: 32000, icon: 'fa-spray-can-sparkles' },
     { id: 14, name: 'Musk Blanc', category: 'PARFUMS', price: 27500, icon: 'fa-cloud' },
-    // Électroménager
     { id: 15, name: 'Mixeur plongeant', category: 'ÉLECTRO', price: 18500, icon: 'fa-blender' },
     { id: 16, name: 'Fer à repasser', category: 'ÉLECTRO', price: 22900, icon: 'fa-temperature-high' }
   ];
 
-  // ===== PANIER =====
+  // Panier
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  // Éléments du DOM
+  // Éléments DOM
   const cartIcon = document.getElementById('cartIcon');
   const cartPanel = document.getElementById('cartPanel');
   const closeCart = document.getElementById('closeCart');
   const cartItems = document.getElementById('cartItems');
   const cartTotal = document.getElementById('cartTotal');
   const cartCount = document.getElementById('cartCount');
+  const productsGrid = document.getElementById('productsGrid');
 
-  // ===== FONCTIONS PANIER =====
+  // Fonctions panier
   function openCart() {
     cartPanel.classList.add('show');
   }
@@ -891,34 +1099,29 @@
     cartPanel.classList.remove('show');
   }
 
-  // Ouvrir le panier
   cartIcon.addEventListener('click', function(e) {
     e.stopPropagation();
     openCart();
   });
 
-  // Fermer avec la croix
   closeCart.addEventListener('click', function(e) {
     e.stopPropagation();
     closeCartPanel();
   });
 
-  // Fermer en cliquant ailleurs
   document.addEventListener('click', function(e) {
     if (!cartPanel.contains(e.target) && !cartIcon.contains(e.target)) {
       closeCartPanel();
     }
   });
 
-  // Empêcher la fermeture quand on clique dans le panier
   cartPanel.addEventListener('click', function(e) {
     e.stopPropagation();
   });
 
-  // ===== AFFICHER LES PRODUITS =====
+  // Afficher produits
   function displayProducts() {
-    const grid = document.getElementById('productsGrid');
-    grid.innerHTML = '';
+    productsGrid.innerHTML = '';
 
     products.forEach(product => {
       const card = document.createElement('div');
@@ -932,15 +1135,15 @@
           <div class="product-name">${product.name}</div>
           <div class="product-price">${product.price.toLocaleString()} CFA</div>
           <button class="add-btn" onclick="addToCart(${product.id})">
-            <i class="fas fa-cart-plus"></i> Ajouter au panier
+            <i class="fas fa-cart-plus"></i> Ajouter
           </button>
         </div>
       `;
-      grid.appendChild(card);
+      productsGrid.appendChild(card);
     });
   }
 
-  // ===== AJOUTER AU PANIER =====
+  // Ajouter au panier
   window.addToCart = function(productId) {
     const product = products.find(p => p.id === productId);
     if (product) {
@@ -949,27 +1152,23 @@
         cartId: Date.now() + Math.random()
       });
       updateCart();
-      openCart(); // Ouvre le panier après ajout
+      openCart();
     }
   };
 
-  // ===== SUPPRIMER DU PANIER =====
+  // Supprimer du panier
   window.removeFromCart = function(cartId) {
     cart = cart.filter(item => item.cartId !== cartId);
     updateCart();
   };
 
-  // ===== METTRE À JOUR LE PANIER =====
+  // Mettre à jour le panier
   function updateCart() {
-    // Sauvegarder
     localStorage.setItem('cart', JSON.stringify(cart));
-    
-    // Mettre à jour le compteur
     cartCount.textContent = cart.length;
 
-    // Afficher les articles
     if (cart.length === 0) {
-      cartItems.innerHTML = '<div style="text-align: center; padding: 20px; color: #a58e7a;">Votre panier est vide</div>';
+      cartItems.innerHTML = '<div style="text-align: center; padding: 20px; color: #6e5c4b;">Votre panier est vide</div>';
       cartTotal.textContent = '0 CFA';
       return;
     }
@@ -999,7 +1198,7 @@
     cartTotal.textContent = total.toLocaleString() + ' CFA';
   }
 
-  // ===== PAYER SUR WHATSAPP =====
+  // Paiement WhatsApp
   document.getElementById('checkoutBtn').addEventListener('click', function() {
     if (cart.length === 0) {
       alert('Votre panier est vide');
@@ -1018,13 +1217,13 @@
     window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
   });
 
-  // ===== CONTACT GROSSISTE =====
+  // Contact grossiste
   window.contactWholesale = function(type) {
     const message = `*Demande ${type} - Rassoul Shop*%0A%0ABonjour, je suis intéressé par vos offres grossistes.`;
     window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
   };
 
-  // ===== FORMULAIRE DE CONTACT =====
+  // Formulaire de contact
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
@@ -1038,7 +1237,7 @@
     window.open(`https://wa.me/221774397427?text=${waMessage}`, '_blank');
   });
 
-  // ===== INITIALISATION =====
+  // Initialisation
   displayProducts();
   updateCart();
 </script>
