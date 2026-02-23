@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rassoul Shop · Élégance & Distinction</title>
-  <!-- Google Fonts & Font Awesome -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Rassoul Shop - Élégance & Distinction</title>
+  <!-- Font Awesome pour les icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -20,108 +19,97 @@
       font-family: 'Inter', sans-serif;
       background: #fcf9f6;
       color: #1e2a2f;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3, .logo {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
     }
 
     .container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 20px;
     }
 
-    /* Navigation */
-    .navbar {
+    /* ===== NAVIGATION ===== */
+    header {
+      background: white;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(139, 107, 77, 0.15);
+      padding: 15px 30px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .logo {
-      font-size: 2rem;
+    .logo h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
       background: linear-gradient(135deg, #8B6B4D, #4a3729);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .logo span {
-      font-size: 0.85rem;
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
+      font-size: 12px;
       color: #8b7a6a;
       display: block;
+      letter-spacing: 2px;
     }
 
-    .nav-menu {
+    /* Menu principal */
+    .menu {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 30px;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 1.8rem;
-      align-items: center;
-    }
-
-    .nav-links a {
+    .menu a {
       text-decoration: none;
       color: #2c3e4a;
       font-weight: 500;
-      transition: 0.2s;
-      border-bottom: 2px solid transparent;
-      padding-bottom: 4px;
+      transition: 0.3s;
     }
 
-    .nav-links a:hover {
-      border-bottom-color: #b89b7b;
-      color: #4f3e2f;
+    .menu a:hover {
+      color: #b89b7b;
     }
 
-    /* Menu déroulant */
+    /* Dropdown */
     .dropdown {
       position: relative;
-      display: inline-block;
     }
 
     .dropdown-content {
-      display: none;
       position: absolute;
-      background: white;
-      min-width: 240px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-      border-radius: 20px;
-      padding: 1rem 0;
-      z-index: 1000;
-      top: 100%;
+      top: 30px;
       left: 0;
-      margin-top: 10px;
-      border: 1px solid #f0e4d8;
+      background: white;
+      min-width: 220px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 10px 0;
+      display: none;
+      z-index: 100;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     .dropdown-content a {
-      color: #2c3e4a;
-      padding: 0.8rem 1.5rem;
-      text-decoration: none;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
-      gap: 1rem;
-      border-bottom: none;
+      gap: 12px;
+      color: #2c3e4a;
     }
 
     .dropdown-content a i {
-      width: 24px;
+      width: 20px;
       color: #b89b7b;
     }
 
@@ -129,33 +117,31 @@
       background: #faf5f0;
     }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    /* Panier dans la barre */
-    .cart-wrapper {
+    /* Panier dans la navigation */
+    .cart-container {
       position: relative;
     }
 
     .cart-icon {
-      position: relative;
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: #3a2e25;
-      display: flex;
-      align-items: center;
-      padding: 0.5rem;
-      border-radius: 50%;
       background: #f5ede5;
       width: 45px;
       height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      transition: background 0.2s;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
     }
 
     .cart-icon:hover {
       background: #e8d9cc;
+    }
+
+    .cart-icon i {
+      font-size: 20px;
+      color: #3a2e25;
     }
 
     #cart-count {
@@ -164,53 +150,55 @@
       right: -5px;
       background: #c4a484;
       color: white;
-      font-size: 0.7rem;
+      font-size: 12px;
       font-weight: 600;
-      padding: 0.2rem 0.5rem;
-      border-radius: 30px;
-      min-width: 22px;
-      text-align: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Panier Sidebar - CORRIGÉ */
-    .cart-sidebar {
+    /* ===== PANIER DÉROULANT ===== */
+    .cart-panel {
       position: absolute;
-      top: 60px;
+      top: 55px;
       right: 0;
       width: 380px;
       background: white;
-      border-radius: 30px;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-      padding: 1.5rem;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      padding: 20px;
       z-index: 1000;
       display: none;
-      border: 1px solid #f0e4d8;
-      max-height: 80vh;
-      overflow-y: auto;
     }
 
-    .cart-sidebar.open {
-      display: block !important;
+    .cart-panel.show {
+      display: block;
     }
 
     .cart-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #dccfc3;
-      padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #f0e4d8;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+
+    .cart-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
     }
 
     .close-cart {
       background: none;
       border: none;
-      font-size: 1.8rem;
+      font-size: 24px;
       cursor: pointer;
       color: #7b6250;
-      transition: transform 0.2s;
-      line-height: 1;
-      padding: 0 5px;
+      transition: 0.3s;
     }
 
     .close-cart:hover {
@@ -221,234 +209,451 @@
     .cart-items {
       max-height: 400px;
       overflow-y: auto;
-      margin-bottom: 1rem;
+      margin-bottom: 20px;
     }
 
     .cart-item {
       display: flex;
-      gap: 1rem;
       align-items: center;
+      gap: 15px;
       background: #faf5f0;
-      padding: 0.8rem;
-      border-radius: 20px;
-      margin-bottom: 0.8rem;
+      padding: 12px;
+      border-radius: 15px;
+      margin-bottom: 10px;
     }
 
-    .cart-item-img {
+    .cart-item-icon {
       width: 50px;
       height: 50px;
       background: #e7dbcf;
-      border-radius: 16px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #886e58;
+      font-size: 20px;
     }
 
-    .cart-item-details {
+    .cart-item-info {
       flex: 1;
     }
 
     .cart-item-title {
       font-weight: 600;
-      font-size: 0.95rem;
+      margin-bottom: 5px;
     }
 
     .cart-item-price {
-      font-size: 0.9rem;
       color: #5f4d3d;
+      font-size: 14px;
     }
 
     .cart-item-remove {
-      color: #a66f5c;
       background: none;
       border: none;
-      font-size: 1.2rem;
+      color: #a66f5c;
       cursor: pointer;
+      font-size: 16px;
       padding: 5px;
     }
 
     .cart-total {
       border-top: 2px dashed #cfbeae;
-      padding-top: 1rem;
-      margin: 1rem 0;
-      font-size: 1.4rem;
-      font-weight: 600;
+      padding-top: 15px;
+      margin-bottom: 15px;
       display: flex;
       justify-content: space-between;
+      font-size: 18px;
+      font-weight: 600;
     }
 
-    .checkout-btn {
+    .whatsapp-btn {
       background: #25D366;
       color: #1d2c2f;
       border: none;
-      padding: 1rem;
-      border-radius: 60px;
+      padding: 15px;
+      border-radius: 50px;
       font-weight: 700;
+      font-size: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.7rem;
+      gap: 10px;
       cursor: pointer;
       width: 100%;
-      transition: background 0.2s;
+      transition: 0.3s;
     }
 
-    .checkout-btn:hover {
+    .whatsapp-btn:hover {
       background: #20b859;
     }
 
-    /* Hero Section */
+    /* ===== HERO SECTION ===== */
     .hero {
-      padding: 3rem 0 2rem;
-      text-align: center;
       background: linear-gradient(145deg, #fff9f4, #f5ede5);
+      text-align: center;
+      padding: 60px 20px;
       border-radius: 0 0 50px 50px;
-      margin-bottom: 2rem;
+      margin-bottom: 40px;
     }
 
     .hero h2 {
-      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
       font-weight: 400;
       color: #30271f;
+      margin-bottom: 20px;
     }
 
-    .hero .tagline {
-      font-size: 1.2rem;
-      color: #6e5c4b;
+    .hero-tags {
       background: rgba(255,255,240,0.8);
       display: inline-block;
-      padding: 0.8rem 2rem;
-      border-radius: 60px;
-      margin: 1.5rem 0;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      color: #6e5c4b;
     }
 
-    /* Section title */
-    .section-title {
-      font-size: 2.3rem;
-      font-weight: 400;
-      margin: 3rem 0 2rem;
-      position: relative;
-      display: inline-block;
+    .hero-tags i {
+      color: #b99b7c;
+      margin: 0 10px;
     }
-    .section-title:after {
+
+    /* ===== SECTION TITRE ===== */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 400;
+      margin: 50px 0 30px;
+      position: relative;
+    }
+
+    .section-title::after {
       content: '';
       position: absolute;
       bottom: -10px;
       left: 0;
-      width: 60%;
+      width: 100px;
       height: 3px;
       background: linear-gradient(90deg, #b89b7b, transparent);
     }
 
-    /* Grille produits */
-    .product-grid {
+    /* ===== GRILLE PRODUITS ===== */
+    .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0 4rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
     }
 
     .product-card {
       background: white;
-      border-radius: 28px;
+      border-radius: 25px;
       overflow: hidden;
-      box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: 0.3s;
     }
 
     .product-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(84,63,44,0.1);
     }
 
-    .product-img {
+    .product-image {
       height: 200px;
       background: linear-gradient(145deg, #f3ede8, #e9dfd7);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 50px;
       color: #ac9b8b;
-      font-size: 3rem;
     }
 
-    .product-info {
-      padding: 1.5rem;
+    .product-details {
+      padding: 20px;
     }
 
     .product-category {
-      font-size: 0.7rem;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 2px;
       color: #9b7f6b;
+      margin-bottom: 5px;
     }
 
-    .product-title {
-      font-size: 1.2rem;
+    .product-name {
+      font-size: 18px;
       font-weight: 600;
-      margin: 0.3rem 0;
+      margin-bottom: 10px;
     }
 
     .product-price {
-      font-size: 1.4rem;
+      font-size: 22px;
       font-weight: 700;
       color: #5d4432;
-      margin: 0.5rem 0 1rem;
+      margin-bottom: 15px;
     }
 
-    .add-to-cart {
+    .add-btn {
       width: 100%;
       background: #1e2a2f;
       color: white;
       border: none;
-      padding: 0.8rem;
-      border-radius: 60px;
+      padding: 12px;
+      border-radius: 50px;
       font-weight: 600;
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      transition: background 0.2s;
+      gap: 10px;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .add-to-cart:hover {
+    .add-btn:hover {
       background: #b89b7b;
-      color: #1e1e1e;
     }
 
-    /* Footer simplifié */
-    footer {
+    /* ===== SECTION GROSSISTE ===== */
+    .wholesale-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .wholesale-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .wholesale-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 45px rgba(139,107,77,0.15);
+    }
+
+    .wholesale-card i {
+      font-size: 50px;
+      color: #b89b7b;
+      margin-bottom: 20px;
+    }
+
+    .wholesale-card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .wholesale-card p {
+      color: #5f4d3d;
+      margin-bottom: 25px;
+    }
+
+    .wholesale-btn {
       background: #1e2a2f;
-      color: #e0d6cc;
-      padding: 2rem 0;
-      margin-top: 3rem;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    .wholesale-btn:hover {
+      background: #b89b7b;
+    }
+
+    /* ===== À PROPOS ===== */
+    .about-section {
+      background: #f2ebe4;
+      border-radius: 50px;
+      padding: 50px;
+      margin: 50px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: #4a3f37;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stat {
+      background: white;
+      padding: 25px;
+      border-radius: 25px;
       text-align: center;
     }
 
-    /* Responsive */
+    .stat .number {
+      font-size: 36px;
+      font-weight: 700;
+      color: #b89b7b;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-section {
+      background: white;
+      border-radius: 50px;
+      padding: 50px;
+      margin: 50px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .contact-info {
+      background: #faf5f0;
+      padding: 30px;
+      border-radius: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid #e0d4c8;
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-item i {
+      font-size: 24px;
+      width: 40px;
+      color: #b89b7b;
+    }
+
+    .contact-form {
+      background: #faf5f0;
+      padding: 30px;
+      border-radius: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e0d4c8;
+      border-radius: 15px;
+      font-family: 'Inter', sans-serif;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #b89b7b;
+      outline: none;
+    }
+
+    .submit-btn {
+      background: #1e2a2f;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #b89b7b;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1e2a2f;
+      color: #e0d6cc;
+      padding: 40px 0 20px;
+      margin-top: 50px;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .footer-content p {
+      margin: 10px 0;
+    }
+
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
+      nav {
+        flex-direction: column;
+        gap: 15px;
       }
-      .cart-sidebar {
-        width: 90%;
-        right: 5%;
+      
+      .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .hero h2 {
+        font-size: 32px;
+      }
+      
+      .about-section,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cart-panel {
+        width: 320px;
+        right: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar">
-  <div class="logo">Rassoul Shop <span>élégance · grossiste · luxe</span></div>
-  
-  <div class="nav-menu">
-    <div class="nav-links">
+<header>
+  <nav>
+    <div class="logo">
+      <h1>Rassoul Shop</h1>
+      <span>élégance · grossiste · luxe</span>
+    </div>
+
+    <div class="menu">
       <a href="#accueil">Accueil</a>
       
       <div class="dropdown">
-        <a href="#" class="dropbtn">Collections <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i></a>
+        <a href="#produits">Collections <i class="fas fa-chevron-down"></i></a>
         <div class="dropdown-content">
           <a href="#hommes"><i class="fas fa-user-tie"></i> Hommes</a>
           <a href="#femmes"><i class="fas fa-fan"></i> Femmes</a>
@@ -458,216 +663,385 @@
           <a href="#electro"><i class="fas fa-blender"></i> Électroménager</a>
         </div>
       </div>
-      
+
       <a href="#grossiste">Grossiste</a>
       <a href="#apropos">À propos</a>
       <a href="#contact">Contact</a>
-    </div>
 
-    <!-- Panier -->
-    <div class="cart-wrapper">
-      <div class="cart-icon" id="cartIcon">
-        <i class="fas fa-shopping-bag"></i>
-        <span id="cart-count">0</span>
-      </div>
-      
-      <!-- Panier dropdown - CORRIGÉ -->
-      <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-          <h3>Votre panier</h3>
-          <button class="close-cart" id="closeCartBtn"><i class="fas fa-times"></i></button>
+      <div class="cart-container">
+        <div class="cart-icon" id="cartIcon">
+          <i class="fas fa-shopping-bag"></i>
+          <span id="cartCount">0</span>
         </div>
-        <div class="cart-items" id="cartItems">
-          <div style="text-align: center; color: #a58e7a;">Panier vide</div>
+
+        <!-- Panier déroulant -->
+        <div class="cart-panel" id="cartPanel">
+          <div class="cart-header">
+            <h3>Mon panier</h3>
+            <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+          </div>
+          <div class="cart-items" id="cartItems"></div>
+          <div class="cart-total">
+            <span>Total</span>
+            <span id="cartTotal">0 CFA</span>
+          </div>
+          <button class="whatsapp-btn" id="checkoutBtn">
+            <i class="fab fa-whatsapp"></i> Payer sur WhatsApp
+          </button>
         </div>
-        <div class="cart-total">
-          <span>Total</span>
-          <span id="cartTotal">0 CFA</span>
-        </div>
-        <button class="checkout-btn" id="checkoutBtn">
-          <i class="fab fa-whatsapp"></i> Payer sur WhatsApp
-        </button>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>
 
-<main class="container">
-  <!-- Hero -->
+<main>
+  <!-- Hero Section -->
   <section class="hero" id="accueil">
     <h2>L'élégance à portée de main</h2>
-    <div class="tagline">
+    <div class="hero-tags">
       <i class="fas fa-star"></i> Tenues · Chaussures · Accessoires · Parfums · Électroménager
     </div>
   </section>
 
-  <!-- Produits -->
-  <h2 class="section-title" id="produits">Notre Collection</h2>
-  <div class="product-grid" id="productGrid"></div>
+  <div class="container">
+    <!-- Section Produits -->
+    <h2 class="section-title" id="produits">Notre Collection</h2>
+    <div class="products-grid" id="productsGrid"></div>
+
+    <!-- Section Grossiste -->
+    <section id="grossiste">
+      <h2 class="section-title">Devenez Revendeur</h2>
+      <div class="wholesale-grid">
+        <div class="wholesale-card">
+          <i class="fas fa-tags"></i>
+          <h3>Prix Grossiste</h3>
+          <p>Remises jusqu'à 30% sur les commandes en gros</p>
+          <button class="wholesale-btn" onclick="contactWholesale('Prix grossiste')">
+            <i class="fab fa-whatsapp"></i> Demander les prix
+          </button>
+        </div>
+        <div class="wholesale-card">
+          <i class="fas fa-boxes"></i>
+          <h3>Commande en Gros</h3>
+          <p>Minimum 50 000 CFA - Livraison partout au Sénégal</p>
+          <button class="wholesale-btn" onclick="contactWholesale('Commande en gros')">
+            <i class="fab fa-whatsapp"></i> Commander
+          </button>
+        </div>
+        <div class="wholesale-card">
+          <i class="fas fa-handshake"></i>
+          <h3>Partenariat</h3>
+          <p>Devenez partenaire officiel Rassoul Shop</p>
+          <button class="wholesale-btn" onclick="contactWholesale('Partenariat')">
+            <i class="fab fa-whatsapp"></i> Nous contacter
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section À Propos -->
+    <section id="apropos">
+      <div class="about-section">
+        <div class="about-content">
+          <h3>À propos de Rassoul Shop</h3>
+          <p>Depuis 2018, nous sélectionnons pour vous le meilleur de la mode et de l'équipement domestique. Qualité et authenticité sont nos maîtres-mots.</p>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="number">5000+</div>
+            <div>Clients satisfaits</div>
+          </div>
+          <div class="stat">
+            <div class="number">1000+</div>
+            <div>Produits/mois</div>
+          </div>
+          <div class="stat">
+            <div class="number">24/7</div>
+            <div>Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+      <div class="contact-section">
+        <h2 class="section-title">Contactez-nous</h2>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <div>
+                <h4>Téléphone / WhatsApp</h4>
+                <p>+221 77 439 74 27</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-whatsapp"></i>
+              <div>
+                <h4>WhatsApp Business</h4>
+                <p>mamadou_seck7</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-instagram"></i>
+              <div>
+                <h4>Instagram</h4>
+                <p>@mamoseck9996</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>momoseck867@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Adresse</h4>
+                <p>Dakar, Sénégal</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3>Envoyez-nous un message</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" placeholder="Votre nom" id="name" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" placeholder="Votre téléphone" id="phone" required>
+              </div>
+              <div class="form-group">
+                <select id="subject">
+                  <option>Demande d'information</option>
+                  <option>Devis grossiste</option>
+                  <option>Réclamation</option>
+                  <option>Partenariat</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <textarea rows="4" placeholder="Votre message" id="message" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">
+                <i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
 
 <footer>
-  <div class="container">
-    <p>© 2026 Rassoul Shop · +221 77 439 74 27 · Dakar, Sénégal</p>
+  <div class="footer-content">
+    <p>© 2026 Rassoul Shop - Tous droits réservés</p>
+    <p>+221 77 439 74 27 | Dakar, Sénégal</p>
   </div>
 </footer>
 
 <script>
-  // Produits
+  // ===== PRODUITS =====
   const products = [
+    // Hommes
     { id: 1, name: 'Costume cérémonie', category: 'HOMME', price: 55000, icon: 'fa-user-tie' },
     { id: 2, name: 'Chemise luxe', category: 'HOMME', price: 18500, icon: 'fa-shirt' },
-    { id: 3, name: 'Robe de soirée', category: 'FEMME', price: 45000, icon: 'fa-fan' },
-    { id: 4, name: 'Ensemble deux pièces', category: 'FEMME', price: 38000, icon: 'fa-fan' },
-    { id: 5, name: 'Derbies homme cuir', category: 'CHAUSSURES', price: 29500, icon: 'fa-shoe-prints' },
-    { id: 6, name: 'Escarpins femme', category: 'CHAUSSURES', price: 22500, icon: 'fa-high-heels' },
-    { id: 7, name: 'Montre dorée', category: 'ACCESSOIRES', price: 12500, icon: 'fa-clock' },
-    { id: 8, name: 'Lunettes soleil', category: 'ACCESSOIRES', price: 8900, icon: 'fa-sun' },
-    { id: 9, name: 'Parfum Oud Royal', category: 'PARFUMS', price: 32000, icon: 'fa-spray-can-sparkles' },
-    { id: 10, name: 'Musk Blanc', category: 'PARFUMS', price: 27500, icon: 'fa-cloud' },
-    { id: 11, name: 'Mixeur plongeant', category: 'ÉLECTRO', price: 18500, icon: 'fa-blender' },
-    { id: 12, name: 'Fer à repasser', category: 'ÉLECTRO', price: 22900, icon: 'fa-temperature-high' }
+    { id: 3, name: 'Pantalon habillé', category: 'HOMME', price: 22000, icon: 'fa-user' },
+    // Femmes
+    { id: 4, name: 'Robe de soirée', category: 'FEMME', price: 45000, icon: 'fa-fan' },
+    { id: 5, name: 'Ensemble deux pièces', category: 'FEMME', price: 38000, icon: 'fa-fan' },
+    { id: 6, name: 'Caftan luxe', category: 'FEMME', price: 52000, icon: 'fa-fan' },
+    // Chaussures
+    { id: 7, name: 'Derbies homme cuir', category: 'CHAUSSURES', price: 29500, icon: 'fa-shoe-prints' },
+    { id: 8, name: 'Escarpins femme', category: 'CHAUSSURES', price: 22500, icon: 'fa-high-heels' },
+    { id: 9, name: 'Baskets mode', category: 'CHAUSSURES', price: 18500, icon: 'fa-shoe-prints' },
+    // Accessoires
+    { id: 10, name: 'Montre dorée', category: 'ACCESSOIRES', price: 12500, icon: 'fa-clock' },
+    { id: 11, name: 'Lunettes soleil', category: 'ACCESSOIRES', price: 8900, icon: 'fa-sun' },
+    { id: 12, name: 'Sac à main', category: 'ACCESSOIRES', price: 18500, icon: 'fa-bag-shopping' },
+    // Parfums
+    { id: 13, name: 'Parfum Oud Royal', category: 'PARFUMS', price: 32000, icon: 'fa-spray-can-sparkles' },
+    { id: 14, name: 'Musk Blanc', category: 'PARFUMS', price: 27500, icon: 'fa-cloud' },
+    // Électroménager
+    { id: 15, name: 'Mixeur plongeant', category: 'ÉLECTRO', price: 18500, icon: 'fa-blender' },
+    { id: 16, name: 'Fer à repasser', category: 'ÉLECTRO', price: 22900, icon: 'fa-temperature-high' }
   ];
 
-  // Panier
-  let cart = JSON.parse(localStorage.getItem('rassoulCart')) || [];
+  // ===== PANIER =====
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  // Éléments DOM
-  const cartSidebar = document.getElementById('cartSidebar');
+  // Éléments du DOM
   const cartIcon = document.getElementById('cartIcon');
-  const closeCartBtn = document.getElementById('closeCartBtn');
-  const cartItemsEl = document.getElementById('cartItems');
-  const cartTotalEl = document.getElementById('cartTotal');
-  const cartCountSpan = document.getElementById('cart-count');
+  const cartPanel = document.getElementById('cartPanel');
+  const closeCart = document.getElementById('closeCart');
+  const cartItems = document.getElementById('cartItems');
+  const cartTotal = document.getElementById('cartTotal');
+  const cartCount = document.getElementById('cartCount');
 
-  // Fonctions du panier - CORRIGÉES
+  // ===== FONCTIONS PANIER =====
   function openCart() {
-    cartSidebar.classList.add('open');
+    cartPanel.classList.add('show');
   }
 
-  function closeCart() {
-    cartSidebar.classList.remove('open');
+  function closeCartPanel() {
+    cartPanel.classList.remove('show');
   }
 
-  // Ouvrir le panier au clic sur l'icône
+  // Ouvrir le panier
   cartIcon.addEventListener('click', function(e) {
     e.stopPropagation();
     openCart();
   });
 
   // Fermer avec la croix
-  closeCartBtn.addEventListener('click', function(e) {
+  closeCart.addEventListener('click', function(e) {
     e.stopPropagation();
-    closeCart();
+    closeCartPanel();
   });
 
   // Fermer en cliquant ailleurs
   document.addEventListener('click', function(e) {
-    if (!cartSidebar.contains(e.target) && !cartIcon.contains(e.target)) {
-      closeCart();
+    if (!cartPanel.contains(e.target) && !cartIcon.contains(e.target)) {
+      closeCartPanel();
     }
   });
 
   // Empêcher la fermeture quand on clique dans le panier
-  cartSidebar.addEventListener('click', function(e) {
+  cartPanel.addEventListener('click', function(e) {
     e.stopPropagation();
   });
 
-  // Afficher produits
-  function renderProducts() {
-    const grid = document.getElementById('productGrid');
+  // ===== AFFICHER LES PRODUITS =====
+  function displayProducts() {
+    const grid = document.getElementById('productsGrid');
     grid.innerHTML = '';
-    products.forEach(p => {
+
+    products.forEach(product => {
       const card = document.createElement('div');
       card.className = 'product-card';
       card.innerHTML = `
-        <div class="product-img"><i class="fas ${p.icon}"></i></div>
-        <div class="product-info">
-          <div class="product-category">${p.category}</div>
-          <div class="product-title">${p.name}</div>
-          <div class="product-price">${p.price.toLocaleString()} CFA</div>
-          <button class="add-to-cart" data-id="${p.id}"><i class="fas fa-cart-plus"></i> Ajouter</button>
+        <div class="product-image">
+          <i class="fas ${product.icon}"></i>
+        </div>
+        <div class="product-details">
+          <div class="product-category">${product.category}</div>
+          <div class="product-name">${product.name}</div>
+          <div class="product-price">${product.price.toLocaleString()} CFA</div>
+          <button class="add-btn" onclick="addToCart(${product.id})">
+            <i class="fas fa-cart-plus"></i> Ajouter au panier
+          </button>
         </div>
       `;
       grid.appendChild(card);
     });
-
-    document.querySelectorAll('.add-to-cart').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        const id = parseInt(this.dataset.id);
-        addToCart(id);
-      });
-    });
   }
 
-  function addToCart(id) {
-    const product = products.find(p => p.id === id);
+  // ===== AJOUTER AU PANIER =====
+  window.addToCart = function(productId) {
+    const product = products.find(p => p.id === productId);
     if (product) {
-      cart.push({ ...product, cartId: Date.now() + Math.random() });
+      cart.push({
+        ...product,
+        cartId: Date.now() + Math.random()
+      });
       updateCart();
-      openCart(); // Ouvre automatiquement le panier quand on ajoute un article
+      openCart(); // Ouvre le panier après ajout
     }
-  }
+  };
 
-  function removeFromCart(cartId) {
+  // ===== SUPPRIMER DU PANIER =====
+  window.removeFromCart = function(cartId) {
     cart = cart.filter(item => item.cartId !== cartId);
     updateCart();
-  }
+  };
 
+  // ===== METTRE À JOUR LE PANIER =====
   function updateCart() {
-    localStorage.setItem('rassoulCart', JSON.stringify(cart));
-    cartCountSpan.textContent = cart.length;
+    // Sauvegarder
+    localStorage.setItem('cart', JSON.stringify(cart));
     
+    // Mettre à jour le compteur
+    cartCount.textContent = cart.length;
+
+    // Afficher les articles
     if (cart.length === 0) {
-      cartItemsEl.innerHTML = '<div style="text-align: center; color: #a58e7a;">Panier vide</div>';
-      cartTotalEl.textContent = '0 CFA';
+      cartItems.innerHTML = '<div style="text-align: center; padding: 20px; color: #a58e7a;">Votre panier est vide</div>';
+      cartTotal.textContent = '0 CFA';
       return;
     }
 
     let html = '';
     let total = 0;
+
     cart.forEach(item => {
       total += item.price;
       html += `
         <div class="cart-item">
-          <div class="cart-item-img"><i class="fas ${item.icon}"></i></div>
-          <div class="cart-item-details">
+          <div class="cart-item-icon">
+            <i class="fas ${item.icon}"></i>
+          </div>
+          <div class="cart-item-info">
             <div class="cart-item-title">${item.name}</div>
             <div class="cart-item-price">${item.price.toLocaleString()} CFA</div>
           </div>
-          <button class="cart-item-remove" data-cartid="${item.cartId}"><i class="fas fa-times"></i></button>
+          <button class="cart-item-remove" onclick="removeFromCart(${item.cartId})">
+            <i class="fas fa-trash-alt"></i>
+          </button>
         </div>
       `;
     });
-    cartItemsEl.innerHTML = html;
-    cartTotalEl.textContent = total.toLocaleString() + ' CFA';
 
-    document.querySelectorAll('.cart-item-remove').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        removeFromCart(parseFloat(this.dataset.cartid));
-      });
-    });
+    cartItems.innerHTML = html;
+    cartTotal.textContent = total.toLocaleString() + ' CFA';
   }
 
-  // Paiement WhatsApp
+  // ===== PAYER SUR WHATSAPP =====
   document.getElementById('checkoutBtn').addEventListener('click', function() {
     if (cart.length === 0) {
-      alert('Panier vide');
+      alert('Votre panier est vide');
       return;
     }
-    let message = '*Commande Rassoul Shop*%0A%0A';
+
+    let message = '*Nouvelle commande Rassoul Shop*%0A%0A';
     cart.forEach(item => {
       message += `• ${item.name} : ${item.price.toLocaleString()} CFA%0A`;
     });
-    const total = cart.reduce((acc, i) => acc + i.price, 0);
-    message += `%0A*Total : ${total.toLocaleString()} CFA*`;
+    
+    const total = cart.reduce((acc, item) => acc + item.price, 0);
+    message += `%0A*Total : ${total.toLocaleString()} CFA*%0A%0A`;
+    message += 'Merci de confirmer la commande.';
+
     window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
   });
 
-  // Initialisation
-  renderProducts();
+  // ===== CONTACT GROSSISTE =====
+  window.contactWholesale = function(type) {
+    const message = `*Demande ${type} - Rassoul Shop*%0A%0ABonjour, je suis intéressé par vos offres grossistes.`;
+    window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
+  };
+
+  // ===== FORMULAIRE DE CONTACT =====
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    const waMessage = `*Message de ${name}*%0ATéléphone : ${phone}%0ASujet : ${subject}%0A%0A${message}`;
+    
+    window.open(`https://wa.me/221774397427?text=${waMessage}`, '_blank');
+  });
+
+  // ===== INITIALISATION =====
+  displayProducts();
   updateCart();
 </script>
+
 </body>
 </html>
