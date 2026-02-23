@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rassoul Shop · Luxe & Grossiste</title>
+  <title>Rassoul Shop · Élégance & Distinction</title>
   <!-- Google Fonts & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,8 +52,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 2rem;
-      background: rgba(255, 255, 255, 0.9);
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
       box-shadow: 0 4px 20px rgba(0,0,0,0.03);
       position: sticky;
@@ -62,584 +62,657 @@
       border-bottom: 1px solid rgba(139, 107, 77, 0.15);
     }
 
-  .logo {
-    font-size: 2rem;
-    background: linear-gradient(135deg, #8B6B4D, #4a3729);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .logo span {
-    font-size: 0.9rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    color: #8b7a6a;
-    display: block;
-    line-height: 1.2;
-    letter-spacing: 2px;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: #2c3e4a;
-    font-weight: 500;
-    transition: 0.2s;
-    border-bottom: 2px solid transparent;
-    padding-bottom: 4px;
-    font-size: 0.95rem;
-  }
-  .nav-links a:hover,
-  .nav-links a.active {
-    border-bottom-color: #b89b7b;
-    color: #4f3e2f;
-  }
-
-  .cart-icon {
-    position: relative;
-    cursor: pointer;
-    font-size: 1.4rem;
-    color: #3a2e25;
-    transition: transform 0.2s;
-  }
-  .cart-icon:hover {
-    transform: scale(1.1);
-  }
-  #cart-count {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-    background: #c4a484;
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding: 0.2rem 0.5rem;
-    border-radius: 30px;
-  }
-
-  /* Hero Section */
-  .hero {
-    padding: 4rem 0 2rem;
-    text-align: center;
-    background: linear-gradient(145deg, #fff9f4, #f5ede5);
-    border-radius: 0 0 50px 50px;
-    margin-bottom: 2rem;
-  }
-  .hero h2 {
-    font-size: 3rem;
-    font-weight: 400;
-    color: #30271f;
-    line-height: 1.2;
-  }
-  .hero .tagline {
-    font-size: 1.3rem;
-    color: #6e5c4b;
-    background: rgba(255,255,240,0.8);
-    display: inline-block;
-    padding: 0.8rem 2.5rem;
-    border-radius: 60px;
-    backdrop-filter: blur(5px);
-    margin: 1.5rem 0;
-    border: 1px solid #e5d7cc;
-  }
-
-  /* Sections */
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 400;
-    margin: 3rem 0 2rem;
-    position: relative;
-    display: inline-block;
-  }
-  .section-title:after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 60%;
-    height: 3px;
-    background: linear-gradient(90deg, #b89b7b, transparent);
-  }
-
-  /* Grossiste Section */
-  .grossiste-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-  }
-  .grossiste-card {
-    background: white;
-    padding: 2.5rem 2rem;
-    border-radius: 30px;
-    text-align: center;
-    box-shadow: 0 20px 40px -15px rgba(84, 63, 44, 0.15);
-    transition: all 0.4s;
-    border: 1px solid rgba(255,255,255,0.5);
-  }
-  .grossiste-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 50px -15px #8b6b4d;
-  }
-  .grossiste-card i {
-    font-size: 3rem;
-    color: #b89b7b;
-    margin-bottom: 1rem;
-  }
-  .grossiste-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-  .grossiste-card p {
-    color: #5f4d3d;
-    margin-bottom: 1.5rem;
-  }
-  .btn-grossiste {
-    background: #1e2a2f;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    width: 100%;
-    font-size: 1.1rem;
-  }
-  .btn-grossiste:hover {
-    background: #b89b7b;
-    color: #1e1e1e;
-  }
-
-  /* À Propos */
-  .about-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    background: #f2ebe4;
-    border-radius: 60px;
-    padding: 3rem;
-    margin: 3rem 0;
-  }
-  .about-content h3 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  .about-content p {
-    color: #4a3f37;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-  }
-  .about-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    text-align: center;
-  }
-  .stat-item {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 30px;
-  }
-  .stat-item .number {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #b89b7b;
-  }
-  .stat-item .label {
-    color: #5f4d3d;
-    font-size: 0.9rem;
-  }
-
-  /* Contact Amélioré */
-  .contact-section {
-    background: linear-gradient(145deg, #fff, #faf5f0);
-    border-radius: 60px;
-    padding: 3rem;
-    margin: 3rem 0;
-  }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
-  .contact-info-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 40px;
-    box-shadow: 0 15px 30px -10px rgba(0,0,0,0.05);
-  }
-  .contact-item-large {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.2rem;
-    border-bottom: 1px solid #f0e4d8;
-  }
-  .contact-item-large:last-child {
-    border-bottom: none;
-  }
-  .contact-item-large i {
-    font-size: 2rem;
-    width: 50px;
-    color: #b89b7b;
-  }
-  .contact-item-large .info h4 {
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-  }
-  .contact-item-large .info p {
-    color: #6e5c4b;
-  }
-  .contact-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 40px;
-  }
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid #f0e4d8;
-    border-radius: 30px;
-    font-family: 'Inter', sans-serif;
-    transition: 0.3s;
-  }
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus {
-    outline: none;
-    border-color: #b89b7b;
-  }
-  .btn-submit {
-    background: #1e2a2f;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1.1rem;
-    transition: 0.3s;
-  }
-  .btn-submit:hover {
-    background: #b89b7b;
-  }
-
-  /* Produits Grid (inchangée) */
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-  }
-  .product-card {
-    background: white;
-    border-radius: 28px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1);
-    transition: all 0.4s;
-    animation: fadeUp 0.6s forwards;
-    border: 1px solid rgba(255,255,255,0.5);
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .product-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 30px 45px -10px rgba(84,63,44,0.2);
-  }
-  .product-img {
-    height: 220px;
-    background: linear-gradient(145deg, #f3ede8, #e9dfd7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ac9b8b;
-    font-size: 3.5rem;
-  }
-  .product-info {
-    padding: 1.6rem;
-  }
-  .product-category {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #9b7f6b;
-  }
-  .product-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin: 0.3rem 0;
-  }
-  .product-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #5d4432;
-    margin: 0.5rem 0 1rem;
-  }
-  .add-to-cart {
-    width: 100%;
-    background: #1e2a2f;
-    color: white;
-    border: none;
-    padding: 0.9rem;
-    border-radius: 60px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.25s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  .add-to-cart:hover {
-    background: #b89b7b;
-    color: #1e1e1e;
-  }
-
-  /* Panier Sidebar (identique) */
-  .cart-sidebar {
-    position: fixed;
-    top: 0; right: -400px;
-    width: 380px;
-    height: 100vh;
-    background: rgba(255, 251, 246, 0.97);
-    backdrop-filter: blur(14px);
-    box-shadow: -10px 0 40px rgba(0,0,0,0.1);
-    padding: 2rem 1.5rem;
-    transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: 200;
-    display: flex;
-    flex-direction: column;
-    border-left: 1px solid #ece1d6;
-  }
-  .cart-sidebar.open {
-    right: 0;
-  }
-  .cart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #dccfc3;
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  .close-cart {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #7b6250;
-  }
-  .cart-items {
-    flex: 1;
-    overflow-y: auto;
-  }
-  .cart-item {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    background: rgba(255,255,255,0.5);
-    padding: 0.8rem;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-  }
-  .cart-item-img {
-    width: 50px; height: 50px;
-    background: #e7dbcf;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #886e58;
-  }
-  .cart-item-details {
-    flex: 1;
-  }
-  .cart-item-title {
-    font-weight: 600;
-  }
-  .cart-item-price {
-    font-size: 0.9rem;
-    color: #5f4d3d;
-  }
-  .cart-item-remove {
-    color: #a66f5c;
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  .cart-total {
-    border-top: 2px dashed #cfbeae;
-    padding-top: 1.5rem;
-    margin: 1rem 0;
-    font-size: 1.5rem;
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-  }
-  .checkout-btn {
-    background: #25D366;
-    color: #1d2c2f;
-    border: none;
-    padding: 1.1rem;
-    border-radius: 60px;
-    font-weight: 700;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.7rem;
-    cursor: pointer;
-    transition: 0.25s;
-    width: 100%;
-  }
-  .checkout-btn:hover {
-    background: #20b859;
-  }
-
-  /* Footer */
-  footer {
-    background: #1e2a2f;
-    color: #e0d6cc;
-    padding: 3rem 0 1.5rem;
-    margin-top: 4rem;
-  }
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-  .footer-section h4 {
-    color: #b89b7b;
-    margin-bottom: 1rem;
-  }
-  .footer-section a {
-    color: #e0d6cc;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 0.5rem;
-    transition: 0.2s;
-  }
-  .footer-section a:hover {
-    color: #b89b7b;
-  }
-  .copyright {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #3a4a52;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .about-section,
-    .contact-grid {
-      grid-template-columns: 1fr;
+    .logo {
+      font-size: 2rem;
+      background: linear-gradient(135deg, #8B6B4D, #4a3729);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
+    .logo span {
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: #8b7a6a;
+      display: block;
+      line-height: 1.2;
+      letter-spacing: 2px;
+    }
+
+    /* Menu principal */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
     .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e4a;
+      font-weight: 500;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      border-bottom-color: #b89b7b;
+      color: #4f3e2f;
+    }
+
+    /* Menu déroulant collections */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
       display: none;
+      position: absolute;
+      background: white;
+      min-width: 240px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      padding: 1rem 0;
+      z-index: 1000;
+      top: 100%;
+      left: 0;
+      margin-top: 10px;
+      border: 1px solid #f0e4d8;
     }
-    .navbar {
-      padding: 1rem;
+
+    .dropdown-content a {
+      color: #2c3e4a;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: 0.2s;
+      border-bottom: none;
     }
+
+    .dropdown-content a i {
+      width: 24px;
+      color: #b89b7b;
+      font-size: 1.1rem;
+    }
+
+    .dropdown-content a:hover {
+      background: #faf5f0;
+      color: #4f3e2f;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Panier dans la barre */
+    .cart-wrapper {
+      position: relative;
+      margin-left: 0.5rem;
+    }
+
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #3a2e25;
+      transition: transform 0.2s;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem;
+      border-radius: 50%;
+      background: #f5ede5;
+      width: 45px;
+      height: 45px;
+      justify-content: center;
+    }
+
+    .cart-icon:hover {
+      transform: scale(1.05);
+      background: #e8d9cc;
+    }
+
+    #cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #c4a484;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 30px;
+      min-width: 22px;
+      text-align: center;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 3rem 0 2rem;
+      text-align: center;
+      background: linear-gradient(145deg, #fff9f4, #f5ede5);
+      border-radius: 0 0 50px 50px;
+      margin-bottom: 2rem;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 400;
+      color: #30271f;
+    }
+
+    .hero .tagline {
+      font-size: 1.2rem;
+      color: #6e5c4b;
+      background: rgba(255,255,240,0.8);
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      margin: 1.5rem 0;
+    }
+
+    /* Sections */
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 400;
+      margin: 3rem 0 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, #b89b7b, transparent);
+    }
+
+    /* Grille produits enrichie */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 4rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px -10px rgba(0,0,0,0.1);
+      transition: all 0.4s;
+      border: 1px solid rgba(255,255,255,0.5);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.6s forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px -12px rgba(84,63,44,0.25);
+    }
+
+    .product-img {
+      height: 200px;
+      background: linear-gradient(145deg, #f3ede8, #e9dfd7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ac9b8b;
+      font-size: 3rem;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-category {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #9b7f6b;
+    }
+
+    .product-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0.3rem 0;
+    }
+
+    .product-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #5d4432;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .add-to-cart {
+      width: 100%;
+      background: #1e2a2f;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .add-to-cart:hover {
+      background: #b89b7b;
+      color: #1e1e1e;
+    }
+
+    /* Grossiste Section */
+    .grossiste-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .grossiste-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 20px 40px -15px rgba(84, 63, 44, 0.15);
+      transition: all 0.4s;
+    }
+
+    .grossiste-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 50px -15px #8b6b4d;
+    }
+
+    .grossiste-card i {
+      font-size: 2.8rem;
+      color: #b89b7b;
+      margin-bottom: 1rem;
+    }
+
+    .btn-grossiste {
+      background: #1e2a2f;
+      color: white;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    /* Panier Sidebar (dropdown style) */
     .cart-sidebar {
+      position: absolute;
+      top: 70px;
+      right: 2rem;
+      width: 380px;
+      background: white;
+      border-radius: 30px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      padding: 1.5rem;
+      z-index: 1000;
+      display: none;
+      border: 1px solid #f0e4d8;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .cart-sidebar.open {
+      display: block;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #dccfc3;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #7b6250;
+      transition: 0.2s;
+    }
+
+    .close-cart:hover {
+      color: #1e1e1e;
+      transform: rotate(90deg);
+    }
+
+    .cart-items {
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: #faf5f0;
+      padding: 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 0.8rem;
+    }
+
+    .cart-item-img {
+      width: 50px;
+      height: 50px;
+      background: #e7dbcf;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #886e58;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .cart-item-price {
+      font-size: 0.9rem;
+      color: #5f4d3d;
+    }
+
+    .cart-item-remove {
+      color: #a66f5c;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .cart-total {
+      border-top: 2px dashed #cfbeae;
+      padding-top: 1rem;
+      margin: 1rem 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .checkout-btn {
+      background: #25D366;
+      color: #1d2c2f;
+      border: none;
+      padding: 1rem;
+      border-radius: 60px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      cursor: pointer;
       width: 100%;
     }
-    .hero h2 {
-      font-size: 2.2rem;
-    }
-  }
 
-  .overlay {
-    position: fixed;
-    top:0; left:0; width:100%; height:100%;
-    background: rgba(0,0,0,0.2);
-    backdrop-filter: blur(3px);
-    z-index: 150;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.3s;
-  }
-  .overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
+    /* À Propos */
+    .about-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: #f2ebe4;
+      border-radius: 60px;
+      padding: 3rem;
+      margin: 3rem 0;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .stat-item .number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #b89b7b;
+    }
+
+    /* Contact */
+    .contact-section {
+      background: white;
+      border-radius: 60px;
+      padding: 3rem;
+      margin: 3rem 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-item-large {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid #f0e4d8;
+    }
+
+    .contact-item-large i {
+      font-size: 1.8rem;
+      width: 40px;
+      color: #b89b7b;
+    }
+
+    .contact-form {
+      background: #faf5f0;
+      padding: 2rem;
+      border-radius: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.9rem;
+      border: 2px solid #f0e4d8;
+      border-radius: 30px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-submit {
+      background: #1e2a2f;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background: #1e2a2f;
+      color: #e0d6cc;
+      padding: 3rem 0 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: #b89b7b;
+      margin-bottom: 1rem;
+    }
+
+    .footer-section a {
+      color: #e0d6cc;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #3a4a52;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .cart-sidebar {
+        width: 90%;
+        right: 5%;
+        top: 80px;
+      }
+      .about-section,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
 
-<div class="overlay" id="overlay"></div>
-
 <!-- Navigation -->
 <nav class="navbar">
-  <div class="logo">Rassoul Shop <span>vente en ligne · grossiste · luxe</span></div>
-  <div class="nav-links">
-    <a href="#accueil" class="active">Accueil</a>
-    <a href="#produits">Collection</a>
-    <a href="#grossiste">Grossiste</a>
-    <a href="#apropos">À propos</a>
-    <a href="#contact">Contact</a>
-    <div class="cart-icon" id="cartIcon">
-      <i class="fas fa-shopping-bag"></i>
-      <span id="cart-count">0</span>
+  <div class="logo">Rassoul Shop <span>élégance · grossiste · luxe</span></div>
+  
+  <div class="nav-menu">
+    <div class="nav-links">
+      <a href="#accueil">Accueil</a>
+      
+      <!-- Menu déroulant Collections -->
+      <div class="dropdown">
+        <a href="#produits" class="dropbtn">Collections <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 4px;"></i></a>
+        <div class="dropdown-content">
+          <a href="#hommes"><i class="fas fa-user-tie"></i> Hommes</a>
+          <a href="#femmes"><i class="fas fa-fan"></i> Femmes</a>
+          <a href="#chaussures"><i class="fas fa-shoe-prints"></i> Chaussures</a>
+          <a href="#accessoires"><i class="fas fa-clock"></i> Accessoires</a>
+          <a href="#parfums"><i class="fas fa-spray-can-sparkles"></i> Parfums</a>
+          <a href="#electro"><i class="fas fa-blender"></i> Électroménager</a>
+        </div>
+      </div>
+      
+      <a href="#grossiste">Grossiste</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Panier dans la barre de navigation -->
+    <div class="cart-wrapper">
+      <div class="cart-icon" id="cartIcon">
+        <i class="fas fa-shopping-bag"></i>
+        <span id="cart-count">0</span>
+      </div>
+      
+      <!-- Panier dropdown -->
+      <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+          <h3>Votre panier</h3>
+          <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-total">
+          <span>Total</span>
+          <span id="cartTotal">0 CFA</span>
+        </div>
+        <button class="checkout-btn" id="checkoutBtn">
+          <i class="fab fa-whatsapp"></i> Payer sur WhatsApp
+        </button>
+      </div>
     </div>
   </div>
 </nav>
 
 <main class="container">
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero reveal" id="accueil">
-    <h2>Élégance & Distinction</h2>
+    <h2>L'élégance à portée de main</h2>
     <div class="tagline">
-      <i class="fas fa-star" style="color: #b99b7c;"></i> 
-      Tenues · Accessoires · Chaussures · Parfums · Électroménager
+      <i class="fas fa-star"></i> Tenues · Chaussures · Accessoires · Parfums · Électroménager
     </div>
   </section>
 
   <!-- Produits -->
-  <h2 class="section-title reveal" id="produits">Nos Collections</h2>
+  <h2 class="section-title reveal" id="produits">Notre Collection</h2>
   <div class="product-grid" id="productGrid"></div>
 
-  <!-- Section Grossiste -->
+  <!-- Grossiste -->
   <section id="grossiste">
-    <h2 class="section-title reveal">Devenez Revendeur / Grossiste</h2>
+    <h2 class="section-title reveal">Devenez Revendeur</h2>
     <div class="grossiste-grid">
       <div class="grossiste-card reveal">
         <i class="fas fa-tags"></i>
         <h3>Prix Grossiste</h3>
-        <p>Remises jusqu'à 30% sur les commandes en gros. Parfait pour les boutiques et revendeurs.</p>
+        <p>Remises jusqu'à 30% sur commandes en gros</p>
         <button class="btn-grossiste" onclick="contactGrossiste('Prix grossiste')">
-          <i class="fas fa-whatsapp"></i> Demander les prix
+          <i class="fab fa-whatsapp"></i> Demander prix
         </button>
       </div>
       <div class="grossiste-card reveal">
         <i class="fas fa-boxes"></i>
         <h3>Commande en Gros</h3>
-        <p>Minimum de commande : 50 000 CFA. Livraison rapide partout au Sénégal.</p>
+        <p>Minimum 50 000 CFA - Livraison partout</p>
         <button class="btn-grossiste" onclick="contactGrossiste('Commande en gros')">
-          <i class="fas fa-whatsapp"></i> Commander en gros
+          <i class="fab fa-whatsapp"></i> Commander
         </button>
       </div>
       <div class="grossiste-card reveal">
         <i class="fas fa-handshake"></i>
         <h3>Partenariat</h3>
-        <p>Devenez partenaire officiel Rassoul Shop. Conditions avantageuses.</p>
+        <p>Devenez partenaire officiel</p>
         <button class="btn-grossiste" onclick="contactGrossiste('Partenariat')">
-          <i class="fas fa-whatsapp"></i> Devenir partenaire
+          <i class="fab fa-whatsapp"></i> Nous contacter
         </button>
       </div>
     </div>
@@ -650,93 +723,50 @@
     <div class="about-section reveal">
       <div class="about-content">
         <h3>À propos de Rassoul Shop</h3>
-        <p>Depuis 2018, Rassoul Shop est votre destination privilégiée pour l'élégance et la qualité au Sénégal. Nous sélectionnons avec soin des tenues, accessoires, parfums et électroménager qui allient tradition et modernité.</p>
-        <p>Notre engagement : vous offrir des produits authentiques à des prix justes, avec un service client disponible 7j/7.</p>
+        <p>Depuis 2018, nous sélectionnons pour vous le meilleur de la mode et de l'équipement domestique. Qualité et authenticité sont nos maîtres-mots.</p>
       </div>
       <div class="about-stats">
         <div class="stat-item">
           <div class="number">5000+</div>
-          <div class="label">Clients satisfaits</div>
+          <div>Clients</div>
         </div>
         <div class="stat-item">
           <div class="number">1000+</div>
-          <div class="label">Produits vendus/mois</div>
+          <div>Produits/mois</div>
         </div>
         <div class="stat-item">
           <div class="number">24/7</div>
-          <div class="label">Support WhatsApp</div>
+          <div>Support</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Amélioré -->
+  <!-- Contact -->
   <section id="contact">
     <div class="contact-section reveal">
-      <h2 class="section-title" style="margin-top: 0;">Contactez-nous</h2>
+      <h2 class="section-title" style="margin-top: 0;">Contact</h2>
       <div class="contact-grid">
-        <div class="contact-info-card">
-          <div class="contact-item-large">
-            <i class="fas fa-phone-alt"></i>
-            <div class="info">
-              <h4>Téléphone / WhatsApp</h4>
-              <p>+221 77 439 74 27</p>
-            </div>
-          </div>
-          <div class="contact-item-large">
-            <i class="fab fa-whatsapp"></i>
-            <div class="info">
-              <h4>WhatsApp Business</h4>
-              <p>mamadou_seck7</p>
-            </div>
-          </div>
-          <div class="contact-item-large">
-            <i class="fab fa-instagram"></i>
-            <div class="info">
-              <h4>Instagram</h4>
-              <p>@mamoseck9996</p>
-            </div>
-          </div>
-          <div class="contact-item-large">
-            <i class="fas fa-envelope"></i>
-            <div class="info">
-              <h4>Email</h4>
-              <p>momoseck867@gmail.com</p>
-            </div>
-          </div>
-          <div class="contact-item-large">
-            <i class="fas fa-map-marker-alt"></i>
-            <div class="info">
-              <h4>Adresse</h4>
-              <p>Dakar, Sénégal (Livraison partout)</p>
-            </div>
-          </div>
+        <div>
+          <div class="contact-item-large"><i class="fas fa-phone"></i> +221 77 439 74 27</div>
+          <div class="contact-item-large"><i class="fab fa-whatsapp"></i> mamadou_seck7</div>
+          <div class="contact-item-large"><i class="fab fa-instagram"></i> @mamoseck9996</div>
+          <div class="contact-item-large"><i class="fas fa-envelope"></i> momoseck867@gmail.com</div>
         </div>
-
-        <!-- Formulaire de contact -->
         <div class="contact-form">
-          <h3 style="margin-bottom: 1.5rem;">Envoyez-nous un message</h3>
+          <h3>Écrivez-nous</h3>
           <form id="contactForm">
-            <div class="form-group">
-              <input type="text" placeholder="Votre nom" id="contactName" required>
-            </div>
-            <div class="form-group">
-              <input type="tel" placeholder="Téléphone WhatsApp" id="contactPhone" required>
-            </div>
+            <div class="form-group"><input type="text" placeholder="Nom" id="contactName"></div>
+            <div class="form-group"><input type="tel" placeholder="Téléphone" id="contactPhone"></div>
             <div class="form-group">
               <select id="contactSubject">
-                <option>Demande d'information</option>
+                <option>Information</option>
                 <option>Devis grossiste</option>
                 <option>Réclamation</option>
-                <option>Partenariat</option>
               </select>
             </div>
-            <div class="form-group">
-              <textarea rows="4" placeholder="Votre message" id="contactMessage" required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">
-              <i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp
-            </button>
+            <div class="form-group"><textarea rows="3" placeholder="Message" id="contactMessage"></textarea></div>
+            <button type="submit" class="btn-submit"><i class="fab fa-whatsapp"></i> Envoyer</button>
           </form>
         </div>
       </div>
@@ -744,74 +774,70 @@
   </section>
 </main>
 
-<!-- Footer -->
 <footer>
   <div class="container">
     <div class="footer-content">
       <div class="footer-section">
         <h4>Rassoul Shop</h4>
-        <p>Vente en ligne de tenues, accessoires, chaussures, parfums et électroménager.</p>
+        <p>Vente en ligne de qualité depuis 2018</p>
       </div>
       <div class="footer-section">
-        <h4>Liens utiles</h4>
-        <a href="#produits">Nos produits</a>
-        <a href="#grossiste">Espace grossiste</a>
-        <a href="#apropos">Qui sommes-nous</a>
-        <a href="#contact">Contact</a>
+        <h4>Liens</h4>
+        <a href="#produits">Produits</a>
+        <a href="#grossiste">Grossiste</a>
+        <a href="#apropos">À propos</a>
       </div>
       <div class="footer-section">
-        <h4>Horaires</h4>
-        <p>Lun - Sam : 9h - 20h</p>
-        <p>Dimanche : 15h - 19h</p>
-        <p>Support WhatsApp 24/7</p>
-      </div>
-      <div class="footer-section">
-        <h4>Suivez-nous</h4>
-        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <h4>Contact</h4>
+        <p>+221 77 439 74 27</p>
+        <p>Dakar, Sénégal</p>
       </div>
     </div>
-    <div class="copyright">
-      <p>© 2026 Rassoul Shop - Tous droits réservés | +221 77 439 74 27</p>
-    </div>
+    <div class="copyright">© 2026 Rassoul Shop</div>
   </div>
 </footer>
 
-<!-- Panier Sidebar -->
-<aside class="cart-sidebar" id="cartSidebar">
-  <div class="cart-header">
-    <h3>Votre panier</h3>
-    <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
-  </div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-total">
-    <span>Total</span>
-    <span id="cartTotal">0 CFA</span>
-  </div>
-  <button class="checkout-btn" id="checkoutBtn">
-    <i class="fab fa-whatsapp"></i> Payer sur WhatsApp
-  </button>
-</aside>
-
 <script>
-  // Données produits
+  // Produits enrichis avec toutes les catégories
   const products = [
-    { id: 1, name: 'Costume homme élégant', category: 'TENUES HOMME', price: 45000, icon: 'fa-user-tie' },
-    { id: 2, name: 'Robe femme cérémonie', category: 'TENUES FEMME', price: 38500, icon: 'fa-fan' },
-    { id: 3, name: 'Montre luxe dorée', category: 'ACCESSOIRES', price: 12500, icon: 'fa-clock' },
-    { id: 4, name: 'Lunettes de soleil', category: 'ACCESSOIRES', price: 8900, icon: 'fa-sun' },
-    { id: 5, name: 'Baskets mode homme', category: 'CHAUSSURES', price: 22500, icon: 'fa-shoe-prints' },
-    { id: 6, name: 'Escarpins femme', category: 'CHAUSSURES', price: 19900, icon: 'fa-high-heels' },
-    { id: 7, name: 'Parfum Oud royal', category: 'PARFUMS', price: 32000, icon: 'fa-spray-can-sparkles' },
-    { id: 8, name: 'Musk blanc', category: 'PARFUMS', price: 27500, icon: 'fa-cloud' },
-    { id: 9, name: 'Mixeur plongeant', category: 'ÉLECTRO', price: 18500, icon: 'fa-blender' },
-    { id: 10, name: 'Fer à repasser', category: 'ÉLECTRO', price: 22900, icon: 'fa-temperature-high' }
+    // Hommes
+    { id: 1, name: 'Costume cérémonie', category: 'HOMME', price: 55000, icon: 'fa-user-tie' },
+    { id: 2, name: 'Chemise luxe', category: 'HOMME', price: 18500, icon: 'fa-shirt' },
+    { id: 3, name: 'Pantalon habillé', category: 'HOMME', price: 22000, icon: 'fa-user' },
+    { id: 4, name: 'Blazer élégant', category: 'HOMME', price: 42000, icon: 'fa-user-tie' },
+    
+    // Femmes
+    { id: 5, name: 'Robe de soirée', category: 'FEMME', price: 45000, icon: 'fa-fan' },
+    { id: 6, name: 'Ensemble deux pièces', category: 'FEMME', price: 38000, icon: 'fa-fan' },
+    { id: 7, name: 'Jupe habillée', category: 'FEMME', price: 16500, icon: 'fa-fan' },
+    { id: 8, name: 'Caftan luxe', category: 'FEMME', price: 52000, icon: 'fa-fan' },
+    
+    // Chaussures
+    { id: 9, name: 'Derbies homme cuir', category: 'CHAUSSURES', price: 29500, icon: 'fa-shoe-prints' },
+    { id: 10, name: 'Escarpins femme', category: 'CHAUSSURES', price: 22500, icon: 'fa-high-heels' },
+    { id: 11, name: 'Baskets mode', category: 'CHAUSSURES', price: 18500, icon: 'fa-shoe-prints' },
+    { id: 12, name: 'Sandales luxe', category: 'CHAUSSURES', price: 15900, icon: 'fa-shoe-prints' },
+    
+    // Accessoires
+    { id: 13, name: 'Montre dorée', category: 'ACCESSOIRES', price: 12500, icon: 'fa-clock' },
+    { id: 14, name: 'Lunettes soleil', category: 'ACCESSOIRES', price: 8900, icon: 'fa-sun' },
+    { id: 15, name: 'Ceinture cuir', category: 'ACCESSOIRES', price: 9500, icon: 'fa-belt' },
+    { id: 16, name: 'Sac à main', category: 'ACCESSOIRES', price: 18500, icon: 'fa-bag-shopping' },
+    
+    // Parfums
+    { id: 17, name: 'Parfum Oud Royal', category: 'PARFUMS', price: 32000, icon: 'fa-spray-can-sparkles' },
+    { id: 18, name: 'Musk Blanc', category: 'PARFUMS', price: 27500, icon: 'fa-cloud' },
+    { id: 19, name: 'Eau de parfum', category: 'PARFUMS', price: 22500, icon: 'fa-spray-can-sparkles' },
+    
+    // Électroménager
+    { id: 20, name: 'Mixeur plongeant', category: 'ÉLECTRO', price: 18500, icon: 'fa-blender' },
+    { id: 21, name: 'Fer à repasser', category: 'ÉLECTRO', price: 22900, icon: 'fa-temperature-high' },
+    { id: 22, name: 'Grille-pain', category: 'ÉLECTRO', price: 14500, icon: 'fa-bread-slice' }
   ];
 
   let cart = JSON.parse(localStorage.getItem('rassoulCart')) || [];
 
-  // Rendu produits
+  // Afficher produits
   function renderProducts() {
     const grid = document.getElementById('productGrid');
     grid.innerHTML = '';
@@ -888,71 +914,71 @@
     });
   }
 
-  // Panier sidebar
-  const sidebar = document.getElementById('cartSidebar');
-  const overlay = document.getElementById('overlay');
-  
+  // Gestion du panier dropdown
+  const cartSidebar = document.getElementById('cartSidebar');
+  const cartIcon = document.getElementById('cartIcon');
+  const closeCart = document.getElementById('closeCart');
+
   function openCart() {
-    sidebar.classList.add('open');
-    overlay.classList.add('active');
+    cartSidebar.classList.add('open');
   }
 
-  function closeCart() {
-    sidebar.classList.remove('open');
-    overlay.classList.remove('active');
+  function closeCartSidebar() {
+    cartSidebar.classList.remove('open');
   }
 
-  document.getElementById('cartIcon').addEventListener('click', openCart);
-  document.getElementById('closeCart').addEventListener('click', closeCart);
-  overlay.addEventListener('click', closeCart);
+  cartIcon.addEventListener('click', (e) => {
+    e.stopPropagation();
+    cartSidebar.classList.toggle('open');
+  });
+
+  closeCart.addEventListener('click', closeCartSidebar);
+
+  // Fermer en cliquant ailleurs
+  document.addEventListener('click', (e) => {
+    if (!cartSidebar.contains(e.target) && !cartIcon.contains(e.target)) {
+      cartSidebar.classList.remove('open');
+    }
+  });
 
   // Paiement WhatsApp
   document.getElementById('checkoutBtn').addEventListener('click', () => {
     if (cart.length === 0) {
-      alert('Votre panier est vide');
+      alert('Panier vide');
       return;
     }
-
     let message = '*Commande Rassoul Shop*%0A%0A';
     cart.forEach(item => {
       message += `• ${item.name} : ${item.price.toLocaleString()} CFA%0A`;
     });
     const total = cart.reduce((acc, i) => acc + i.price, 0);
-    message += `%0A*Total : ${total.toLocaleString()} CFA*%0A%0A`;
-    message += 'Merci de confirmer la commande.';
-
+    message += `%0A*Total : ${total.toLocaleString()} CFA*`;
     window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
   });
 
-  // Fonction grossiste WhatsApp
+  // Grossiste
   window.contactGrossiste = (type) => {
-    let message = `*Demande ${type} - Rassoul Shop*%0A%0A`;
-    message += 'Bonjour, je suis intéressé par vos offres grossistes. Merci de me contacter.';
-    window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
+    window.open(`https://wa.me/221774397427?text=*Demande ${type} - Rassoul Shop*`, '_blank');
   };
 
-  // Formulaire de contact
+  // Formulaire
   document.getElementById('contactForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('contactName').value;
     const phone = document.getElementById('contactPhone').value;
     const subject = document.getElementById('contactSubject').value;
     const message = document.getElementById('contactMessage').value;
-
-    const waMessage = `*Message de ${name}*%0ATéléphone : ${phone}%0ASujet : ${subject}%0A%0A${message}`;
+    const waMessage = `*${name}* (${phone})%0ASujet: ${subject}%0A%0A${message}`;
     window.open(`https://wa.me/221774397427?text=${waMessage}`, '_blank');
   });
 
-  // Intersection Observer pour les animations
+  // Animations
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('active');
     });
   }, { threshold: 0.1 });
-
   reveals.forEach(el => observer.observe(el));
 
   // Initialisation
