@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>Rassoul Shop Tidiany - Collection Exclusive</title>
+    <title>Rassoul Shop Tidiany - Collection Complète</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
@@ -48,7 +48,7 @@
             padding: 0 20px;
         }
 
-        /* ===== HEADER ===== */
+        /* ===== HEADER & NAVIGATION ===== */
         header {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -75,17 +75,15 @@
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            line-height: 1.2;
         }
 
         .logo span {
-            font-size: clamp(10px, 2vw, 12px);
+            font-size: 12px;
             color: var(--text-light);
             display: block;
             letter-spacing: 2px;
         }
 
-        /* Menu principal */
         .menu {
             display: flex;
             align-items: center;
@@ -97,16 +95,9 @@
             text-decoration: none;
             color: var(--text-soft);
             font-weight: 500;
-            transition: color 0.3s;
-            font-size: clamp(14px, 2vw, 16px);
             cursor: pointer;
         }
 
-        .menu > a:hover {
-            color: var(--secondary);
-        }
-
-        /* Dropdown */
         .dropdown {
             position: relative;
         }
@@ -122,7 +113,6 @@
             padding: 10px 0;
             display: none;
             z-index: 1001;
-            margin-top: 10px;
         }
 
         .dropdown:hover .dropdown-content {
@@ -136,17 +126,11 @@
             gap: 12px;
             color: var(--text-soft);
             text-decoration: none;
-            transition: background 0.3s;
-            cursor: pointer;
         }
 
         .dropdown-content a i {
             width: 20px;
             color: var(--secondary);
-        }
-
-        .dropdown-content a:hover {
-            background: var(--bg-soft);
         }
 
         /* Panier */
@@ -163,12 +147,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: background 0.3s;
             position: relative;
-        }
-
-        .cart-icon:hover {
-            background: #e8d9cc;
         }
 
         .cart-icon i {
@@ -182,14 +161,13 @@
             right: -5px;
             background: var(--secondary);
             color: white;
-            font-size: 12px;
-            font-weight: 600;
             width: 22px;
             height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 12px;
             border: 2px solid white;
         }
 
@@ -198,7 +176,7 @@
             position: absolute;
             top: 55px;
             right: 0;
-            width: 380px;
+            width: 400px;
             max-width: 90vw;
             background: white;
             border-radius: 25px;
@@ -227,12 +205,6 @@
             font-size: 24px;
             cursor: pointer;
             color: var(--text-light);
-            transition: transform 0.3s;
-        }
-
-        .close-cart:hover {
-            color: var(--text-dark);
-            transform: rotate(90deg);
         }
 
         .cart-items {
@@ -252,8 +224,8 @@
         }
 
         .cart-item img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 12px;
             object-fit: cover;
         }
@@ -303,14 +275,9 @@
             gap: 10px;
             cursor: pointer;
             width: 100%;
-            transition: background 0.3s;
         }
 
-        .whatsapp-btn:hover {
-            background: var(--whatsapp-hover);
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
             background: linear-gradient(145deg, #fff9f4, var(--bg-soft));
             text-align: center;
@@ -322,7 +289,6 @@
             font-family: 'Playfair Display', serif;
             font-size: clamp(32px, 6vw, 48px);
             font-weight: 400;
-            color: #30271f;
             margin-bottom: 20px;
         }
 
@@ -331,8 +297,27 @@
             display: inline-block;
             padding: 15px 30px;
             border-radius: 50px;
-            font-size: clamp(14px, 2.5vw, 18px);
+            font-size: 18px;
             color: var(--text-light);
+        }
+
+        /* Section titre */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 36px);
+            font-weight: 400;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), transparent);
         }
 
         /* Filtres */
@@ -351,7 +336,6 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
-            font-weight: 500;
         }
 
         .filter-btn.active {
@@ -360,15 +344,11 @@
             border-color: var(--secondary);
         }
 
-        .filter-btn:hover {
-            background: var(--bg-soft);
-        }
-
         /* Grille produits */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
             margin-bottom: 50px;
         }
 
@@ -377,7 +357,7 @@
             border-radius: 25px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s;
         }
 
         .product-card:hover {
@@ -389,18 +369,60 @@
             height: 300px;
             position: relative;
             overflow: hidden;
-            background: #f3ede8;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
         }
 
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
+        .color-options {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            background: rgba(255,255,255,0.9);
+            padding: 10px;
+            border-radius: 50px;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover .color-options {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .color-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .color-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .size-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--secondary);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
         }
 
         .product-details {
@@ -410,22 +432,33 @@
         .product-category {
             font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 2px;
             color: var(--text-light);
-            margin-bottom: 5px;
+            letter-spacing: 2px;
         }
 
         .product-name {
             font-size: 18px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin: 8px 0;
         }
 
         .product-price {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
             color: #5d4432;
-            margin-bottom: 15px;
+            margin: 10px 0;
+        }
+
+        .size-selector {
+            margin: 15px 0;
+        }
+
+        .size-selector select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
         }
 
         .add-btn {
@@ -441,17 +474,158 @@
             justify-content: center;
             gap: 10px;
             cursor: pointer;
-            transition: background 0.3s;
         }
 
         .add-btn:hover {
             background: var(--secondary);
         }
 
+        /* Grossiste section */
+        .wholesale-section {
+            background: linear-gradient(145deg, #f2ebe4, #e8d9cc);
+            border-radius: 50px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .wholesale-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .wholesale-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .wholesale-card i {
+            font-size: 50px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .wholesale-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .wholesale-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .wholesale-btn {
+            background: var(--text-dark);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* À propos */
+        .about-section {
+            background: white;
+            border-radius: 50px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat .number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Contact */
+        .contact-section {
+            background: var(--bg-soft);
+            border-radius: 50px;
+            padding: 60px 40px;
+            margin: 50px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .contact-item i {
+            font-size: 24px;
+            width: 40px;
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border);
+            border-radius: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--text-dark);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
         /* Footer */
         footer {
             background: var(--text-dark);
-            color: #e0d6cc;
+            color: white;
             padding: 40px 0;
             margin-top: 50px;
             text-align: center;
@@ -461,11 +635,19 @@
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
-                gap: 15px;
             }
             
             .menu {
                 justify-content: center;
+            }
+            
+            .about-section,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
             }
             
             .cart-panel {
@@ -473,11 +655,6 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 90%;
-            }
-            
-            .product-image {
-                height: 250px;
             }
         }
     </style>
@@ -536,7 +713,7 @@
     <section class="hero">
         <h2>L'élégance à portée de main</h2>
         <div class="hero-tags">
-            <i class="fas fa-star"></i> Robes · Jalabas · Ensembles · Enfants · Hommes
+            <i class="fas fa-star"></i> Robes · Jalabas · Ensembles · Hommes · Enfants
         </div>
     </section>
 
@@ -562,79 +739,131 @@
 </footer>
 
 <script>
-    // ===== PRODUITS AVEC IMAGES SHEIN =====
+    // ===== PRODUITS COMPLETS AVEC IMAGES RÉELLES =====
     const products = [
-        // 1. Robe femme - Kaftan Jalabiya (5500F)
+        // 1. Boubou Africain Femme (5500F) - 5 couleurs [citation:1]
         { 
             id: 1, 
-            name: 'Kaftan Jalabiya', 
+            name: 'Boubou Traditionnel Femme', 
             category: 'FEMME', 
             price: 5500, 
-            image: 'https://img.ltwebstatic.com/images3_pi/2022/09/23/16639263125c62b2efecf9421623378bf85f7a7be8_thumbnail_600x.webp',
-            link: 'https://m.shein.com/Al-Najma-Women-s-Turkish-Long-Tunic-Arabian-Traditional-Long-Robe-Dress-Kaftan-Jalabiya-p-387901113.html'
+            image: 'https://boutique-africaine.com/cdn/shop/files/boubou-africain-couleur-unie-bleu-fonce-983589_800x.jpg?v=1716923893',
+            colors: ['#00008B', '#800000', '#006400', '#4B0082', '#8B4513'],
+            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
+            description: 'Boubro 3 pièces en bazin riche'
         },
-        // 2. Robe femme - Variante
+        // 2. Boubro Africain Femme (5500F) - Variante 2
         { 
             id: 2, 
-            name: 'Kaftan Traditionnel', 
+            name: 'Boubou Cérémonie', 
             category: 'FEMME', 
             price: 5500, 
-            image: 'https://img.ltwebstatic.com/images3_pi/2022/09/23/1663926312fae1d823ae5f06267b2c2745af030325_thumbnail_600x.webp',
-            link: 'https://m.shein.com/Al-Najma-Women-s-Turkish-Long-Tunic-Arabian-Traditional-Long-Robe-Dress-Kaftan-Jalabiya-p-387901113.html'
+            image: 'https://boutique-africaine.com/cdn/shop/files/boubou-africain-couleur-unie-bleu-fonce-983589_800x.jpg?v=1716923893',
+            colors: ['#B22222', '#2E8B57', '#8B008B', '#D2691E', '#9ACD32'],
+            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         },
-        // 3. Homme - Thobe marocain (17000F)
+        // 3. Boubou Africain Femme (5500F) - Variante 3
         { 
             id: 3, 
-            name: 'Thobe Homme', 
-            category: 'HOMME', 
-            price: 17000, 
-            image: 'https://img.ltwebstatic.com/images3_pi/2024/01/23/170599114165bdcb5009334b46edffc248dcf4a11c_thumbnail_600x.webp',
-            link: 'https://m.shein.com/Muslim-Men-s-Thobes-Moroccan-Style-Beautifully-Embroidered-Islamic-Loose-Abaya-Suitable-For-Holiday-Parties-Ramadan-Gifts-And-All-Seasons-p-229502734.html'
+            name: 'Grand Boubou', 
+            category: 'FEMME', 
+            price: 5500, 
+            image: 'https://boutique-africaine.com/cdn/shop/files/boubou-africain-couleur-unie-bleu-fonce-983589_800x.jpg?v=1716923893',
+            colors: ['#483D8B', '#8B4513', '#2F4F4F', '#800000', '#9ACD32'],
+            sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
         },
-        // 4. Homme - Variante
+        // 4. Ensemble Dampé Femme (10000F) - 4 couleurs [citation:4]
         { 
             id: 4, 
-            name: 'Thobe Brodé', 
-            category: 'HOMME', 
-            price: 17000, 
-            image: 'https://img.ltwebstatic.com/images3_pi/2024/01/23/1705991141ceec7976e97e7eef11c5d2a8c1c84bb_thumbnail_600x.webp',
-            link: 'https://m.shein.com/Muslim-Men-s-Thobes-Moroccan-Style-Beautifully-Embroidered-Islamic-Loose-Abaya-Suitable-For-Holiday-Parties-Ramadan-Gifts-And-All-Seasons-p-229502734.html'
+            name: 'Ensemble Dampé 3 pièces', 
+            category: 'FEMME', 
+            price: 10000, 
+            image: 'https://bayoscollection.com/wp-content/uploads/2023/09/Ensemble-femme-3-pieces-tissu-Dampe-verte.jpg',
+            colors: ['#228B22', '#0000CD', '#8B4513', '#800080'],
+            sizes: ['S', 'M', 'L', 'XL', '2XL'],
+            description: 'Kimono long + pantalon fluide + foulard'
         },
-        // 5. Robe femme dentelle (9000F)
+        // 5. Ensemble Dampé Femme (10000F) - Variante 2
         { 
             id: 5, 
-            name: 'Robe Dentelle', 
+            name: 'Ensemble Dampé', 
             category: 'FEMME', 
-            price: 9000, 
-            image: 'https://img.ltwebstatic.com/images3_pi/2024/01/18/1705572426990925a8d9fddc2201a83fbd1ad5f3de_thumbnail_600x.webp',
-            link: 'https://m.shein.com/Brillora-Women-s-Vacation-Casual-Solid-Color-Lace-Splice-Notched-Neck-Lantern-Sleeve-Dress-p-38523500.html'
+            price: 10000, 
+            image: 'https://bayoscollection.com/wp-content/uploads/2023/09/Ensemble-femme-3-pieces-tissu-Dampe-bleu-marine.jpg',
+            colors: ['#000080', '#8B0000', '#006400', '#4B0082'],
+            sizes: ['M', 'L', 'XL', '2XL', '3XL']
         },
-        // 6. Robe femme - Variante
+        // 6. Ensemble Dampé Femme (10000F) - Variante 3
         { 
             id: 6, 
-            name: 'Robe Dentelle', 
+            name: 'Ensemble Dampé Luxe', 
             category: 'FEMME', 
-            price: 9000, 
-            image: 'https://img.ltwebstatic.com/images3_pi/2024/01/18/1705572426f228c64c7c3f23477dc5202505dc7327_thumbnail_600x.webp',
-            link: 'https://m.shein.com/Brillora-Women-s-Vacation-Casual-Solid-Color-Lace-Splice-Notched-Neck-Lantern-Sleeve-Dress-p-38523500.html'
+            price: 10000, 
+            image: 'https://bayoscollection.com/wp-content/uploads/2023/09/Ensemble-femme-3-pieces-tissu-Dampe-bordeaux.jpg',
+            colors: ['#800000', '#2F4F4F', '#483D8B', '#B8860B'],
+            sizes: ['S', 'M', 'L', 'XL', '2XL']
         },
-        // 7. Ensemble enfant (10000F)
+        // 7. Jalabiya Enfant (9000F) - 4 couleurs [citation:2][citation:9]
         { 
             id: 7, 
-            name: 'Ensemble Enfant', 
+            name: 'Jalabiya Enfant', 
             category: 'ENFANT', 
-            price: 10000, 
-            image: 'https://img.ltwebstatic.com/images3_pi/2024/01/25/170617514598e2f2a3e0202e9769c973ae799684ea_thumbnail_600x.webp',
-            link: 'https://m.shein.com/Girlism-Polyester-Round-Neck-Tee-And-Long-Pants-Co-Ord-For-Tween-Girls-In-Sporty-Style-White-Pants-Set-Girls-White-Set-Girl-White-Outfit-White-Teen-Outfit-Teen-Girl-White-Outfit-p-96920814.html'
+            price: 9000, 
+            image: 'https://m.media-amazon.com/images/I/61Uj21yIulL._AC_UL480_FMwebp_QL65_.jpg',
+            colors: ['#C0C0C0', '#87CEEB', '#98FB98', '#FFB6C1'],
+            sizes: ['6 ans', '8 ans', '10 ans', '12 ans', '14 ans'],
+            description: 'Jalabiya enfant légère et confortable'
         },
-        // 8. Ensemble enfant - Variante
+        // 8. Jalabiya Enfant (9000F) - Variante 2
         { 
             id: 8, 
-            name: 'Ensemble Enfant', 
+            name: 'Jalabiya Enfant Brodée', 
             category: 'ENFANT', 
-            price: 10000, 
-            image: 'https://img.ltwebstatic.com/images3_pi/2024/01/25/1706175145c4de802940f34e91a847e78836637b10_thumbnail_600x.webp',
-            link: 'https://m.shein.com/Girlism-Polyester-Round-Neck-Tee-And-Long-Pants-Co-Ord-For-Tween-Girls-In-Sporty-Style-White-Pants-Set-Girls-White-Set-Girl-White-Outfit-White-Teen-Outfit-Teen-Girl-White-Outfit-p-96920814.html'
+            price: 9000, 
+            image: 'https://m.media-amazon.com/images/I/61pEw0fAUoL._AC_UL480_FMwebp_QL65_.jpg',
+            colors: ['#DAA520', '#CD5C5C', '#4682B4', '#9ACD32'],
+            sizes: ['4 ans', '6 ans', '8 ans', '10 ans', '12 ans']
+        },
+        // 9. Jalabiya Enfant (9000F) - Variante 3
+        { 
+            id: 9, 
+            name: 'Jalabiya Enfant Fête', 
+            category: 'ENFANT', 
+            price: 9000, 
+            image: 'https://m.media-amazon.com/images/I/71HtZ1Dc+mL._AC_UL480_FMwebp_QL65_.jpg',
+            colors: ['#FF1493', '#32CD32', '#1E90FF', '#FFD700'],
+            sizes: ['7 ans', '9 ans', '11 ans', '13 ans', '15 ans']
+        },
+        // 10. Thobe Homme (17000F) - 6 couleurs [citation:3]
+        { 
+            id: 10, 
+            name: 'Thobe Homme Classique', 
+            category: 'HOMME', 
+            price: 17000, 
+            image: 'https://sc04.alicdn.com/kf/Hdd7b4016c2ec4c688c4b4d80fda61d32X.jpg',
+            colors: ['#FFFFFF', '#000000', '#808080', '#F5F5DC', '#87CEEB', '#90EE90'],
+            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'],
+            description: 'Thobe en polyester de haute qualité, anti-froissé'
+        },
+        // 11. Thobe Homme (17000F) - Variante 2
+        { 
+            id: 11, 
+            name: 'Thobe Homme Brodé', 
+            category: 'HOMME', 
+            price: 17000, 
+            image: 'https://sc04.alicdn.com/kf/H0923bda042ab4686b67c2dda7f1ffb74m.jpg',
+            colors: ['#F5F5F5', '#2F4F4F', '#800000', '#F4A460', '#B0C4DE', '#98FB98'],
+            sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
+        },
+        // 12. Thobe Homme (17000F) - Variante 3
+        { 
+            id: 12, 
+            name: 'Thobe Homme Été', 
+            category: 'HOMME', 
+            price: 17000, 
+            image: 'https://sc04.alicdn.com/kf/Hc86a2294e19044dc9c52792e5ea38bb24.jpg',
+            colors: ['#E0FFFF', '#FAF0E6', '#FFF0F5', '#F0FFF0', '#FFE4E1', '#F5FFFA'],
+            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         }
     ];
 
@@ -674,17 +903,37 @@
             const card = document.createElement('div');
             card.className = 'product-card';
             
+            // Options de couleurs
+            const colorOptions = product.colors.map(color => 
+                `<div class="color-dot" style="background-color: ${color}" 
+                      onclick="changeColor(${product.id}, '${color}')"></div>`
+            ).join('');
+
+            // Options de tailles
+            const sizeOptions = product.sizes.map(size => 
+                `<option value="${size}">Taille ${size}</option>`
+            ).join('');
+
             card.innerHTML = `
                 <div class="product-image">
                     <img src="${product.image}" alt="${product.name}" 
-                         onerror="this.src='https://via.placeholder.com/400x300?text=Image+Shein'">
+                         onerror="this.src='https://via.placeholder.com/400x300?text=${product.name}'">
+                    <div class="size-badge">${product.sizes.length} tailles</div>
+                    <div class="color-options">
+                        ${colorOptions}
+                    </div>
                 </div>
                 <div class="product-details">
                     <div class="product-category">${product.category}</div>
                     <div class="product-name">${product.name}</div>
                     <div class="product-price">${product.price.toLocaleString()} CFA</div>
+                    <div class="size-selector">
+                        <select id="size-${product.id}">
+                            ${sizeOptions}
+                        </select>
+                    </div>
                     <button class="add-btn" onclick="addToCart(${product.id})">
-                        <i class="fas fa-cart-plus"></i> Ajouter
+                        <i class="fas fa-cart-plus"></i> Ajouter au panier
                     </button>
                 </div>
             `;
@@ -704,15 +953,25 @@
         }
     }
 
-    // Fonctions de filtrage
+    // Fonctions
     window.showAllProducts = () => displayProducts();
     window.filterByCategory = (cat) => displayProducts(cat);
+    
+    window.changeColor = function(productId, color) {
+        console.log('Couleur changée pour produit', productId, color);
+    };
 
-    // Ajouter au panier
     window.addToCart = (productId) => {
         const product = products.find(p => p.id === productId);
         if (product) {
-            cart.push({...product, cartId: Date.now() + Math.random()});
+            const sizeSelect = document.getElementById(`size-${productId}`);
+            const selectedSize = sizeSelect ? sizeSelect.value : 'M';
+            
+            cart.push({
+                ...product,
+                cartId: Date.now() + Math.random(),
+                selectedSize: selectedSize
+            });
             updateCart();
             openCart();
         }
@@ -740,7 +999,7 @@
                 <div class="cart-item">
                     <img src="${item.image}" alt="${item.name}">
                     <div class="cart-item-info">
-                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-title">${item.name} (Taille: ${item.selectedSize})</div>
                         <div class="cart-item-price">${item.price.toLocaleString()} CFA</div>
                     </div>
                     <button class="cart-item-remove" onclick="removeFromCart(${item.cartId})">
@@ -762,7 +1021,7 @@
         
         let message = '*Nouvelle commande Rassoul Shop Tidiany*%0A%0A';
         cart.forEach(item => {
-            message += `• ${item.name} : ${item.price.toLocaleString()} CFA%0A`;
+            message += `• ${item.name} (Taille: ${item.selectedSize}) : ${item.price.toLocaleString()} CFA%0A`;
         });
         const total = cart.reduce((acc, item) => acc + item.price, 0);
         message += `%0A*Total : ${total.toLocaleString()} CFA*%0A%0A`;
