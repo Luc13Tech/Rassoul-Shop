@@ -446,23 +446,6 @@
             transform: scale(1.05);
         }
 
-        .no-image {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
-        .no-image i {
-            font-size: 50px;
-            margin-bottom: 10px;
-            color: var(--secondary);
-        }
-
         .color-options {
             position: absolute;
             bottom: 10px;
@@ -878,7 +861,6 @@
                 <div class="dropdown-content">
                     <a onclick="filterByCategory('FEMME')"><i class="fas fa-fan"></i> Femmes</a>
                     <a onclick="filterByCategory('ENFANT')"><i class="fas fa-child"></i> Enfants</a>
-                    <a onclick="filterByCategory('HOMME')"><i class="fas fa-user-tie"></i> Hommes</a>
                 </div>
             </div>
 
@@ -1073,7 +1055,7 @@
 <script>
     // ===== PRODUITS AVEC VOS 4 IMAGES =====
     const products = [
-        // Boubous Femme 5500F (2 variantes avec la même image)
+        // Boubous Femme 5500F
         { 
             id: 1, 
             name: 'Boubou Traditionnel', 
@@ -1101,7 +1083,7 @@
             colors: ['#483D8B', '#8B4513', '#2F4F4F', '#800000', '#9ACD32'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
         },
-        // Ensembles Femme 10000F (3 variantes avec la même image)
+        // Ensembles Femme 10000F
         { 
             id: 4, 
             name: 'Ensemble Dampé', 
@@ -1129,7 +1111,7 @@
             colors: ['#4B0082', '#006400', '#8B0000', '#DAA520'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL']
         },
-        // Enfants 9000F (3 variantes avec la même image)
+        // Enfants 9000F
         { 
             id: 7, 
             name: 'Jalabiya Enfant', 
@@ -1246,7 +1228,7 @@
             card.innerHTML = `
                 <div class="product-image">
                     <img src="${product.image}" alt="${product.name}" 
-                         onerror="this.src='https://via.placeholder.com/400x300?text=${product.name}'">
+                         onerror="this.src='https://via.placeholder.com/400x300/8B6B4D/ffffff?text=${product.name}'">
                     <div class="size-badge">${product.sizes.length} tailles</div>
                     <div class="color-options">
                         ${colorOptions}
@@ -1332,7 +1314,7 @@
             total += item.price;
             html += `
                 <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/60'">
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/60/8B6B4D/ffffff?text=Img'">
                     <div class="cart-item-info">
                         <div class="cart-item-title">${item.name} (Taille: ${item.selectedSize})</div>
                         <div class="cart-item-price">${item.price.toLocaleString()} CFA</div>
