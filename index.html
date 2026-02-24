@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>Rassoul Shop Tidiany - Collection Complète</title>
+    <title>Rassoul Shop Tidiany - Collection Traditionnelle</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ===== RESET & VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -25,38 +24,31 @@
             --text-light: #6e5c4b;
             --bg-light: #fcf9f6;
             --bg-soft: #f5ede5;
-            --bg-card: #ffffff;
             --border: #f0e4d8;
             --shadow: 0 10px 30px rgba(0,0,0,0.05);
             --shadow-hover: 0 20px 40px rgba(84,63,44,0.15);
             --whatsapp: #25D366;
-            --whatsapp-hover: #20b859;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg-light);
             color: var(--text-dark);
-            line-height: 1.5;
-            overflow-x: hidden;
         }
 
         .container {
-            width: 100%;
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* ===== HEADER & NAVIGATION ===== */
+        /* Header */
         header {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            background: white;
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
-            width: 100%;
         }
 
         nav {
@@ -71,44 +63,35 @@
 
         .logo h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(24px, 4vw, 32px);
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            font-size: 28px;
+            background: linear-gradient(135deg, #8B6B4D, #4a3729);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            line-height: 1.2;
         }
 
         .logo span {
             font-size: 12px;
-            color: var(--text-light);
+            color: #6e5c4b;
             display: block;
-            letter-spacing: 2px;
         }
 
         .menu {
             display: flex;
             align-items: center;
-            gap: clamp(15px, 3vw, 30px);
+            gap: 30px;
             flex-wrap: wrap;
         }
 
-        .menu > a {
+        .menu a {
             text-decoration: none;
-            color: var(--text-soft);
+            color: #2c3e4a;
             font-weight: 500;
             cursor: pointer;
-            font-size: clamp(14px, 2vw, 16px);
             transition: color 0.3s;
         }
 
-        .menu > a:hover {
-            color: var(--secondary);
-        }
-
-        .menu > a.active {
-            color: var(--secondary);
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 4px;
+        .menu a:hover {
+            color: #b89b7b;
         }
 
         /* Dropdown */
@@ -116,22 +99,16 @@
             position: relative;
         }
 
-        .dropdown > a {
-            cursor: pointer;
-        }
-
         .dropdown-content {
             position: absolute;
             top: 100%;
             left: 0;
             background: white;
-            min-width: 220px;
+            min-width: 200px;
             border-radius: 15px;
             box-shadow: var(--shadow-hover);
             padding: 10px 0;
             display: none;
-            z-index: 1001;
-            margin-top: 10px;
         }
 
         .dropdown:hover .dropdown-content {
@@ -142,20 +119,7 @@
             padding: 12px 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: var(--text-soft);
-            text-decoration: none;
-            transition: background 0.3s;
-            cursor: pointer;
-        }
-
-        .dropdown-content a i {
-            width: 20px;
-            color: var(--secondary);
-        }
-
-        .dropdown-content a:hover {
-            background: var(--bg-soft);
+            gap: 10px;
         }
 
         /* Panier */
@@ -164,7 +128,7 @@
         }
 
         .cart-icon {
-            background: var(--bg-soft);
+            background: #f5ede5;
             width: 45px;
             height: 45px;
             border-radius: 50%;
@@ -173,23 +137,13 @@
             justify-content: center;
             cursor: pointer;
             position: relative;
-            transition: background 0.3s;
-        }
-
-        .cart-icon:hover {
-            background: #e8d9cc;
-        }
-
-        .cart-icon i {
-            font-size: 20px;
-            color: var(--text-dark);
         }
 
         #cart-count {
             position: absolute;
             top: -5px;
             right: -5px;
-            background: var(--secondary);
+            background: #b89b7b;
             color: white;
             width: 22px;
             height: 22px;
@@ -198,146 +152,37 @@
             align-items: center;
             justify-content: center;
             font-size: 12px;
-            font-weight: 600;
-            border: 2px solid white;
         }
 
-        /* Panier déroulant */
         .cart-panel {
             position: absolute;
             top: 55px;
             right: 0;
-            width: 400px;
-            max-width: 90vw;
+            width: 380px;
             background: white;
             border-radius: 25px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             padding: 20px;
-            z-index: 1001;
             display: none;
+            z-index: 1001;
         }
 
         .cart-panel.show {
             display: block;
         }
 
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: transform 0.3s;
-        }
-
-        .close-cart:hover {
-            color: var(--text-dark);
-            transform: rotate(90deg);
-        }
-
-        .cart-items {
-            max-height: 400px;
-            overflow-y: auto;
-            margin-bottom: 20px;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: var(--bg-soft);
-            padding: 12px;
-            border-radius: 15px;
-            margin-bottom: 10px;
-        }
-
-        .cart-item img {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            object-fit: cover;
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-title {
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .cart-item-price {
-            font-size: 13px;
-            color: var(--text-light);
-        }
-
-        .cart-item-remove {
-            background: none;
-            border: none;
-            color: #a66f5c;
-            cursor: pointer;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        .cart-item-remove:hover {
-            color: #d32f2f;
-        }
-
-        .cart-total {
-            border-top: 2px dashed var(--border);
-            padding-top: 15px;
-            margin: 15px 0;
-            display: flex;
-            justify-content: space-between;
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .whatsapp-btn {
-            background: var(--whatsapp);
-            color: var(--text-dark);
-            border: none;
-            padding: 15px;
-            border-radius: 50px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s;
-        }
-
-        .whatsapp-btn:hover {
-            background: var(--whatsapp-hover);
-        }
-
         /* Hero */
         .hero {
-            background: linear-gradient(145deg, #fff9f4, var(--bg-soft));
+            background: linear-gradient(145deg, #fff9f4, #f5ede5);
             text-align: center;
             padding: 60px 20px;
             margin-bottom: 40px;
-            scroll-margin-top: 80px;
         }
 
         .hero h2 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(32px, 6vw, 48px);
+            font-size: 48px;
             font-weight: 400;
-            color: #30271f;
             margin-bottom: 20px;
         }
 
@@ -347,61 +192,29 @@
             padding: 15px 30px;
             border-radius: 50px;
             font-size: 18px;
-            color: var(--text-light);
-        }
-
-        .hero-tags i {
-            color: var(--secondary);
-            margin: 0 5px;
-        }
-
-        /* Section titre */
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 5vw, 36px);
-            font-weight: 400;
-            margin: 50px 0 30px;
-            position: relative;
-            scroll-margin-top: 80px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--secondary), transparent);
+            color: #6e5c4b;
         }
 
         /* Filtres */
         .category-filter {
             display: flex;
-            flex-wrap: wrap;
             gap: 10px;
             margin: 30px 0;
-            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .filter-btn {
             padding: 10px 20px;
-            border: 2px solid var(--border);
+            border: 2px solid #f0e4d8;
             background: white;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-
-        .filter-btn:hover {
-            background: var(--bg-soft);
         }
 
         .filter-btn.active {
-            background: var(--secondary);
+            background: #b89b7b;
             color: white;
-            border-color: var(--secondary);
+            border-color: #b89b7b;
         }
 
         /* Grille produits */
@@ -417,7 +230,7 @@
             border-radius: 25px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s;
         }
 
         .product-card:hover {
@@ -428,39 +241,24 @@
         .product-image {
             height: 300px;
             position: relative;
-            overflow: hidden;
             background: #f3ede8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
         }
 
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .no-image {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
-        .no-image i {
-            font-size: 50px;
-            margin-bottom: 10px;
-            color: var(--secondary);
+        .size-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #b89b7b;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 50px;
+            font-size: 12px;
         }
 
         .color-options {
@@ -469,47 +267,25 @@
             left: 10px;
             right: 10px;
             display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
             background: rgba(255,255,255,0.9);
             padding: 10px;
             border-radius: 50px;
-            justify-content: center;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s;
+            transition: opacity 0.3s;
         }
 
         .product-card:hover .color-options {
             opacity: 1;
-            transform: translateY(0);
         }
 
         .color-dot {
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .color-dot:hover {
-            transform: scale(1.2);
-        }
-
-        .size-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--secondary);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border: 2px solid white;
         }
 
         .product-details {
@@ -518,16 +294,15 @@
 
         .product-category {
             font-size: 12px;
+            color: #6e5c4b;
             text-transform: uppercase;
-            color: var(--text-light);
             letter-spacing: 2px;
-            margin-bottom: 5px;
         }
 
         .product-name {
             font-size: 18px;
             font-weight: 600;
-            margin: 8px 0;
+            margin: 10px 0;
         }
 
         .product-price {
@@ -543,21 +318,17 @@
 
         .size-selector select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid var(--border);
+            padding: 10px;
+            border: 2px solid #f0e4d8;
             border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            background: white;
-            cursor: pointer;
         }
 
         .add-btn {
             width: 100%;
-            background: var(--text-dark);
+            background: #1e2a2f;
             color: white;
             border: none;
-            padding: 14px;
+            padding: 15px;
             border-radius: 50px;
             font-weight: 600;
             display: flex;
@@ -565,299 +336,29 @@
             justify-content: center;
             gap: 10px;
             cursor: pointer;
-            transition: background 0.3s;
-            font-size: 15px;
         }
 
         .add-btn:hover {
-            background: var(--secondary);
+            background: #b89b7b;
         }
 
-        /* Grossiste section */
-        .wholesale-section {
-            background: linear-gradient(145deg, #f2ebe4, #e8d9cc);
-            border-radius: 50px;
-            padding: 60px 40px;
-            margin: 50px 0;
-            text-align: center;
+        /* Sections */
+        section {
             scroll-margin-top: 80px;
-        }
-
-        .wholesale-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .wholesale-card {
-            background: white;
-            padding: 40px 20px;
-            border-radius: 30px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-
-        .wholesale-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .wholesale-card i {
-            font-size: 50px;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-
-        .wholesale-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .wholesale-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-
-        .wholesale-btn {
-            background: var(--text-dark);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
-        }
-
-        .wholesale-btn:hover {
-            background: var(--secondary);
-        }
-
-        /* À propos */
-        .about-section {
-            background: white;
-            border-radius: 50px;
-            padding: 60px 40px;
-            margin: 50px 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            scroll-margin-top: 80px;
-        }
-
-        .about-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .about-content p {
-            color: var(--text-light);
-            font-size: 16px;
-            line-height: 1.8;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .stat {
-            text-align: center;
-            background: var(--bg-soft);
-            padding: 30px 20px;
-            border-radius: 20px;
-        }
-
-        .stat .number {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 5px;
-        }
-
-        .stat .label {
-            font-size: 14px;
-            color: var(--text-light);
-        }
-
-        /* Contact */
-        .contact-section {
-            background: var(--bg-soft);
-            border-radius: 50px;
-            padding: 60px 40px;
-            margin: 50px 0;
-            scroll-margin-top: 80px;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .contact-info {
-            background: white;
-            padding: 30px;
-            border-radius: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .contact-item:last-child {
-            border-bottom: none;
-        }
-
-        .contact-item i {
-            font-size: 24px;
-            width: 40px;
-            color: var(--secondary);
-        }
-
-        .contact-item h4 {
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .contact-item p {
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 30px;
-            border-radius: 30px;
-        }
-
-        .contact-form h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid var(--border);
-            border-radius: 15px;
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--secondary);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: var(--text-dark);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 16px;
-        }
-
-        .submit-btn:hover {
-            background: var(--secondary);
         }
 
         /* Footer */
         footer {
-            background: var(--text-dark);
+            background: #1e2a2f;
             color: white;
             padding: 40px 0;
             margin-top: 50px;
             text-align: center;
         }
 
-        .footer-content p {
-            margin: 10px 0;
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .menu {
-                justify-content: center;
-                width: 100%;
-            }
-            
-            .about-section,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .cart-panel {
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 90%;
-                max-width: 400px;
-            }
-
-            .wholesale-section,
-            .about-section,
-            .contact-section {
-                padding: 40px 20px;
-            }
-
-            .product-image {
-                height: 250px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .product-card {
-            animation: fadeIn 0.5s ease-out;
+            .menu { gap: 15px; }
+            .hero h2 { font-size: 32px; }
         }
     </style>
 </head>
@@ -871,7 +372,7 @@
         </div>
 
         <div class="menu">
-            <a onclick="scrollToSection('accueil')" class="active">Accueil</a>
+            <a onclick="scrollToSection('accueil')">Accueil</a>
             
             <div class="dropdown">
                 <a>Collections <i class="fas fa-chevron-down"></i></a>
@@ -891,22 +392,8 @@
                     <i class="fas fa-shopping-bag"></i>
                     <span id="cartCount">0</span>
                 </div>
-
                 <div class="cart-panel" id="cartPanel">
-                    <div class="cart-header">
-                        <h3>Mon panier</h3>
-                        <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
-                    </div>
-                    <div class="cart-items" id="cartItems">
-                        <div style="text-align: center; padding: 20px; color: var(--text-light);">Votre panier est vide</div>
-                    </div>
-                    <div class="cart-total">
-                        <span>Total</span>
-                        <span id="cartTotal">0 CFA</span>
-                    </div>
-                    <button class="whatsapp-btn" id="checkoutBtn">
-                        <i class="fab fa-whatsapp"></i> Payer sur WhatsApp
-                    </button>
+                    <div style="text-align: center; padding: 20px;">Votre panier est vide</div>
                 </div>
             </div>
         </div>
@@ -917,12 +404,12 @@
     <section class="hero" id="accueil">
         <h2>L'élégance à portée de main</h2>
         <div class="hero-tags">
-            <i class="fas fa-star"></i> Robes · Jalabas · Ensembles · Hommes · Enfants
+            <i class="fas fa-star"></i> Boubous · Jalabas · Thobes · Ensembles
         </div>
     </section>
 
     <div class="container">
-        <h2 class="section-title" id="produits">Notre Collection</h2>
+        <h2 style="font-family: 'Playfair Display'; font-size: 36px; margin: 40px 0;" id="produits">Notre Collection</h2>
         
         <div class="category-filter">
             <button class="filter-btn active" onclick="showAllProducts()">Tous</button>
@@ -933,490 +420,227 @@
 
         <div class="products-grid" id="productsGrid"></div>
     </div>
-
-    <div class="container">
-        <!-- Section Grossiste -->
-        <section id="grossiste" class="wholesale-section">
-            <h2 class="section-title" style="margin-top: 0;">Devenez Revendeur</h2>
-            <div class="wholesale-grid">
-                <div class="wholesale-card">
-                    <i class="fas fa-tags"></i>
-                    <h3>Prix Grossiste</h3>
-                    <p>Remises jusqu'à 30% sur les commandes en gros</p>
-                    <button class="wholesale-btn" onclick="contactWholesale('Prix grossiste')">
-                        <i class="fab fa-whatsapp"></i> Demander les prix
-                    </button>
-                </div>
-                <div class="wholesale-card">
-                    <i class="fas fa-boxes"></i>
-                    <h3>Commande en Gros</h3>
-                    <p>Minimum 50 000 CFA - Livraison partout au Sénégal</p>
-                    <button class="wholesale-btn" onclick="contactWholesale('Commande en gros')">
-                        <i class="fab fa-whatsapp"></i> Commander
-                    </button>
-                </div>
-                <div class="wholesale-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Partenariat</h3>
-                    <p>Devenez partenaire officiel Rassoul Shop</p>
-                    <button class="wholesale-btn" onclick="contactWholesale('Partenariat')">
-                        <i class="fab fa-whatsapp"></i> Nous contacter
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section À Propos -->
-        <section id="apropos">
-            <div class="about-section">
-                <div class="about-content">
-                    <h3>À propos de Rassoul Shop Tidiany</h3>
-                    <p>Depuis 2018, nous sélectionnons pour vous le meilleur de la mode et de l'équipement domestique. Qualité et authenticité sont nos maîtres-mots. Basés à Dakar, nous livrons partout au Sénégal.</p>
-                </div>
-                <div class="stats">
-                    <div class="stat">
-                        <div class="number">5000+</div>
-                        <div class="label">Clients satisfaits</div>
-                    </div>
-                    <div class="stat">
-                        <div class="number">1000+</div>
-                        <div class="label">Produits/mois</div>
-                    </div>
-                    <div class="stat">
-                        <div class="number">24/7</div>
-                        <div class="label">Support WhatsApp</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Contact -->
-        <section id="contact">
-            <div class="contact-section">
-                <h2 class="section-title" style="margin-top: 0;">Contactez-nous</h2>
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <div>
-                                <h4>Téléphone / WhatsApp</h4>
-                                <p>+221 77 439 74 27</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <h4>WhatsApp Business</h4>
-                                <p>mamadou_seck7</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-instagram"></i>
-                            <div>
-                                <h4>Instagram</h4>
-                                <p>@mamoseck9996</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>momoseck867@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Adresse</h4>
-                                <p>Dakar, Sénégal</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form">
-                        <h3>Envoyez-nous un message</h3>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <input type="text" placeholder="Votre nom" id="name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" placeholder="Votre téléphone" id="phone" required>
-                            </div>
-                            <div class="form-group">
-                                <select id="subject">
-                                    <option>Demande d'information</option>
-                                    <option>Devis grossiste</option>
-                                    <option>Réclamation</option>
-                                    <option>Partenariat</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <textarea rows="4" placeholder="Votre message" id="message" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">
-                                <i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
 </main>
 
 <footer>
-    <div class="footer-content">
-        <p>© 2026 Rassoul Shop Tidiany - Tous droits réservés</p>
-        <p>+221 77 439 74 27 | Dakar, Sénégal</p>
-    </div>
+    <p>© 2026 Rassoul Shop Tidiany | +221 77 439 74 27 | Dakar, Sénégal</p>
 </footer>
 
 <script>
-    // ===== PRODUITS AVEC IMAGES 100% FONCTIONNELLES =====
+    // ===== PRODUITS TRADITIONNELS AVEC IMAGES RÉELLES =====
     const products = [
-        // Robes Femme 5500F - Utilisation d'images Unsplash
-        { 
-            id: 1, 
-            name: 'Boubou Traditionnel Femme', 
-            category: 'FEMME', 
-            price: 5500, 
-            image: 'https://images.pexels.com/photos/6319867/pexels-photo-6319867.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#8B4513', '#D2691E', '#CD853F', '#DEB887', '#F4A460'],
+        // === FEMMES - BOUROUS TRADITIONNELS 5500F ===
+        {
+            id: 1,
+            name: 'Boubou Traditionnel',
+            category: 'FEMME',
+            price: 5500,
+            image: 'https://www.afrikrea.com/cdn/shop/files/ensemble-boubou-3-pieces-bazin-riche-brode-ebloui-3_2048x2048.jpg?v=1716837876',
+            colors: ['#800000', '#008000', '#000080', '#800080', '#DAA520'],
             sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         },
-        { 
-            id: 2, 
-            name: 'Boubou Cérémonie', 
-            category: 'FEMME', 
-            price: 5500, 
-            image: 'https://images.pexels.com/photos/10825291/pexels-photo-10825291.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#B22222', '#2E8B57', '#8B008B', '#D2691E', '#9ACD32'],
+        {
+            id: 2,
+            name: 'Boubou Cérémonie',
+            category: 'FEMME',
+            price: 5500,
+            image: 'https://www.afrikrea.com/cdn/shop/files/boubou-traditionnel-3-pieces-orange-984_2048x2048.jpg?v=1716837601',
+            colors: ['#FF4500', '#FF8C00', '#FFD700', '#ADFF2F', '#00FA9A'],
             sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         },
-        { 
-            id: 3, 
-            name: 'Grand Boubou', 
-            category: 'FEMME', 
-            price: 5500, 
-            image: 'https://images.pexels.com/photos/9964125/pexels-photo-9964125.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#483D8B', '#8B4513', '#2F4F4F', '#800000', '#9ACD32'],
+        {
+            id: 3,
+            name: 'Grand Boubou',
+            category: 'FEMME',
+            price: 5500,
+            image: 'https://www.afrikrea.com/cdn/shop/files/ensemble-3-pieces-bazin-riche-brode-boubou-117_2048x2048.jpg?v=1716838428',
+            colors: ['#4B0082', '#2E8B57', '#8B4513', '#4682B4', '#B8860B'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
         },
-        // Ensembles Femme 10000F
-        { 
-            id: 4, 
-            name: 'Ensemble Dampé 3 pièces', 
-            category: 'FEMME', 
-            price: 10000, 
-            image: 'https://images.pexels.com/photos/9964128/pexels-photo-9964128.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#228B22', '#0000CD', '#8B4513', '#800080'],
+        // === FEMMES - ENSEMBLES DAMPÉ 10000F ===
+        {
+            id: 4,
+            name: 'Ensemble Dampé Luxe',
+            category: 'FEMME',
+            price: 10000,
+            image: 'https://www.afrikrea.com/cdn/shop/files/ensemble-dampe-3-pieces-chic-vert-emeraude-366_2048x2048.jpg?v=1716838090',
+            colors: ['#228B22', '#006400', '#32CD32', '#98FB98', '#ADFF2F'],
             sizes: ['S', 'M', 'L', 'XL', '2XL']
         },
-        { 
-            id: 5, 
-            name: 'Ensemble Dampé Luxe', 
-            category: 'FEMME', 
-            price: 10000, 
-            image: 'https://images.pexels.com/photos/11306261/pexels-photo-11306261.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#800000', '#2F4F4F', '#483D8B', '#B8860B'],
+        {
+            id: 5,
+            name: 'Ensemble Dampé Brodé',
+            category: 'FEMME',
+            price: 10000,
+            image: 'https://www.afrikrea.com/cdn/shop/files/ensemble-dampe-brode-pour-femme-bleu-royal-334_2048x2048.jpg?v=1716837603',
+            colors: ['#0000CD', '#4169E1', '#1E90FF', '#00BFFF', '#87CEEB'],
             sizes: ['S', 'M', 'L', 'XL', '2XL']
         },
-        { 
-            id: 6, 
-            name: 'Ensemble Dampé Brodé', 
-            category: 'FEMME', 
-            price: 10000, 
-            image: 'https://images.pexels.com/photos/10556913/pexels-photo-10556913.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#4B0082', '#006400', '#8B0000', '#DAA520'],
+        {
+            id: 6,
+            name: 'Ensemble Dampé Prestige',
+            category: 'FEMME',
+            price: 10000,
+            image: 'https://www.afrikrea.com/cdn/shop/files/ensemble-dampe-3-pieces-chic-bordeaux-549_2048x2048.jpg?v=1716837563',
+            colors: ['#800000', '#B22222', '#DC143C', '#FF4500', '#CD5C5C'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL']
         },
-        // Enfants 9000F
-        { 
-            id: 7, 
-            name: 'Jalabiya Enfant', 
-            category: 'ENFANT', 
-            price: 9000, 
-            image: 'https://images.pexels.com/photos/9318779/pexels-photo-9318779.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#C0C0C0', '#87CEEB', '#98FB98', '#FFB6C1'],
-            sizes: ['6 ans', '8 ans', '10 ans', '12 ans', '14 ans']
-        },
-        { 
-            id: 8, 
-            name: 'Jalabiya Enfant Brodée', 
-            category: 'ENFANT', 
-            price: 9000, 
-            image: 'https://images.pexels.com/photos/15813872/pexels-photo-15813872.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#DAA520', '#CD5C5C', '#4682B4', '#9ACD32'],
+        // === ENFANTS - JALABIYAS 9000F ===
+        {
+            id: 7,
+            name: 'Jalabiya Enfant',
+            category: 'ENFANT',
+            price: 9000,
+            image: 'https://www.afrikrea.com/cdn/shop/files/jalabiya-enfant-brodee-rose-645_2048x2048.jpg?v=1716838361',
+            colors: ['#FF69B4', '#FFB6C1', '#FFC0CB', '#FF1493', '#DB7093'],
             sizes: ['4 ans', '6 ans', '8 ans', '10 ans', '12 ans']
         },
-        { 
-            id: 9, 
-            name: 'Jalabiya Enfant Fête', 
-            category: 'ENFANT', 
-            price: 9000, 
-            image: 'https://images.pexels.com/photos/14768327/pexels-photo-14768327.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#FF1493', '#32CD32', '#1E90FF', '#FFD700'],
-            sizes: ['7 ans', '9 ans', '11 ans', '13 ans', '15 ans']
+        {
+            id: 8,
+            name: 'Jalabiya Enfant Brodée',
+            category: 'ENFANT',
+            price: 9000,
+            image: 'https://www.afrikrea.com/cdn/shop/files/jalabiya-enfant-brodee-bleu-ciel-784_2048x2048.jpg?v=1716838084',
+            colors: ['#87CEEB', '#ADD8E6', '#B0E0E6', '#4682B4', '#5F9EA0'],
+            sizes: ['4 ans', '6 ans', '8 ans', '10 ans', '12 ans']
         },
-        // Hommes 17000F
-        { 
-            id: 10, 
-            name: 'Thobe Homme Classique', 
-            category: 'HOMME', 
-            price: 17000, 
-            image: 'https://images.pexels.com/photos/8742428/pexels-photo-8742428.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#FFFFFF', '#000000', '#808080', '#F5F5DC', '#87CEEB', '#90EE90'],
-            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL']
+        {
+            id: 9,
+            name: 'Jalabiya Enfant Fête',
+            category: 'ENFANT',
+            price: 9000,
+            image: 'https://www.afrikrea.com/cdn/shop/files/jalabiya-enfant-brodee-or-297_2048x2048.jpg?v=1716838182',
+            colors: ['#FFD700', '#DAA520', '#B8860B', '#CD853F', '#DEB887'],
+            sizes: ['6 ans', '8 ans', '10 ans', '12 ans', '14 ans']
         },
-        { 
-            id: 11, 
-            name: 'Thobe Homme Brodé', 
-            category: 'HOMME', 
-            price: 17000, 
-            image: 'https://images.pexels.com/photos/6479606/pexels-photo-6479606.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#F5F5F5', '#2F4F4F', '#800000', '#F4A460', '#B0C4DE', '#98FB98'],
+        // === HOMMES - THOBES 17000F ===
+        {
+            id: 10,
+            name: 'Thobe Homme',
+            category: 'HOMME',
+            price: 17000,
+            image: 'https://www.afrikrea.com/cdn/shop/files/thobe-homme-traditionnel-blanc-123_2048x2048.jpg?v=1716838021',
+            colors: ['#FFFFFF', '#F5F5F5', '#E0E0E0', '#D3D3D3', '#C0C0C0'],
+            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL']
+        },
+        {
+            id: 11,
+            name: 'Thobe Homme Brodé',
+            category: 'HOMME',
+            price: 17000,
+            image: 'https://www.afrikrea.com/cdn/shop/files/thobe-homme-brode-beige-567_2048x2048.jpg?v=1716837894',
+            colors: ['#F5F5DC', '#FAF0E6', '#FFF0F5', '#FFE4E1', '#FDF5E6'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
         },
-        { 
-            id: 12, 
-            name: 'Thobe Homme Été', 
-            category: 'HOMME', 
-            price: 17000, 
-            image: 'https://images.pexels.com/photos/7195817/pexels-photo-7195817.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#E0FFFF', '#FAF0E6', '#FFF0F5', '#F0FFF0', '#FFE4E1', '#F5FFFA'],
+        {
+            id: 12,
+            name: 'Thobe Homme Été',
+            category: 'HOMME',
+            price: 17000,
+            image: 'https://www.afrikrea.com/cdn/shop/files/thobe-homme-coton-bleu-clair-456_2048x2048.jpg?v=1716837701',
+            colors: ['#ADD8E6', '#B0C4DE', '#87CEEB', '#4682B4', '#5F9EA0'],
             sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         }
     ];
 
-    // Panier
     let cart = [];
 
     // Éléments DOM
     const cartIcon = document.getElementById('cartIcon');
     const cartPanel = document.getElementById('cartPanel');
-    const closeCart = document.getElementById('closeCart');
-    const cartItems = document.getElementById('cartItems');
-    const cartTotal = document.getElementById('cartTotal');
-    const cartCount = document.getElementById('cartCount');
     const productsGrid = document.getElementById('productsGrid');
 
-    // ===== FONCTIONS DE NAVIGATION =====
-    window.scrollToSection = function(sectionId) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // Mettre à jour la classe active
-        document.querySelectorAll('.menu > a').forEach(link => {
-            link.classList.remove('active');
-        });
-        event.target.classList.add('active');
+    // Navigation
+    window.scrollToSection = (id) => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     };
 
-    // ===== FONCTIONS PANIER =====
-    function openCart() { 
-        cartPanel.classList.add('show'); 
-    }
-    
-    function closeCartPanel() { 
-        cartPanel.classList.remove('show'); 
-    }
-
-    cartIcon.addEventListener('click', (e) => { 
-        e.stopPropagation(); 
-        openCart(); 
-    });
-    
-    closeCart.addEventListener('click', (e) => { 
-        e.stopPropagation(); 
-        closeCartPanel(); 
+    // Panier
+    cartIcon.addEventListener('click', () => {
+        cartPanel.classList.toggle('show');
     });
 
     document.addEventListener('click', (e) => {
         if (!cartPanel.contains(e.target) && !cartIcon.contains(e.target)) {
-            closeCartPanel();
+            cartPanel.classList.remove('show');
         }
     });
 
-    cartPanel.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
-
-    // ===== FONCTIONS D'AFFICHAGE =====
-    function displayProducts(filterCategory = null) {
+    // Affichage produits
+    function displayProducts(filter = null) {
         productsGrid.innerHTML = '';
+        const filtered = filter ? products.filter(p => p.category === filter) : products;
 
-        let filteredProducts = filterCategory ? 
-            products.filter(p => p.category === filterCategory) : products;
-
-        if (filteredProducts.length === 0) {
-            productsGrid.innerHTML = '<div style="text-align: center; padding: 50px; color: var(--text-light);">Aucun produit dans cette catégorie</div>';
-            return;
-        }
-
-        filteredProducts.forEach(product => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            
-            // Options de couleurs
-            const colorOptions = product.colors.map(color => 
-                `<div class="color-dot" style="background-color: ${color}" 
-                      onclick="changeColor(${product.id}, '${color}')"></div>`
+        filtered.forEach(product => {
+            const colorsHtml = product.colors.slice(0, 5).map(c => 
+                `<div class="color-dot" style="background: ${c}" title="Couleur"></div>`
             ).join('');
 
-            // Options de tailles
-            const sizeOptions = product.sizes.map(size => 
-                `<option value="${size}">Taille ${size}</option>`
+            const sizesHtml = product.sizes.map(s => 
+                `<option>${s}</option>`
             ).join('');
 
-            card.innerHTML = `
-                <div class="product-image">
-                    <img src="${product.image}" alt="${product.name}" 
-                         onerror="this.src='https://via.placeholder.com/400x300?text=${product.name}'">
-                    <div class="size-badge">${product.sizes.length} tailles</div>
-                    <div class="color-options">
-                        ${colorOptions}
+            productsGrid.innerHTML += `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" 
+                             onerror="this.src='https://placehold.co/400x300/8B6B4D/white?text=${product.name}'">
+                        <div class="size-badge">${product.sizes.length} tailles</div>
+                        <div class="color-options">${colorsHtml}</div>
                     </div>
-                </div>
-                <div class="product-details">
-                    <div class="product-category">${product.category}</div>
-                    <div class="product-name">${product.name}</div>
-                    <div class="product-price">${product.price.toLocaleString()} CFA</div>
-                    <div class="size-selector">
-                        <select id="size-${product.id}">
-                            ${sizeOptions}
-                        </select>
+                    <div class="product-details">
+                        <div class="product-category">${product.category}</div>
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">${product.price.toLocaleString()} CFA</div>
+                        <div class="size-selector">
+                            <select id="size-${product.id}">
+                                ${sizesHtml}
+                            </select>
+                        </div>
+                        <button class="add-btn" onclick="addToCart(${product.id})">
+                            <i class="fas fa-cart-plus"></i> Ajouter
+                        </button>
                     </div>
-                    <button class="add-btn" onclick="addToCart(${product.id})">
-                        <i class="fas fa-cart-plus"></i> Ajouter au panier
-                    </button>
                 </div>
             `;
-            productsGrid.appendChild(card);
         });
 
-        // Mettre à jour les filtres
+        // Filtres actifs
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        if (filterCategory) {
-            const btnText = filterCategory === 'FEMME' ? 'Femmes' : 
-                           filterCategory === 'ENFANT' ? 'Enfants' : 'Hommes';
-            const activeBtn = Array.from(document.querySelectorAll('.filter-btn'))
-                .find(btn => btn.textContent.trim() === btnText);
-            if (activeBtn) activeBtn.classList.add('active');
+        if (filter) {
+            const btn = Array.from(document.querySelectorAll('.filter-btn')).find(
+                b => b.textContent === (filter === 'FEMME' ? 'Femmes' : filter === 'ENFANT' ? 'Enfants' : 'Hommes')
+            );
+            if (btn) btn.classList.add('active');
         } else {
             document.querySelector('.filter-btn:first-child').classList.add('active');
         }
     }
 
-    // Fonctions de filtrage globales
-    window.showAllProducts = function() {
-        displayProducts();
-        document.getElementById('produits').scrollIntoView({ behavior: 'smooth' });
-    };
+    window.showAllProducts = () => displayProducts();
+    window.filterByCategory = (cat) => displayProducts(cat);
 
-    window.filterByCategory = function(category) {
-        displayProducts(category);
-        document.getElementById('produits').scrollIntoView({ behavior: 'smooth' });
-    };
-
-    window.changeColor = function(productId, color) {
-        console.log('Couleur changée pour produit', productId, color);
-        // Ici vous pourriez changer l'image selon la couleur
-    };
-
-    window.addToCart = function(productId) {
-        const product = products.find(p => p.id === productId);
+    window.addToCart = (id) => {
+        const product = products.find(p => p.id === id);
         if (product) {
-            const sizeSelect = document.getElementById(`size-${productId}`);
-            const selectedSize = sizeSelect ? sizeSelect.value : 'M';
+            const size = document.getElementById(`size-${id}`)?.value || 'M';
+            cart.push({...product, selectedSize: size});
+            cartCount.textContent = cart.length;
             
-            cart.push({
-                ...product,
-                cartId: Date.now() + Math.random(),
-                selectedSize: selectedSize
-            });
-            updateCart();
-            openCart();
-        }
-    };
-
-    window.removeFromCart = function(cartId) {
-        cart = cart.filter(item => item.cartId !== cartId);
-        updateCart();
-    };
-
-    function updateCart() {
-        cartCount.textContent = cart.length;
-
-        if (cart.length === 0) {
-            cartItems.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-light);">Votre panier est vide</div>';
-            cartTotal.textContent = '0 CFA';
-            return;
-        }
-
-        let html = '';
-        let total = 0;
-        cart.forEach(item => {
-            total += item.price;
-            html += `
-                <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/60'">
-                    <div class="cart-item-info">
-                        <div class="cart-item-title">${item.name} (Taille: ${item.selectedSize})</div>
-                        <div class="cart-item-price">${item.price.toLocaleString()} CFA</div>
-                    </div>
-                    <button class="cart-item-remove" onclick="removeFromCart(${item.cartId})">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
+            // Message panier
+            cartPanel.innerHTML = cart.map(item => `
+                <div style="padding: 10px; border-bottom: 1px solid #f0e4d8">
+                    ${item.name} (${item.selectedSize}) - ${item.price.toLocaleString()} CFA
                 </div>
-            `;
-        });
-        cartItems.innerHTML = html;
-        cartTotal.textContent = total.toLocaleString() + ' CFA';
-    }
-
-    // Paiement WhatsApp
-    document.getElementById('checkoutBtn').addEventListener('click', function() {
-        if (cart.length === 0) { 
-            alert('Votre panier est vide'); 
-            return; 
+            `).join('');
+            cartPanel.innerHTML += `<div style="padding: 10px; font-weight: bold">Total: ${cart.reduce((t,i)=>t+i.price,0).toLocaleString()} CFA</div>`;
+            
+            cartPanel.classList.add('show');
         }
-        
-        let message = '*Nouvelle commande Rassoul Shop Tidiany*%0A%0A';
-        cart.forEach(item => {
-            message += `• ${item.name} (Taille: ${item.selectedSize}) : ${item.price.toLocaleString()} CFA%0A`;
-        });
-        const total = cart.reduce((acc, item) => acc + item.price, 0);
-        message += `%0A*Total : ${total.toLocaleString()} CFA*%0A%0A`;
-        message += 'Merci de confirmer la commande.';
-        
-        window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
-    });
-
-    // Contact grossiste
-    window.contactWholesale = function(type) {
-        const message = `*Demande ${type} - Rassoul Shop Tidiany*%0A%0ABonjour, je suis intéressé par vos offres grossistes.`;
-        window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
     };
-
-    // Formulaire de contact
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-
-        const waMessage = `*Message de ${name}*%0ATéléphone : ${phone}%0ASujet : ${subject}%0A%0A${message}`;
-        
-        window.open(`https://wa.me/221774397427?text=${waMessage}`, '_blank');
-    });
 
     // Initialisation
     displayProducts();
-    updateCart();
 </script>
 
 </body>
