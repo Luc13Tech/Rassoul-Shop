@@ -446,6 +446,23 @@
             transform: scale(1.05);
         }
 
+        .no-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .no-image i {
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
         .size-badge {
             position: absolute;
             top: 10px;
@@ -860,6 +877,7 @@
                 <a>Collections <i class="fas fa-chevron-down"></i></a>
                 <div class="dropdown-content">
                     <a onclick="filterByCategory('FEMME')"><i class="fas fa-fan"></i> Femmes</a>
+                    <a onclick="filterByCategory('HOMME')"><i class="fas fa-user-tie"></i> Hommes</a>
                     <a onclick="filterByCategory('ENFANT')"><i class="fas fa-child"></i> Enfants</a>
                 </div>
             </div>
@@ -899,7 +917,7 @@
     <section class="hero" id="accueil">
         <h2>L'élégance à portée de main</h2>
         <div class="hero-tags">
-            <i class="fas fa-star"></i> Boubous · Ensembles · Jalabas
+            <i class="fas fa-star"></i> Femmes · Hommes · Enfants
         </div>
     </section>
 
@@ -909,6 +927,7 @@
         <div class="category-filter">
             <button class="filter-btn active" onclick="showAllProducts()">Tous</button>
             <button class="filter-btn" onclick="filterByCategory('FEMME')">Femmes</button>
+            <button class="filter-btn" onclick="filterByCategory('HOMME')">Hommes</button>
             <button class="filter-btn" onclick="filterByCategory('ENFANT')">Enfants</button>
         </div>
 
@@ -1055,10 +1074,10 @@
 <script>
     // ===== PRODUITS AVEC VOS 4 IMAGES =====
     const products = [
-        // Boubous Femme 5500F
+        // Femmes - Boubous 5500F
         { 
             id: 1, 
-            name: 'Boubou Traditionnel', 
+            name: 'Boubou Traditionnel Femme', 
             category: 'FEMME', 
             price: 5500, 
             image: 'images/boubou-traditionnel.jpg',
@@ -1067,7 +1086,7 @@
         },
         { 
             id: 2, 
-            name: 'Boubou Cérémonie', 
+            name: 'Boubou Cérémonie Femme', 
             category: 'FEMME', 
             price: 5500, 
             image: 'images/boubou-ceremonie.jpg',
@@ -1076,17 +1095,17 @@
         },
         { 
             id: 3, 
-            name: 'Grand Boubou', 
+            name: 'Grand Boubou Femme', 
             category: 'FEMME', 
             price: 5500, 
             image: 'images/boubou-traditionnel.jpg',
             colors: ['#483D8B', '#8B4513', '#2F4F4F', '#800000', '#9ACD32'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
         },
-        // Ensembles Femme 10000F
+        // Femmes - Ensembles 10000F
         { 
             id: 4, 
-            name: 'Ensemble Dampé', 
+            name: 'Ensemble Dampé Femme', 
             category: 'FEMME', 
             price: 10000, 
             image: 'images/ensemble-dampe.jpg',
@@ -1111,9 +1130,37 @@
             colors: ['#4B0082', '#006400', '#8B0000', '#DAA520'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL']
         },
-        // Enfants 9000F
+        // Hommes - Thobes 17000F
         { 
             id: 7, 
+            name: 'Thobe Homme Classique', 
+            category: 'HOMME', 
+            price: 17000, 
+            image: 'images/thobe-homme.jpg',
+            colors: ['#FFFFFF', '#000000', '#808080', '#F5F5DC', '#87CEEB', '#90EE90'],
+            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL']
+        },
+        { 
+            id: 8, 
+            name: 'Thobe Homme Brodé', 
+            category: 'HOMME', 
+            price: 17000, 
+            image: 'images/thobe-homme.jpg',
+            colors: ['#F5F5F5', '#2F4F4F', '#800000', '#F4A460', '#B0C4DE', '#98FB98'],
+            sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
+        },
+        { 
+            id: 9, 
+            name: 'Thobe Homme Été', 
+            category: 'HOMME', 
+            price: 17000, 
+            image: 'images/thobe-homme.jpg',
+            colors: ['#E0FFFF', '#FAF0E6', '#FFF0F5', '#F0FFF0', '#FFE4E1', '#F5FFFA'],
+            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
+        },
+        // Enfants 9000F
+        { 
+            id: 10, 
             name: 'Jalabiya Enfant', 
             category: 'ENFANT', 
             price: 9000, 
@@ -1122,7 +1169,7 @@
             sizes: ['6 ans', '8 ans', '10 ans', '12 ans', '14 ans']
         },
         { 
-            id: 8, 
+            id: 11, 
             name: 'Jalabiya Enfant Brodée', 
             category: 'ENFANT', 
             price: 9000, 
@@ -1131,7 +1178,7 @@
             sizes: ['4 ans', '6 ans', '8 ans', '10 ans', '12 ans']
         },
         { 
-            id: 9, 
+            id: 12, 
             name: 'Jalabiya Enfant Fête', 
             category: 'ENFANT', 
             price: 9000, 
@@ -1254,7 +1301,11 @@
         // Mettre à jour les filtres
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
         if (filterCategory) {
-            const btnText = filterCategory === 'FEMME' ? 'Femmes' : 'Enfants';
+            let btnText = '';
+            if (filterCategory === 'FEMME') btnText = 'Femmes';
+            else if (filterCategory === 'HOMME') btnText = 'Hommes';
+            else if (filterCategory === 'ENFANT') btnText = 'Enfants';
+            
             const activeBtn = Array.from(document.querySelectorAll('.filter-btn'))
                 .find(btn => btn.textContent.trim() === btnText);
             if (activeBtn) activeBtn.classList.add('active');
