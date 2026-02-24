@@ -917,7 +917,7 @@
     <section class="hero" id="accueil">
         <h2>L'élégance à portée de main</h2>
         <div class="hero-tags">
-            <i class="fas fa-star"></i> Robes · Jalabas · Ensembles · Hommes · Enfants
+            <i class="fas fa-star"></i> Boubous · Ensembles · Jalabas
         </div>
     </section>
 
@@ -928,7 +928,6 @@
             <button class="filter-btn active" onclick="showAllProducts()">Tous</button>
             <button class="filter-btn" onclick="filterByCategory('FEMME')">Femmes</button>
             <button class="filter-btn" onclick="filterByCategory('ENFANT')">Enfants</button>
-            <button class="filter-btn" onclick="filterByCategory('HOMME')">Hommes</button>
         </div>
 
         <div class="products-grid" id="productsGrid"></div>
@@ -1072,15 +1071,15 @@
 </footer>
 
 <script>
-    // ===== PRODUITS AVEC IMAGES 100% FONCTIONNELLES =====
+    // ===== PRODUITS AVEC VOS 4 IMAGES =====
     const products = [
-        // Robes Femme 5500F - Utilisation d'images Unsplash
+        // Boubous Femme 5500F (2 variantes avec la même image)
         { 
             id: 1, 
-            name: 'Boubou Traditionnel Femme', 
+            name: 'Boubou Traditionnel', 
             category: 'FEMME', 
             price: 5500, 
-            image: 'https://images.pexels.com/photos/6319867/pexels-photo-6319867.jpeg?auto=compress&cs=tinysrgb&w=600',
+            image: 'images/boubou-traditionnel.jpg',
             colors: ['#8B4513', '#D2691E', '#CD853F', '#DEB887', '#F4A460'],
             sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         },
@@ -1089,7 +1088,7 @@
             name: 'Boubou Cérémonie', 
             category: 'FEMME', 
             price: 5500, 
-            image: 'https://images.pexels.com/photos/10825291/pexels-photo-10825291.jpeg?auto=compress&cs=tinysrgb&w=600',
+            image: 'images/boubou-ceremonie.jpg',
             colors: ['#B22222', '#2E8B57', '#8B008B', '#D2691E', '#9ACD32'],
             sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         },
@@ -1098,17 +1097,17 @@
             name: 'Grand Boubou', 
             category: 'FEMME', 
             price: 5500, 
-            image: 'https://images.pexels.com/photos/9964125/pexels-photo-9964125.jpeg?auto=compress&cs=tinysrgb&w=600',
+            image: 'images/boubou-traditionnel.jpg',
             colors: ['#483D8B', '#8B4513', '#2F4F4F', '#800000', '#9ACD32'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
         },
-        // Ensembles Femme 10000F
+        // Ensembles Femme 10000F (3 variantes avec la même image)
         { 
             id: 4, 
-            name: 'Ensemble Dampé 3 pièces', 
+            name: 'Ensemble Dampé', 
             category: 'FEMME', 
             price: 10000, 
-            image: 'https://images.pexels.com/photos/9964128/pexels-photo-9964128.jpeg?auto=compress&cs=tinysrgb&w=600',
+            image: 'images/ensemble-dampe.jpg',
             colors: ['#228B22', '#0000CD', '#8B4513', '#800080'],
             sizes: ['S', 'M', 'L', 'XL', '2XL']
         },
@@ -1117,7 +1116,7 @@
             name: 'Ensemble Dampé Luxe', 
             category: 'FEMME', 
             price: 10000, 
-            image: 'https://images.pexels.com/photos/11306261/pexels-photo-11306261.jpeg?auto=compress&cs=tinysrgb&w=600',
+            image: 'images/ensemble-dampe.jpg',
             colors: ['#800000', '#2F4F4F', '#483D8B', '#B8860B'],
             sizes: ['S', 'M', 'L', 'XL', '2XL']
         },
@@ -1126,17 +1125,17 @@
             name: 'Ensemble Dampé Brodé', 
             category: 'FEMME', 
             price: 10000, 
-            image: 'https://images.pexels.com/photos/10556913/pexels-photo-10556913.jpeg?auto=compress&cs=tinysrgb&w=600',
+            image: 'images/ensemble-dampe.jpg',
             colors: ['#4B0082', '#006400', '#8B0000', '#DAA520'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL']
         },
-        // Enfants 9000F
+        // Enfants 9000F (3 variantes avec la même image)
         { 
             id: 7, 
             name: 'Jalabiya Enfant', 
             category: 'ENFANT', 
             price: 9000, 
-            image: 'https://images.pexels.com/photos/9318779/pexels-photo-9318779.jpeg?auto=compress&cs=tinysrgb&w=600',
+            image: 'images/jalabiya-enfant.jpg',
             colors: ['#C0C0C0', '#87CEEB', '#98FB98', '#FFB6C1'],
             sizes: ['6 ans', '8 ans', '10 ans', '12 ans', '14 ans']
         },
@@ -1145,7 +1144,7 @@
             name: 'Jalabiya Enfant Brodée', 
             category: 'ENFANT', 
             price: 9000, 
-            image: 'https://images.pexels.com/photos/15813872/pexels-photo-15813872.jpeg?auto=compress&cs=tinysrgb&w=600',
+            image: 'images/jalabiya-enfant.jpg',
             colors: ['#DAA520', '#CD5C5C', '#4682B4', '#9ACD32'],
             sizes: ['4 ans', '6 ans', '8 ans', '10 ans', '12 ans']
         },
@@ -1154,37 +1153,9 @@
             name: 'Jalabiya Enfant Fête', 
             category: 'ENFANT', 
             price: 9000, 
-            image: 'https://images.pexels.com/photos/14768327/pexels-photo-14768327.jpeg?auto=compress&cs=tinysrgb&w=600',
+            image: 'images/jalabiya-enfant.jpg',
             colors: ['#FF1493', '#32CD32', '#1E90FF', '#FFD700'],
             sizes: ['7 ans', '9 ans', '11 ans', '13 ans', '15 ans']
-        },
-        // Hommes 17000F
-        { 
-            id: 10, 
-            name: 'Thobe Homme Classique', 
-            category: 'HOMME', 
-            price: 17000, 
-            image: 'https://images.pexels.com/photos/8742428/pexels-photo-8742428.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#FFFFFF', '#000000', '#808080', '#F5F5DC', '#87CEEB', '#90EE90'],
-            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL']
-        },
-        { 
-            id: 11, 
-            name: 'Thobe Homme Brodé', 
-            category: 'HOMME', 
-            price: 17000, 
-            image: 'https://images.pexels.com/photos/6479606/pexels-photo-6479606.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#F5F5F5', '#2F4F4F', '#800000', '#F4A460', '#B0C4DE', '#98FB98'],
-            sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
-        },
-        { 
-            id: 12, 
-            name: 'Thobe Homme Été', 
-            category: 'HOMME', 
-            price: 17000, 
-            image: 'https://images.pexels.com/photos/7195817/pexels-photo-7195817.jpeg?auto=compress&cs=tinysrgb&w=600',
-            colors: ['#E0FFFF', '#FAF0E6', '#FFF0F5', '#F0FFF0', '#FFE4E1', '#F5FFFA'],
-            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         }
     ];
 
@@ -1211,7 +1182,9 @@
         document.querySelectorAll('.menu > a').forEach(link => {
             link.classList.remove('active');
         });
-        event.target.classList.add('active');
+        if (event && event.target) {
+            event.target.classList.add('active');
+        }
     };
 
     // ===== FONCTIONS PANIER =====
@@ -1299,8 +1272,7 @@
         // Mettre à jour les filtres
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
         if (filterCategory) {
-            const btnText = filterCategory === 'FEMME' ? 'Femmes' : 
-                           filterCategory === 'ENFANT' ? 'Enfants' : 'Hommes';
+            const btnText = filterCategory === 'FEMME' ? 'Femmes' : 'Enfants';
             const activeBtn = Array.from(document.querySelectorAll('.filter-btn'))
                 .find(btn => btn.textContent.trim() === btnText);
             if (activeBtn) activeBtn.classList.add('active');
@@ -1322,7 +1294,6 @@
 
     window.changeColor = function(productId, color) {
         console.log('Couleur changée pour produit', productId, color);
-        // Ici vous pourriez changer l'image selon la couleur
     };
 
     window.addToCart = function(productId) {
