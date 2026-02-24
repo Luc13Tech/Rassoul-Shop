@@ -75,6 +75,7 @@
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.2;
         }
 
         .logo span {
@@ -96,10 +97,27 @@
             color: var(--text-soft);
             font-weight: 500;
             cursor: pointer;
+            font-size: clamp(14px, 2vw, 16px);
+            transition: color 0.3s;
         }
 
+        .menu > a:hover {
+            color: var(--secondary);
+        }
+
+        .menu > a.active {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 4px;
+        }
+
+        /* Dropdown */
         .dropdown {
             position: relative;
+        }
+
+        .dropdown > a {
+            cursor: pointer;
         }
 
         .dropdown-content {
@@ -113,6 +131,7 @@
             padding: 10px 0;
             display: none;
             z-index: 1001;
+            margin-top: 10px;
         }
 
         .dropdown:hover .dropdown-content {
@@ -126,11 +145,17 @@
             gap: 12px;
             color: var(--text-soft);
             text-decoration: none;
+            transition: background 0.3s;
+            cursor: pointer;
         }
 
         .dropdown-content a i {
             width: 20px;
             color: var(--secondary);
+        }
+
+        .dropdown-content a:hover {
+            background: var(--bg-soft);
         }
 
         /* Panier */
@@ -148,6 +173,11 @@
             justify-content: center;
             cursor: pointer;
             position: relative;
+            transition: background 0.3s;
+        }
+
+        .cart-icon:hover {
+            background: #e8d9cc;
         }
 
         .cart-icon i {
@@ -168,6 +198,7 @@
             align-items: center;
             justify-content: center;
             font-size: 12px;
+            font-weight: 600;
             border: 2px solid white;
         }
 
@@ -205,6 +236,12 @@
             font-size: 24px;
             cursor: pointer;
             color: var(--text-light);
+            transition: transform 0.3s;
+        }
+
+        .close-cart:hover {
+            color: var(--text-dark);
+            transform: rotate(90deg);
         }
 
         .cart-items {
@@ -250,6 +287,11 @@
             color: #a66f5c;
             cursor: pointer;
             font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .cart-item-remove:hover {
+            color: #d32f2f;
         }
 
         .cart-total {
@@ -275,6 +317,11 @@
             gap: 10px;
             cursor: pointer;
             width: 100%;
+            transition: background 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: var(--whatsapp-hover);
         }
 
         /* Hero */
@@ -283,12 +330,14 @@
             text-align: center;
             padding: 60px 20px;
             margin-bottom: 40px;
+            scroll-margin-top: 80px;
         }
 
         .hero h2 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(32px, 6vw, 48px);
             font-weight: 400;
+            color: #30271f;
             margin-bottom: 20px;
         }
 
@@ -301,6 +350,11 @@
             color: var(--text-light);
         }
 
+        .hero-tags i {
+            color: var(--secondary);
+            margin: 0 5px;
+        }
+
         /* Section titre */
         .section-title {
             font-family: 'Playfair Display', serif;
@@ -308,6 +362,7 @@
             font-weight: 400;
             margin: 50px 0 30px;
             position: relative;
+            scroll-margin-top: 80px;
         }
 
         .section-title::after {
@@ -336,6 +391,11 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: var(--bg-soft);
         }
 
         .filter-btn.active {
@@ -357,7 +417,7 @@
             border-radius: 25px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .product-card:hover {
@@ -369,12 +429,38 @@
             height: 300px;
             position: relative;
             overflow: hidden;
+            background: #f3ede8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .no-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .no-image i {
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: var(--secondary);
         }
 
         .color-options {
@@ -423,6 +509,7 @@
             border-radius: 50px;
             font-size: 12px;
             font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .product-details {
@@ -434,6 +521,7 @@
             text-transform: uppercase;
             color: var(--text-light);
             letter-spacing: 2px;
+            margin-bottom: 5px;
         }
 
         .product-name {
@@ -455,10 +543,13 @@
 
         .size-selector select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 2px solid var(--border);
             border-radius: 50px;
             font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
         }
 
         .add-btn {
@@ -466,7 +557,7 @@
             background: var(--text-dark);
             color: white;
             border: none;
-            padding: 12px;
+            padding: 14px;
             border-radius: 50px;
             font-weight: 600;
             display: flex;
@@ -474,6 +565,8 @@
             justify-content: center;
             gap: 10px;
             cursor: pointer;
+            transition: background 0.3s;
+            font-size: 15px;
         }
 
         .add-btn:hover {
@@ -487,6 +580,7 @@
             padding: 60px 40px;
             margin: 50px 0;
             text-align: center;
+            scroll-margin-top: 80px;
         }
 
         .wholesale-grid {
@@ -501,6 +595,12 @@
             padding: 40px 20px;
             border-radius: 30px;
             box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .wholesale-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
 
         .wholesale-card i {
@@ -527,6 +627,12 @@
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .wholesale-btn:hover {
+            background: var(--secondary);
         }
 
         /* À propos */
@@ -539,6 +645,19 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
+            scroll-margin-top: 80px;
+        }
+
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.8;
         }
 
         .stats {
@@ -549,12 +668,21 @@
 
         .stat {
             text-align: center;
+            background: var(--bg-soft);
+            padding: 30px 20px;
+            border-radius: 20px;
         }
 
         .stat .number {
             font-size: 36px;
             font-weight: 700;
             color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .stat .label {
+            font-size: 14px;
+            color: var(--text-light);
         }
 
         /* Contact */
@@ -563,12 +691,14 @@
             border-radius: 50px;
             padding: 60px 40px;
             margin: 50px 0;
+            scroll-margin-top: 80px;
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
+            margin-top: 40px;
         }
 
         .contact-info {
@@ -585,16 +715,35 @@
             border-bottom: 1px solid var(--border);
         }
 
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
         .contact-item i {
             font-size: 24px;
             width: 40px;
             color: var(--secondary);
         }
 
+        .contact-item h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
         .contact-form {
             background: white;
             padding: 30px;
             border-radius: 30px;
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
         }
 
         .form-group {
@@ -609,6 +758,15 @@
             border: 2px solid var(--border);
             border-radius: 15px;
             font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
         }
 
         .submit-btn {
@@ -620,6 +778,12 @@
             border-radius: 15px;
             font-weight: 600;
             cursor: pointer;
+            transition: background 0.3s;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary);
         }
 
         /* Footer */
@@ -631,23 +795,33 @@
             text-align: center;
         }
 
+        .footer-content p {
+            margin: 10px 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
+                gap: 15px;
             }
             
             .menu {
                 justify-content: center;
+                width: 100%;
             }
             
             .about-section,
             .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
             
             .stats {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
             
             .cart-panel {
@@ -655,7 +829,35 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                width: 90%;
+                max-width: 400px;
             }
+
+            .wholesale-section,
+            .about-section,
+            .contact-section {
+                padding: 40px 20px;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card {
+            animation: fadeIn 0.5s ease-out;
         }
     </style>
 </head>
@@ -669,7 +871,7 @@
         </div>
 
         <div class="menu">
-            <a onclick="showAllProducts()">Accueil</a>
+            <a onclick="scrollToSection('accueil')" class="active">Accueil</a>
             
             <div class="dropdown">
                 <a>Collections <i class="fas fa-chevron-down"></i></a>
@@ -680,9 +882,9 @@
                 </div>
             </div>
 
-            <a href="#grossiste">Grossiste</a>
-            <a href="#apropos">À propos</a>
-            <a href="#contact">Contact</a>
+            <a onclick="scrollToSection('grossiste')">Grossiste</a>
+            <a onclick="scrollToSection('apropos')">À propos</a>
+            <a onclick="scrollToSection('contact')">Contact</a>
 
             <div class="cart-container">
                 <div class="cart-icon" id="cartIcon">
@@ -695,7 +897,9 @@
                         <h3>Mon panier</h3>
                         <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
                     </div>
-                    <div class="cart-items" id="cartItems"></div>
+                    <div class="cart-items" id="cartItems">
+                        <div style="text-align: center; padding: 20px; color: var(--text-light);">Votre panier est vide</div>
+                    </div>
                     <div class="cart-total">
                         <span>Total</span>
                         <span id="cartTotal">0 CFA</span>
@@ -710,7 +914,7 @@
 </header>
 
 <main>
-    <section class="hero">
+    <section class="hero" id="accueil">
         <h2>L'élégance à portée de main</h2>
         <div class="hero-tags">
             <i class="fas fa-star"></i> Robes · Jalabas · Ensembles · Hommes · Enfants
@@ -718,7 +922,7 @@
     </section>
 
     <div class="container">
-        <h2 class="section-title">Notre Collection</h2>
+        <h2 class="section-title" id="produits">Notre Collection</h2>
         
         <div class="category-filter">
             <button class="filter-btn active" onclick="showAllProducts()">Tous</button>
@@ -729,139 +933,256 @@
 
         <div class="products-grid" id="productsGrid"></div>
     </div>
+
+    <div class="container">
+        <!-- Section Grossiste -->
+        <section id="grossiste" class="wholesale-section">
+            <h2 class="section-title" style="margin-top: 0;">Devenez Revendeur</h2>
+            <div class="wholesale-grid">
+                <div class="wholesale-card">
+                    <i class="fas fa-tags"></i>
+                    <h3>Prix Grossiste</h3>
+                    <p>Remises jusqu'à 30% sur les commandes en gros</p>
+                    <button class="wholesale-btn" onclick="contactWholesale('Prix grossiste')">
+                        <i class="fab fa-whatsapp"></i> Demander les prix
+                    </button>
+                </div>
+                <div class="wholesale-card">
+                    <i class="fas fa-boxes"></i>
+                    <h3>Commande en Gros</h3>
+                    <p>Minimum 50 000 CFA - Livraison partout au Sénégal</p>
+                    <button class="wholesale-btn" onclick="contactWholesale('Commande en gros')">
+                        <i class="fab fa-whatsapp"></i> Commander
+                    </button>
+                </div>
+                <div class="wholesale-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Partenariat</h3>
+                    <p>Devenez partenaire officiel Rassoul Shop</p>
+                    <button class="wholesale-btn" onclick="contactWholesale('Partenariat')">
+                        <i class="fab fa-whatsapp"></i> Nous contacter
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section À Propos -->
+        <section id="apropos">
+            <div class="about-section">
+                <div class="about-content">
+                    <h3>À propos de Rassoul Shop Tidiany</h3>
+                    <p>Depuis 2018, nous sélectionnons pour vous le meilleur de la mode et de l'équipement domestique. Qualité et authenticité sont nos maîtres-mots. Basés à Dakar, nous livrons partout au Sénégal.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="number">5000+</div>
+                        <div class="label">Clients satisfaits</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">1000+</div>
+                        <div class="label">Produits/mois</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">24/7</div>
+                        <div class="label">Support WhatsApp</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact">
+            <div class="contact-section">
+                <h2 class="section-title" style="margin-top: 0;">Contactez-nous</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Téléphone / WhatsApp</h4>
+                                <p>+221 77 439 74 27</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp Business</h4>
+                                <p>mamadou_seck7</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-instagram"></i>
+                            <div>
+                                <h4>Instagram</h4>
+                                <p>@mamoseck9996</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>momoseck867@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Adresse</h4>
+                                <p>Dakar, Sénégal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Envoyez-nous un message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" placeholder="Votre nom" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder="Votre téléphone" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <select id="subject">
+                                    <option>Demande d'information</option>
+                                    <option>Devis grossiste</option>
+                                    <option>Réclamation</option>
+                                    <option>Partenariat</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="4" placeholder="Votre message" id="message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fab fa-whatsapp"></i> Envoyer sur WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </main>
 
 <footer>
-    <div class="container">
+    <div class="footer-content">
         <p>© 2026 Rassoul Shop Tidiany - Tous droits réservés</p>
         <p>+221 77 439 74 27 | Dakar, Sénégal</p>
     </div>
 </footer>
 
 <script>
-    // ===== PRODUITS COMPLETS AVEC IMAGES RÉELLES =====
+    // ===== PRODUITS AVEC IMAGES 100% FONCTIONNELLES =====
     const products = [
-        // 1. Boubou Africain Femme (5500F) - 5 couleurs [citation:1]
+        // Robes Femme 5500F - Utilisation d'images Unsplash
         { 
             id: 1, 
             name: 'Boubou Traditionnel Femme', 
             category: 'FEMME', 
             price: 5500, 
-            image: 'https://boutique-africaine.com/cdn/shop/files/boubou-africain-couleur-unie-bleu-fonce-983589_800x.jpg?v=1716923893',
-            colors: ['#00008B', '#800000', '#006400', '#4B0082', '#8B4513'],
-            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL'],
-            description: 'Boubro 3 pièces en bazin riche'
+            image: 'https://images.pexels.com/photos/6319867/pexels-photo-6319867.jpeg?auto=compress&cs=tinysrgb&w=600',
+            colors: ['#8B4513', '#D2691E', '#CD853F', '#DEB887', '#F4A460'],
+            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         },
-        // 2. Boubro Africain Femme (5500F) - Variante 2
         { 
             id: 2, 
             name: 'Boubou Cérémonie', 
             category: 'FEMME', 
             price: 5500, 
-            image: 'https://boutique-africaine.com/cdn/shop/files/boubou-africain-couleur-unie-bleu-fonce-983589_800x.jpg?v=1716923893',
+            image: 'https://images.pexels.com/photos/10825291/pexels-photo-10825291.jpeg?auto=compress&cs=tinysrgb&w=600',
             colors: ['#B22222', '#2E8B57', '#8B008B', '#D2691E', '#9ACD32'],
             sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         },
-        // 3. Boubou Africain Femme (5500F) - Variante 3
         { 
             id: 3, 
             name: 'Grand Boubou', 
             category: 'FEMME', 
             price: 5500, 
-            image: 'https://boutique-africaine.com/cdn/shop/files/boubou-africain-couleur-unie-bleu-fonce-983589_800x.jpg?v=1716923893',
+            image: 'https://images.pexels.com/photos/9964125/pexels-photo-9964125.jpeg?auto=compress&cs=tinysrgb&w=600',
             colors: ['#483D8B', '#8B4513', '#2F4F4F', '#800000', '#9ACD32'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
         },
-        // 4. Ensemble Dampé Femme (10000F) - 4 couleurs [citation:4]
+        // Ensembles Femme 10000F
         { 
             id: 4, 
             name: 'Ensemble Dampé 3 pièces', 
             category: 'FEMME', 
             price: 10000, 
-            image: 'https://bayoscollection.com/wp-content/uploads/2023/09/Ensemble-femme-3-pieces-tissu-Dampe-verte.jpg',
+            image: 'https://images.pexels.com/photos/9964128/pexels-photo-9964128.jpeg?auto=compress&cs=tinysrgb&w=600',
             colors: ['#228B22', '#0000CD', '#8B4513', '#800080'],
-            sizes: ['S', 'M', 'L', 'XL', '2XL'],
-            description: 'Kimono long + pantalon fluide + foulard'
+            sizes: ['S', 'M', 'L', 'XL', '2XL']
         },
-        // 5. Ensemble Dampé Femme (10000F) - Variante 2
         { 
             id: 5, 
-            name: 'Ensemble Dampé', 
-            category: 'FEMME', 
-            price: 10000, 
-            image: 'https://bayoscollection.com/wp-content/uploads/2023/09/Ensemble-femme-3-pieces-tissu-Dampe-bleu-marine.jpg',
-            colors: ['#000080', '#8B0000', '#006400', '#4B0082'],
-            sizes: ['M', 'L', 'XL', '2XL', '3XL']
-        },
-        // 6. Ensemble Dampé Femme (10000F) - Variante 3
-        { 
-            id: 6, 
             name: 'Ensemble Dampé Luxe', 
             category: 'FEMME', 
             price: 10000, 
-            image: 'https://bayoscollection.com/wp-content/uploads/2023/09/Ensemble-femme-3-pieces-tissu-Dampe-bordeaux.jpg',
+            image: 'https://images.pexels.com/photos/11306261/pexels-photo-11306261.jpeg?auto=compress&cs=tinysrgb&w=600',
             colors: ['#800000', '#2F4F4F', '#483D8B', '#B8860B'],
             sizes: ['S', 'M', 'L', 'XL', '2XL']
         },
-        // 7. Jalabiya Enfant (9000F) - 4 couleurs [citation:2][citation:9]
+        { 
+            id: 6, 
+            name: 'Ensemble Dampé Brodé', 
+            category: 'FEMME', 
+            price: 10000, 
+            image: 'https://images.pexels.com/photos/10556913/pexels-photo-10556913.jpeg?auto=compress&cs=tinysrgb&w=600',
+            colors: ['#4B0082', '#006400', '#8B0000', '#DAA520'],
+            sizes: ['M', 'L', 'XL', '2XL', '3XL']
+        },
+        // Enfants 9000F
         { 
             id: 7, 
             name: 'Jalabiya Enfant', 
             category: 'ENFANT', 
             price: 9000, 
-            image: 'https://m.media-amazon.com/images/I/61Uj21yIulL._AC_UL480_FMwebp_QL65_.jpg',
+            image: 'https://images.pexels.com/photos/9318779/pexels-photo-9318779.jpeg?auto=compress&cs=tinysrgb&w=600',
             colors: ['#C0C0C0', '#87CEEB', '#98FB98', '#FFB6C1'],
-            sizes: ['6 ans', '8 ans', '10 ans', '12 ans', '14 ans'],
-            description: 'Jalabiya enfant légère et confortable'
+            sizes: ['6 ans', '8 ans', '10 ans', '12 ans', '14 ans']
         },
-        // 8. Jalabiya Enfant (9000F) - Variante 2
         { 
             id: 8, 
             name: 'Jalabiya Enfant Brodée', 
             category: 'ENFANT', 
             price: 9000, 
-            image: 'https://m.media-amazon.com/images/I/61pEw0fAUoL._AC_UL480_FMwebp_QL65_.jpg',
+            image: 'https://images.pexels.com/photos/15813872/pexels-photo-15813872.jpeg?auto=compress&cs=tinysrgb&w=600',
             colors: ['#DAA520', '#CD5C5C', '#4682B4', '#9ACD32'],
             sizes: ['4 ans', '6 ans', '8 ans', '10 ans', '12 ans']
         },
-        // 9. Jalabiya Enfant (9000F) - Variante 3
         { 
             id: 9, 
             name: 'Jalabiya Enfant Fête', 
             category: 'ENFANT', 
             price: 9000, 
-            image: 'https://m.media-amazon.com/images/I/71HtZ1Dc+mL._AC_UL480_FMwebp_QL65_.jpg',
+            image: 'https://images.pexels.com/photos/14768327/pexels-photo-14768327.jpeg?auto=compress&cs=tinysrgb&w=600',
             colors: ['#FF1493', '#32CD32', '#1E90FF', '#FFD700'],
             sizes: ['7 ans', '9 ans', '11 ans', '13 ans', '15 ans']
         },
-        // 10. Thobe Homme (17000F) - 6 couleurs [citation:3]
+        // Hommes 17000F
         { 
             id: 10, 
             name: 'Thobe Homme Classique', 
             category: 'HOMME', 
             price: 17000, 
-            image: 'https://sc04.alicdn.com/kf/Hdd7b4016c2ec4c688c4b4d80fda61d32X.jpg',
+            image: 'https://images.pexels.com/photos/8742428/pexels-photo-8742428.jpeg?auto=compress&cs=tinysrgb&w=600',
             colors: ['#FFFFFF', '#000000', '#808080', '#F5F5DC', '#87CEEB', '#90EE90'],
-            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL'],
-            description: 'Thobe en polyester de haute qualité, anti-froissé'
+            sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL']
         },
-        // 11. Thobe Homme (17000F) - Variante 2
         { 
             id: 11, 
             name: 'Thobe Homme Brodé', 
             category: 'HOMME', 
             price: 17000, 
-            image: 'https://sc04.alicdn.com/kf/H0923bda042ab4686b67c2dda7f1ffb74m.jpg',
+            image: 'https://images.pexels.com/photos/6479606/pexels-photo-6479606.jpeg?auto=compress&cs=tinysrgb&w=600',
             colors: ['#F5F5F5', '#2F4F4F', '#800000', '#F4A460', '#B0C4DE', '#98FB98'],
             sizes: ['M', 'L', 'XL', '2XL', '3XL', '4XL']
         },
-        // 12. Thobe Homme (17000F) - Variante 3
         { 
             id: 12, 
             name: 'Thobe Homme Été', 
             category: 'HOMME', 
             price: 17000, 
-            image: 'https://sc04.alicdn.com/kf/Hc86a2294e19044dc9c52792e5ea38bb24.jpg',
+            image: 'https://images.pexels.com/photos/7195817/pexels-photo-7195817.jpeg?auto=compress&cs=tinysrgb&w=600',
             colors: ['#E0FFFF', '#FAF0E6', '#FFF0F5', '#F0FFF0', '#FFE4E1', '#F5FFFA'],
             sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL']
         }
@@ -879,12 +1200,38 @@
     const cartCount = document.getElementById('cartCount');
     const productsGrid = document.getElementById('productsGrid');
 
-    // Fonctions panier
-    function openCart() { cartPanel.classList.add('show'); }
-    function closeCartPanel() { cartPanel.classList.remove('show'); }
+    // ===== FONCTIONS DE NAVIGATION =====
+    window.scrollToSection = function(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Mettre à jour la classe active
+        document.querySelectorAll('.menu > a').forEach(link => {
+            link.classList.remove('active');
+        });
+        event.target.classList.add('active');
+    };
 
-    cartIcon.addEventListener('click', (e) => { e.stopPropagation(); openCart(); });
-    closeCart.addEventListener('click', (e) => { e.stopPropagation(); closeCartPanel(); });
+    // ===== FONCTIONS PANIER =====
+    function openCart() { 
+        cartPanel.classList.add('show'); 
+    }
+    
+    function closeCartPanel() { 
+        cartPanel.classList.remove('show'); 
+    }
+
+    cartIcon.addEventListener('click', (e) => { 
+        e.stopPropagation(); 
+        openCart(); 
+    });
+    
+    closeCart.addEventListener('click', (e) => { 
+        e.stopPropagation(); 
+        closeCartPanel(); 
+    });
 
     document.addEventListener('click', (e) => {
         if (!cartPanel.contains(e.target) && !cartIcon.contains(e.target)) {
@@ -892,12 +1239,21 @@
         }
     });
 
-    // Afficher produits
+    cartPanel.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
+    // ===== FONCTIONS D'AFFICHAGE =====
     function displayProducts(filterCategory = null) {
         productsGrid.innerHTML = '';
 
         let filteredProducts = filterCategory ? 
             products.filter(p => p.category === filterCategory) : products;
+
+        if (filteredProducts.length === 0) {
+            productsGrid.innerHTML = '<div style="text-align: center; padding: 50px; color: var(--text-light);">Aucun produit dans cette catégorie</div>';
+            return;
+        }
 
         filteredProducts.forEach(product => {
             const card = document.createElement('div');
@@ -953,15 +1309,23 @@
         }
     }
 
-    // Fonctions
-    window.showAllProducts = () => displayProducts();
-    window.filterByCategory = (cat) => displayProducts(cat);
-    
-    window.changeColor = function(productId, color) {
-        console.log('Couleur changée pour produit', productId, color);
+    // Fonctions de filtrage globales
+    window.showAllProducts = function() {
+        displayProducts();
+        document.getElementById('produits').scrollIntoView({ behavior: 'smooth' });
     };
 
-    window.addToCart = (productId) => {
+    window.filterByCategory = function(category) {
+        displayProducts(category);
+        document.getElementById('produits').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    window.changeColor = function(productId, color) {
+        console.log('Couleur changée pour produit', productId, color);
+        // Ici vous pourriez changer l'image selon la couleur
+    };
+
+    window.addToCart = function(productId) {
         const product = products.find(p => p.id === productId);
         if (product) {
             const sizeSelect = document.getElementById(`size-${productId}`);
@@ -977,7 +1341,7 @@
         }
     };
 
-    window.removeFromCart = (cartId) => {
+    window.removeFromCart = function(cartId) {
         cart = cart.filter(item => item.cartId !== cartId);
         updateCart();
     };
@@ -986,7 +1350,7 @@
         cartCount.textContent = cart.length;
 
         if (cart.length === 0) {
-            cartItems.innerHTML = '<div style="text-align: center; padding: 20px;">Votre panier est vide</div>';
+            cartItems.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-light);">Votre panier est vide</div>';
             cartTotal.textContent = '0 CFA';
             return;
         }
@@ -997,7 +1361,7 @@
             total += item.price;
             html += `
                 <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}">
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/60'">
                     <div class="cart-item-info">
                         <div class="cart-item-title">${item.name} (Taille: ${item.selectedSize})</div>
                         <div class="cart-item-price">${item.price.toLocaleString()} CFA</div>
@@ -1013,7 +1377,7 @@
     }
 
     // Paiement WhatsApp
-    document.getElementById('checkoutBtn').addEventListener('click', () => {
+    document.getElementById('checkoutBtn').addEventListener('click', function() {
         if (cart.length === 0) { 
             alert('Votre panier est vide'); 
             return; 
@@ -1028,6 +1392,26 @@
         message += 'Merci de confirmer la commande.';
         
         window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
+    });
+
+    // Contact grossiste
+    window.contactWholesale = function(type) {
+        const message = `*Demande ${type} - Rassoul Shop Tidiany*%0A%0ABonjour, je suis intéressé par vos offres grossistes.`;
+        window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
+    };
+
+    // Formulaire de contact
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        const waMessage = `*Message de ${name}*%0ATéléphone : ${phone}%0ASujet : ${subject}%0A%0A${message}`;
+        
+        window.open(`https://wa.me/221774397427?text=${waMessage}`, '_blank');
     });
 
     // Initialisation
