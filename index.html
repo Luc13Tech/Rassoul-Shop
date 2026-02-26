@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-  <title>Rassoul Shop Tidianiya - Élégance Africaine</title>
+  <title>Rassoul Shop Tidianiya - Collection · Tradition · Élégance</title>
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts -->
@@ -76,7 +76,7 @@
     }
 
     .logo h1 {
-      font-size: clamp(24px, 4vw, 32px);
+      font-size: clamp(20px, 4vw, 28px);
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -346,7 +346,7 @@
     }
 
     .hero h2 {
-      font-size: clamp(32px, 6vw, 48px);
+      font-size: clamp(28px, 5vw, 42px);
       font-weight: 400;
       color: #30271f;
       margin-bottom: 20px;
@@ -404,6 +404,7 @@
       font-weight: 500;
       cursor: pointer;
       transition: all 0.3s;
+      font-size: 14px;
     }
 
     .filter-btn.active {
@@ -816,6 +817,15 @@
       .stat {
         padding: 15px;
       }
+
+      .category-filter {
+        gap: 8px;
+      }
+
+      .filter-btn {
+        padding: 8px 15px;
+        font-size: 13px;
+      }
     }
 
     @media screen and (max-width: 480px) {
@@ -826,7 +836,7 @@
 
       .menu > a,
       .dropdown > a {
-        font-size: 14px;
+        font-size: 13px;
       }
 
       .product-image {
@@ -864,8 +874,8 @@
       }
 
       .filter-btn {
-        padding: 8px 15px;
-        font-size: 14px;
+        padding: 6px 12px;
+        font-size: 12px;
       }
     }
 
@@ -907,7 +917,7 @@
   <nav>
     <div class="logo">
       <h1>Rassoul Shop Tidianiya</h1>
-      <span>élégance africaine · grossiste · tradition</span>
+      <span>collection · tradition · élégance</span>
     </div>
 
     <div class="menu">
@@ -916,15 +926,13 @@
       <div class="dropdown">
         <a>Collections <i class="fas fa-chevron-down"></i></a>
         <div class="dropdown-content">
-          <a onclick="filterByCategory('Boubou')"><i class="fas fa-tshirt"></i> Boubou</a>
-          <a onclick="filterByCategory('Ensembles')"><i class="fas fa-tshirt"></i> Ensembles</a>
-          <a onclick="filterByCategory('Accessoires')"><i class="fas fa-clock"></i> Accessoires</a>
-          <a onclick="filterByCategory('Chaussures Homme')"><i class="fas fa-shoe-prints"></i> Chaussures Homme</a>
-          <a onclick="filterByCategory('Chaussures Femme')"><i class="fas fa-high-heels"></i> Chaussures Femme</a>
-          <a onclick="filterByCategory('Chaussures Enfant')"><i class="fas fa-child"></i> Chaussures Enfant</a>
-          <a onclick="filterByCategory('Tenue Africaine Homme')"><i class="fas fa-user-tie"></i> Tenue Africaine Homme</a>
-          <a onclick="filterByCategory('Tenue Africaine Femme')"><i class="fas fa-fan"></i> Tenue Africaine Femme</a>
-          <a onclick="filterByCategory('Tenue Africaine Enfant')"><i class="fas fa-child"></i> Tenue Africaine Enfant</a>
+          <a onclick="filterByCategory('Homme')"><i class="fas fa-user-tie"></i> Hommes</a>
+          <a onclick="filterByCategory('Femme')"><i class="fas fa-fan"></i> Femmes</a>
+          <a onclick="filterByCategory('Enfant')"><i class="fas fa-child"></i> Enfants</a>
+          <a onclick="filterByCategory('Boubou')"><i class="fas fa-tshirt"></i> Boubous</a>
+          <a onclick="filterByCategory('Ensemble')"><i class="fas fa-tshirt"></i> Ensembles</a>
+          <a onclick="filterByCategory('Jalaba')"><i class="fas fa-tshirt"></i> Jalabas</a>
+          <a onclick="filterByCategory('Accessoire')"><i class="fas fa-clock"></i> Accessoires</a>
         </div>
       </div>
 
@@ -961,27 +969,25 @@
 
 <main>
   <section class="hero" id="accueil">
-    <h2>L'élégance africaine à portée de main</h2>
+    <h2>L'élégance à portée de main</h2>
     <div class="hero-tags">
-      <i class="fas fa-star"></i> Boubou · Ensembles · Accessoires · Chaussures · Tenues Africaines
+      <i class="fas fa-star"></i> Boubous · Ensembles · Jalabas · Accessoires
     </div>
   </section>
 
   <div class="container">
     <h2 class="section-title" id="produits">Notre Collection</h2>
     
-    <!-- Filtres de catégorie -->
+    <!-- FILTRES -->
     <div class="category-filter">
       <button class="filter-btn active" onclick="showAllProducts()">Tous</button>
-      <button class="filter-btn" onclick="filterByCategory('Boubou')">Boubou</button>
-      <button class="filter-btn" onclick="filterByCategory('Ensembles')">Ensembles</button>
-      <button class="filter-btn" onclick="filterByCategory('Accessoires')">Accessoires</button>
-      <button class="filter-btn" onclick="filterByCategory('Chaussures Homme')">Chaussures H</button>
-      <button class="filter-btn" onclick="filterByCategory('Chaussures Femme')">Chaussures F</button>
-      <button class="filter-btn" onclick="filterByCategory('Chaussures Enfant')">Chaussures E</button>
-      <button class="filter-btn" onclick="filterByCategory('Tenue Africaine Homme')">Tenue H</button>
-      <button class="filter-btn" onclick="filterByCategory('Tenue Africaine Femme')">Tenue F</button>
-      <button class="filter-btn" onclick="filterByCategory('Tenue Africaine Enfant')">Tenue E</button>
+      <button class="filter-btn" onclick="filterByCategory('Homme')">Hommes</button>
+      <button class="filter-btn" onclick="filterByCategory('Femme')">Femmes</button>
+      <button class="filter-btn" onclick="filterByCategory('Enfant')">Enfants</button>
+      <button class="filter-btn" onclick="filterByCategory('Boubou')">Boubous</button>
+      <button class="filter-btn" onclick="filterByCategory('Ensemble')">Ensembles</button>
+      <button class="filter-btn" onclick="filterByCategory('Jalaba')">Jalabas</button>
+      <button class="filter-btn" onclick="filterByCategory('Accessoire')">Accessoires</button>
     </div>
 
     <div class="products-grid" id="productsGrid"></div>
@@ -1120,45 +1126,31 @@
 </footer>
 
 <script>
-  // Produits avec images similaires
+  // PRODUITS
   const products = [
-    // Boubous
-    { id: 1, name: 'Boubou grand boubou', category: 'Boubou', price: 45000, icon: 'fa-tshirt', image: 'https://images.unsplash.com/photo-1593032469175-73e119128159?w=400&auto=format' },
-    { id: 2, name: 'Boubou brodé', category: 'Boubou', price: 55000, icon: 'fa-tshirt', image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format' },
+    // Hommes
+    { id: 1, name: 'Boubou homme brodé', category: 'Homme', subcategory: 'Boubou', price: 55000, icon: 'fa-user-tie', image: 'https://images.unsplash.com/photo-1593032469175-73e119128159?w=400&auto=format' },
+    { id: 2, name: 'Boubou homme cérémonie', category: 'Homme', subcategory: 'Boubou', price: 65000, icon: 'fa-user-tie', image: 'https://images.unsplash.com/photo-1593032469175-73e119128159?w=400&auto=format' },
+    { id: 3, name: 'Ensemble homme 3 pièces', category: 'Homme', subcategory: 'Ensemble', price: 75000, icon: 'fa-user-tie', image: 'https://images.unsplash.com/photo-1507680434567-5739c80aee9e?w=400&auto=format' },
+    { id: 4, name: 'Jalaba homme', category: 'Homme', subcategory: 'Jalaba', price: 45000, icon: 'fa-user-tie', image: 'https://images.unsplash.com/photo-1593032469175-73e119128159?w=400&auto=format' },
     
-    // Ensembles
-    { id: 3, name: 'Ensemble homme 3 pièces', category: 'Ensembles', price: 65000, icon: 'fa-tshirt', image: 'https://images.unsplash.com/photo-1507680434567-5739c80aee9e?w=400&auto=format' },
-    { id: 4, name: 'Ensemble femme', category: 'Ensembles', price: 48000, icon: 'fa-fan', image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format' },
+    // Femmes
+    { id: 5, name: 'Boubou femme brodé', category: 'Femme', subcategory: 'Boubou', price: 45000, icon: 'fa-fan', image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format' },
+    { id: 6, name: 'Boubou femme cérémonie', category: 'Femme', subcategory: 'Boubou', price: 55000, icon: 'fa-fan', image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format' },
+    { id: 7, name: 'Ensemble femme 2 pièces', category: 'Femme', subcategory: 'Ensemble', price: 48000, icon: 'fa-fan', image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format' },
+    { id: 8, name: 'Jalaba femme', category: 'Femme', subcategory: 'Jalaba', price: 42000, icon: 'fa-fan', image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format' },
+    
+    // Enfants
+    { id: 9, name: 'Boubou enfant garçon', category: 'Enfant', subcategory: 'Boubou', price: 25000, icon: 'fa-child', image: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&auto=format' },
+    { id: 10, name: 'Boubou enfant fille', category: 'Enfant', subcategory: 'Boubou', price: 25000, icon: 'fa-child', image: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&auto=format' },
+    { id: 11, name: 'Ensemble enfant', category: 'Enfant', subcategory: 'Ensemble', price: 28000, icon: 'fa-child', image: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&auto=format' },
+    { id: 12, name: 'Jalaba enfant', category: 'Enfant', subcategory: 'Jalaba', price: 22000, icon: 'fa-child', image: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&auto=format' },
     
     // Accessoires
-    { id: 5, name: 'Montre luxe', category: 'Accessoires', price: 12500, icon: 'fa-clock', image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&auto=format' },
-    { id: 6, name: 'Lunettes de soleil', category: 'Accessoires', price: 8900, icon: 'fa-sun', image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&auto=format' },
-    { id: 7, name: 'Sac en cuir', category: 'Accessoires', price: 18500, icon: 'fa-bag-shopping', image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&auto=format' },
-    { id: 8, name: 'Ceinture homme', category: 'Accessoires', price: 7500, icon: 'fa-belt', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&auto=format' },
-    
-    // Chaussures Homme
-    { id: 9, name: 'Derbies cuir', category: 'Chaussures Homme', price: 29500, icon: 'fa-shoe-prints', image: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=400&auto=format' },
-    { id: 10, name: 'Mocassins', category: 'Chaussures Homme', price: 25500, icon: 'fa-shoe-prints', image: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=400&auto=format' },
-    
-    // Chaussures Femme
-    { id: 11, name: 'Escarpins', category: 'Chaussures Femme', price: 22500, icon: 'fa-high-heels', image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&auto=format' },
-    { id: 12, name: 'Sandales', category: 'Chaussures Femme', price: 18500, icon: 'fa-shoe-prints', image: 'https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=400&auto=format' },
-    
-    // Chaussures Enfant
-    { id: 13, name: 'Baskets enfant', category: 'Chaussures Enfant', price: 12500, icon: 'fa-child', image: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&auto=format' },
-    { id: 14, name: 'Sandales enfant', category: 'Chaussures Enfant', price: 9500, icon: 'fa-child', image: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&auto=format' },
-    
-    // Tenue Africaine Homme
-    { id: 15, name: 'Kaftan homme', category: 'Tenue Africaine Homme', price: 75000, icon: 'fa-user-tie', image: 'https://images.unsplash.com/photo-1593032469175-73e119128159?w=400&auto=format' },
-    { id: 16, name: 'Grand boubou homme', category: 'Tenue Africaine Homme', price: 85000, icon: 'fa-user-tie', image: 'https://images.unsplash.com/photo-1593032469175-73e119128159?w=400&auto=format' },
-    
-    // Tenue Africaine Femme
-    { id: 17, name: 'Robe africaine', category: 'Tenue Africaine Femme', price: 55000, icon: 'fa-fan', image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format' },
-    { id: 18, name: 'Ensemble pagne', category: 'Tenue Africaine Femme', price: 65000, icon: 'fa-fan', image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format' },
-    
-    // Tenue Africaine Enfant
-    { id: 19, name: 'Tenue enfant garçon', category: 'Tenue Africaine Enfant', price: 35000, icon: 'fa-child', image: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&auto=format' },
-    { id: 20, name: 'Tenue enfant fille', category: 'Tenue Africaine Enfant', price: 35000, icon: 'fa-child', image: 'https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=400&auto=format' }
+    { id: 13, name: 'Montre luxe', category: 'Accessoire', price: 12500, icon: 'fa-clock', image: 'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&auto=format' },
+    { id: 14, name: 'Lunettes de soleil', category: 'Accessoire', price: 8900, icon: 'fa-sun', image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&auto=format' },
+    { id: 15, name: 'Sac en cuir', category: 'Accessoire', price: 18500, icon: 'fa-bag-shopping', image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&auto=format' },
+    { id: 16, name: 'Ceinture homme', category: 'Accessoire', price: 7500, icon: 'fa-belt', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&auto=format' }
   ];
 
   // Panier (initialisé à vide)
@@ -1208,7 +1200,7 @@
 
     let filteredProducts = products;
     if (filterCategory) {
-      filteredProducts = products.filter(p => p.category === filterCategory);
+      filteredProducts = products.filter(p => p.category === filterCategory || p.subcategory === filterCategory);
     }
 
     if (filteredProducts.length === 0) {
@@ -1225,7 +1217,7 @@
           <i class="fas ${product.icon}" style="display: none;"></i>
         </div>
         <div class="product-details">
-          <div class="product-category">${product.category}</div>
+          <div class="product-category">${product.category} ${product.subcategory ? '· ' + product.subcategory : ''}</div>
           <div class="product-name">${product.name}</div>
           <div class="product-price">${product.price.toLocaleString()} CFA</div>
           <button class="add-btn" onclick="addToCart(${product.id})">
@@ -1243,27 +1235,19 @@
     
     if (filterCategory) {
       const activeBtn = Array.from(document.querySelectorAll('.filter-btn')).find(
-        btn => btn.textContent.trim() === getShortCategory(filterCategory)
+        btn => btn.textContent.trim() === filterCategory || 
+               (filterCategory === 'Homme' && btn.textContent.trim() === 'Hommes') ||
+               (filterCategory === 'Femme' && btn.textContent.trim() === 'Femmes') ||
+               (filterCategory === 'Enfant' && btn.textContent.trim() === 'Enfants') ||
+               (filterCategory === 'Boubou' && btn.textContent.trim() === 'Boubous') ||
+               (filterCategory === 'Ensemble' && btn.textContent.trim() === 'Ensembles') ||
+               (filterCategory === 'Jalaba' && btn.textContent.trim() === 'Jalabas') ||
+               (filterCategory === 'Accessoire' && btn.textContent.trim() === 'Accessoires')
       );
       if (activeBtn) activeBtn.classList.add('active');
     } else {
       document.querySelector('.filter-btn:first-child').classList.add('active');
     }
-  }
-
-  function getShortCategory(category) {
-    const shorts = {
-      'Boubou': 'Boubou',
-      'Ensembles': 'Ensembles',
-      'Accessoires': 'Accessoires',
-      'Chaussures Homme': 'Chaussures H',
-      'Chaussures Femme': 'Chaussures F',
-      'Chaussures Enfant': 'Chaussures E',
-      'Tenue Africaine Homme': 'Tenue H',
-      'Tenue Africaine Femme': 'Tenue F',
-      'Tenue Africaine Enfant': 'Tenue E'
-    };
-    return shorts[category] || category;
   }
 
   // Fonctions de filtrage globales
@@ -1387,4 +1371,4 @@
 </script>
 
 </body>
-</html>
+  </html>
