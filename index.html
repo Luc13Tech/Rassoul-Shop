@@ -283,6 +283,12 @@
       font-size: 14px;
     }
 
+    .cart-item-color {
+      font-size: 12px;
+      color: var(--secondary);
+      margin-top: 4px;
+    }
+
     .cart-item-remove {
       background: none;
       border: none;
@@ -484,6 +490,32 @@
       font-weight: 700;
       color: #5d4432;
       margin-bottom: 15px;
+    }
+
+    /* Sélecteur de couleurs */
+    .color-selector {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .color-option:hover {
+      transform: scale(1.1);
+    }
+
+    .color-option.selected {
+      border-color: var(--secondary);
+      transform: scale(1.1);
     }
 
     .add-btn {
@@ -1035,106 +1067,299 @@
 </footer>
 
 <script>
-  // ===== PRODUITS AVEC PRIX CORRIGÉS SELON VOS CAPTURES =====
+  // ===== CONFIGURATION DES COULEURS =====
+  const colorOptions = [
+    { name: 'Blanc', code: '#FFFFFF', border: '#ddd' },
+    { name: 'Noir', code: '#000000', border: '#333' },
+    { name: 'Bleu', code: '#3498db', border: '#2980b9' },
+    { name: 'Rouge', code: '#e74c3c', border: '#c0392b' },
+    { name: 'Vert', code: '#2ecc71', border: '#27ae60' },
+    { name: 'Or', code: '#f1c40f', border: '#f39c12' },
+    { name: 'Marron', code: '#8B6B4D', border: '#4a3729' }
+  ];
+
+  // ===== TOUS LES PRODUITS DE LA LISTE =====
   const products = [
-    // Robes femme (prix de vos captures : 5500F, 9000F)
+    // HOMMES (10 articles)
     { 
       id: 1, 
-      name: 'Robe femme simple', 
-      category: 'Femme', 
-      subcategory: 'Robe', 
-      price: 5500, 
-      icon: 'fa-fan',
-      image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format'
-    },
-    { 
-      id: 2, 
-      name: 'Robe femme élégante', 
-      category: 'Femme', 
-      subcategory: 'Robe', 
-      price: 9000, 
-      icon: 'fa-fan',
-      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format'
-    },
-    
-    // Jallaba Enfants (prix : 17000F)
-    { 
-      id: 3, 
-      name: 'Jallaba Enfant', 
-      category: 'Enfant', 
-      subcategory: 'Jalaba', 
-      price: 17000, 
-      icon: 'fa-child',
-      image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&auto=format'
-    },
-    
-    // Ensemble femme (prix : 10000F)
-    { 
-      id: 4, 
-      name: 'Ensemble femme', 
-      category: 'Femme', 
-      subcategory: 'Ensemble', 
-      price: 10000, 
-      icon: 'fa-fan',
-      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format'
-    },
-    
-    // Autres produits avec prix standards
-    { 
-      id: 5, 
       name: 'Boubou homme brodé', 
       category: 'Homme', 
       subcategory: 'Boubou', 
       price: 25000, 
       icon: 'fa-user-tie',
-      image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?w=400&auto=format'
+      image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?w=400&auto=format',
+      description: 'Boubou traditionnel avec broderies fines'
     },
     { 
-      id: 6, 
+      id: 2, 
       name: 'Boubou homme cérémonie', 
       category: 'Homme', 
       subcategory: 'Boubou', 
       price: 35000, 
       icon: 'fa-user-tie',
-      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format'
+      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format',
+      description: 'Boubou de cérémonie avec motifs luxueux'
     },
     { 
-      id: 7, 
+      id: 3, 
+      name: 'Ensemble homme 3 pièces', 
+      category: 'Homme', 
+      subcategory: 'Ensemble', 
+      price: 45000, 
+      icon: 'fa-user-tie',
+      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&auto=format',
+      description: 'Ensemble complet : boubou, chemise, pantalon'
+    },
+    { 
+      id: 4, 
       name: 'Jalaba homme', 
       category: 'Homme', 
       subcategory: 'Jalaba', 
       price: 22000, 
       icon: 'fa-user-tie',
-      image: 'https://images.unsplash.com/photo-1545048702-79362596cdb9?w=400&auto=format'
+      image: 'https://images.unsplash.com/photo-1545048702-79362596cdb9?w=400&auto=format',
+      description: 'Jalaba légère et élégante pour homme'
+    },
+    { 
+      id: 5, 
+      name: 'Costume homme élégant', 
+      category: 'Homme', 
+      subcategory: 'Costume', 
+      price: 55000, 
+      icon: 'fa-user-tie',
+      image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&auto=format',
+      description: 'Costume moderne pour occasions spéciales'
+    },
+    { 
+      id: 6, 
+      name: 'Chemise homme luxe', 
+      category: 'Homme', 
+      subcategory: 'Chemise', 
+      price: 12000, 
+      icon: 'fa-user-tie',
+      image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&auto=format',
+      description: 'Chemise en tissu haut de gamme'
+    },
+    { 
+      id: 7, 
+      name: 'Pantalon homme habillé', 
+      category: 'Homme', 
+      subcategory: 'Pantalon', 
+      price: 15000, 
+      icon: 'fa-user-tie',
+      image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&auto=format',
+      description: 'Pantalon élégant pour toutes occasions'
     },
     { 
       id: 8, 
+      name: 'Kaftan homme', 
+      category: 'Homme', 
+      subcategory: 'Kaftan', 
+      price: 40000, 
+      icon: 'fa-user-tie',
+      image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?w=400&auto=format',
+      description: 'Kaftan traditionnel richement décoré'
+    },
+    { 
+      id: 9, 
+      name: 'Grand boubou homme', 
+      category: 'Homme', 
+      subcategory: 'Boubou', 
+      price: 50000, 
+      icon: 'fa-user-tie',
+      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format',
+      description: 'Grand boubou ample pour grandes occasions'
+    },
+    { 
+      id: 10, 
+      name: 'Tenue africaine homme complète', 
+      category: 'Homme', 
+      subcategory: 'Ensemble', 
+      price: 48000, 
+      icon: 'fa-user-tie',
+      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&auto=format',
+      description: 'Tenue traditionnelle complète'
+    },
+
+    // FEMMES (10 articles)
+    { 
+      id: 11, 
+      name: 'Robe femme simple', 
+      category: 'Femme', 
+      subcategory: 'Robe', 
+      price: 5500, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format',
+      description: 'Robe légère et confortable'
+    },
+    { 
+      id: 12, 
+      name: 'Robe femme élégante', 
+      category: 'Femme', 
+      subcategory: 'Robe', 
+      price: 9000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format',
+      description: 'Robe chic pour soirées'
+    },
+    { 
+      id: 13, 
+      name: 'Ensemble femme', 
+      category: 'Femme', 
+      subcategory: 'Ensemble', 
+      price: 10000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format',
+      description: 'Ensemble deux pièces élégant'
+    },
+    { 
+      id: 14, 
       name: 'Boubou femme brodé', 
       category: 'Femme', 
       subcategory: 'Boubou', 
       price: 28000, 
       icon: 'fa-fan',
-      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format'
+      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format',
+      description: 'Boubou femme avec broderies'
     },
     { 
-      id: 9, 
-      name: 'Montre luxe', 
-      category: 'Accessoire', 
-      price: 12500, 
-      icon: 'fa-clock',
-      image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400&auto=format'
+      id: 15, 
+      name: 'Boubou femme cérémonie', 
+      category: 'Femme', 
+      subcategory: 'Boubou', 
+      price: 35000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format',
+      description: 'Boubou de cérémonie luxueux'
     },
     { 
-      id: 10, 
-      name: 'Lunettes de soleil', 
-      category: 'Accessoire', 
-      price: 8900, 
-      icon: 'fa-sun',
-      image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&auto=format'
+      id: 16, 
+      name: 'Ensemble femme 2 pièces', 
+      category: 'Femme', 
+      subcategory: 'Ensemble', 
+      price: 25000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format',
+      description: 'Ensemble moderne deux pièces'
+    },
+    { 
+      id: 17, 
+      name: 'Jalaba femme', 
+      category: 'Femme', 
+      subcategory: 'Jalaba', 
+      price: 22000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1545048702-79362596cdb9?w=400&auto=format',
+      description: 'Jalaba féminine élégante'
+    },
+    { 
+      id: 18, 
+      name: 'Robe africaine', 
+      category: 'Femme', 
+      subcategory: 'Robe', 
+      price: 30000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format',
+      description: 'Robe traditionnelle africaine'
+    },
+    { 
+      id: 19, 
+      name: 'Caftan femme', 
+      category: 'Femme', 
+      subcategory: 'Caftan', 
+      price: 32000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format',
+      description: 'Caftan luxueux pour femme'
+    },
+    { 
+      id: 20, 
+      name: 'Tenue africaine femme complète', 
+      category: 'Femme', 
+      subcategory: 'Ensemble', 
+      price: 38000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format',
+      description: 'Tenue traditionnelle complète'
+    },
+
+    // ENFANTS (7 articles)
+    { 
+      id: 21, 
+      name: 'Jallaba Enfant', 
+      category: 'Enfant', 
+      subcategory: 'Jalaba', 
+      price: 17000, 
+      icon: 'fa-child',
+      image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&auto=format',
+      description: 'Jalaba pour enfant'
+    },
+    { 
+      id: 22, 
+      name: 'Boubou enfant garçon', 
+      category: 'Enfant', 
+      subcategory: 'Boubou', 
+      price: 15000, 
+      icon: 'fa-child',
+      image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&auto=format',
+      description: 'Boubou pour garçon'
+    },
+    { 
+      id: 23, 
+      name: 'Boubou enfant fille', 
+      category: 'Enfant', 
+      subcategory: 'Boubou', 
+      price: 15000, 
+      icon: 'fa-child',
+      image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&auto=format',
+      description: 'Boubou pour fille'
+    },
+    { 
+      id: 24, 
+      name: 'Ensemble enfant', 
+      category: 'Enfant', 
+      subcategory: 'Ensemble', 
+      price: 18000, 
+      icon: 'fa-child',
+      image: 'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&auto=format',
+      description: 'Ensemble complet pour enfant'
+    },
+    { 
+      id: 25, 
+      name: 'Jalaba enfant', 
+      category: 'Enfant', 
+      subcategory: 'Jalaba', 
+      price: 14000, 
+      icon: 'fa-child',
+      image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&auto=format',
+      description: 'Jalaba légère pour enfant'
+    },
+    { 
+      id: 26, 
+      name: 'Tenue enfant garçon', 
+      category: 'Enfant', 
+      subcategory: 'Ensemble', 
+      price: 16000, 
+      icon: 'fa-child',
+      image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&auto=format',
+      description: 'Tenue traditionnelle pour garçon'
+    },
+    { 
+      id: 27, 
+      name: 'Tenue enfant fille', 
+      category: 'Enfant', 
+      subcategory: 'Ensemble', 
+      price: 16000, 
+      icon: 'fa-child',
+      image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&auto=format',
+      description: 'Tenue traditionnelle pour fille'
     }
   ];
 
   let cart = [];
+  let selectedColors = {}; // Stocke la couleur sélectionnée pour chaque produit
+
   const cartIcon = document.getElementById('cartIcon');
   const cartPanel = document.getElementById('cartPanel');
   const closeCart = document.getElementById('closeCart');
@@ -1143,6 +1368,7 @@
   const cartCount = document.getElementById('cartCount');
   const productsGrid = document.getElementById('productsGrid');
 
+  // Fonctions panier
   function openCart() { cartPanel.classList.add('show'); }
   function closeCartPanel() { cartPanel.classList.remove('show'); }
 
@@ -1153,6 +1379,21 @@
   });
   cartPanel.addEventListener('click', (e) => e.stopPropagation());
 
+  // Fonction pour sélectionner une couleur
+  window.selectColor = function(productId, colorCode) {
+    selectedColors[productId] = colorCode;
+    
+    // Mettre à jour l'affichage
+    document.querySelectorAll(`.color-option[data-product="${productId}"]`).forEach(opt => {
+      if (opt.dataset.color === colorCode) {
+        opt.classList.add('selected');
+      } else {
+        opt.classList.remove('selected');
+      }
+    });
+  };
+
+  // Afficher les produits
   function displayProducts(filterCategory = null) {
     productsGrid.innerHTML = '';
     let filteredProducts = products;
@@ -1164,27 +1405,53 @@
     }
 
     if (filteredProducts.length === 0) {
-      productsGrid.innerHTML = '<div style="text-align: center; padding: 50px;">Aucun produit dans cette catégorie</div>';
+      productsGrid.innerHTML = '<div style="text-align: center; padding: 50px; color: var(--text-light);">Aucun produit dans cette catégorie</div>';
       return;
     }
 
     filteredProducts.forEach(p => {
+      // Couleur par défaut si non sélectionnée
+      if (!selectedColors[p.id]) {
+        selectedColors[p.id] = colorOptions[0].code;
+      }
+
       const card = document.createElement('div');
       card.className = 'product-card';
+      
+      // Générer les options de couleur
+      let colorHtml = '<div class="color-selector">';
+      colorOptions.forEach(color => {
+        const isSelected = selectedColors[p.id] === color.code ? 'selected' : '';
+        colorHtml += `
+          <div class="color-option ${isSelected}" 
+               style="background-color: ${color.code}; border: 2px solid ${color.border};"
+               data-product="${p.id}"
+               data-color="${color.code}"
+               onclick="selectColor(${p.id}, '${color.code}')"
+               title="${color.name}">
+          </div>
+        `;
+      });
+      colorHtml += '</div>';
+      
       card.innerHTML = `
         <div class="product-image">
-          <img src="${p.image}" alt="${p.name}" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+          <img src="${p.image}" alt="${p.name}" loading="lazy">
         </div>
         <div class="product-details">
-          <div class="product-category">${p.category} ${p.subcategory ? '· ' + p.subcategory : ''}</div>
+          <div class="product-category">${p.category} · ${p.subcategory || ''}</div>
           <div class="product-name">${p.name}</div>
           <div class="product-price">${p.price.toLocaleString()} CFA</div>
-          <button class="add-btn" onclick="addToCart(${p.id})"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          ${colorHtml}
+          <button class="add-btn" onclick="addToCart(${p.id})">
+            <i class="fas fa-cart-plus"></i> Ajouter
+          </button>
         </div>
       `;
       productsGrid.appendChild(card);
     });
 
+    // Mettre à jour les filtres actifs
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
     if (filterCategory) {
       const btnText = {
@@ -1203,10 +1470,19 @@
   window.showAllProducts = () => displayProducts();
   window.filterByCategory = (cat) => displayProducts(cat);
 
-  window.addToCart = (id) => {
-    const p = products.find(p => p.id === id);
-    if (p) { 
-      cart.push({...p, cartId: Date.now() + Math.random()}); 
+  // Ajouter au panier avec la couleur sélectionnée
+  window.addToCart = (productId) => {
+    const product = products.find(p => p.id === productId);
+    const selectedColor = selectedColors[productId] || colorOptions[0].code;
+    const colorName = colorOptions.find(c => c.code === selectedColor)?.name || 'Blanc';
+    
+    if (product) { 
+      cart.push({
+        ...product, 
+        cartId: Date.now() + Math.random(),
+        selectedColor: selectedColor,
+        colorName: colorName
+      }); 
       updateCart(); 
       openCart(); 
     }
@@ -1220,7 +1496,7 @@
   function updateCart() {
     cartCount.textContent = cart.length;
     if (!cart.length) {
-      cartItems.innerHTML = '<div style="text-align: center; padding: 20px;">Votre panier est vide</div>';
+      cartItems.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-light);">Votre panier est vide</div>';
       cartTotal.textContent = '0 CFA';
       return;
     }
@@ -1229,9 +1505,16 @@
       total += i.price;
       html += `
         <div class="cart-item">
+          <div class="cart-item-icon">
+            <i class="fas ${i.icon}"></i>
+          </div>
           <div class="cart-item-info">
-            <strong>${i.name}</strong><br>
-            ${i.price.toLocaleString()} CFA
+            <div class="cart-item-title">${i.name}</div>
+            <div class="cart-item-price">${i.price.toLocaleString()} CFA</div>
+            <div class="cart-item-color">
+              <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:${i.selectedColor}; margin-right:5px;"></span>
+              ${i.colorName}
+            </div>
           </div>
           <button class="cart-item-remove" onclick="removeFromCart(${i.cartId})">
             <i class="fas fa-trash-alt"></i>
@@ -1243,19 +1526,24 @@
     cartTotal.textContent = total.toLocaleString() + ' CFA';
   }
 
+  // Paiement WhatsApp
   document.getElementById('checkoutBtn').addEventListener('click', () => {
     if (!cart.length) return alert('Votre panier est vide');
     let msg = '*Nouvelle commande Rassoul Shop Tidianiya*%0A%0A';
-    cart.forEach(i => msg += `• ${i.name} : ${i.price.toLocaleString()} CFA%0A`);
+    cart.forEach(i => {
+      msg += `• ${i.name} (${i.colorName}) : ${i.price.toLocaleString()} CFA%0A`;
+    });
     const total = cart.reduce((acc, i) => acc + i.price, 0);
     msg += `%0A*Total : ${total.toLocaleString()} CFA*`;
     window.open(`https://wa.me/221774397427?text=${msg}`, '_blank');
   });
 
+  // Contact grossiste
   window.contactWholesale = (type) => {
     window.open(`https://wa.me/221774397427?text=*Demande ${type} - Rassoul Shop Tidianiya*%0A%0ABonjour, je suis intéressé par vos offres grossistes.`, '_blank');
   };
 
+  // Formulaire de contact
   document.getElementById('contactForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value;
@@ -1265,6 +1553,7 @@
     window.open(`https://wa.me/221774397427?text=*Message de ${name}*%0ATéléphone : ${phone}%0ASujet : ${subject}%0A%0A${message}`, '_blank');
   });
 
+  // Ancres
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -1273,6 +1562,7 @@
     });
   });
 
+  // Initialisation
   displayProducts();
   updateCart();
 </script>
