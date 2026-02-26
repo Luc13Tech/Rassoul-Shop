@@ -2,12 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rassoul Shop Tidianiya - Collection · Tradition · Élégance</title>
-  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ===== RESET & VARIABLES ===== */
     * {
@@ -279,9 +276,6 @@
     .cart-item-title {
       font-weight: 600;
       margin-bottom: 5px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .cart-item-price {
@@ -456,29 +450,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.5s, opacity 0.3s;
-      opacity: 0;
-    }
-
-    .product-image img.loaded {
-      opacity: 1;
+      transition: transform 0.5s;
     }
 
     .product-card:hover .product-image img {
       transform: scale(1.05);
-    }
-
-    .product-image i {
-      position: absolute;
-      font-size: 50px;
-      color: var(--text-light);
-      opacity: 0.5;
-      z-index: 1;
-      transition: opacity 0.3s;
-    }
-
-    .product-image img.loaded ~ i {
-      opacity: 0;
     }
 
     .product-details {
@@ -754,16 +730,27 @@
 
     /* ===== RESPONSIVE ===== */
     @media screen and (max-width: 1024px) {
-      .about-section, .contact-grid {
+      .about-section,
+      .contact-grid {
         grid-template-columns: 1fr;
         gap: 30px;
       }
-      .stats { max-width: 600px; margin: 0 auto; }
+      .stats {
+        max-width: 600px;
+        margin: 0 auto;
+      }
     }
 
     @media screen and (max-width: 768px) {
-      nav { flex-direction: column; gap: 15px; padding: 15px; }
-      .menu { justify-content: center; width: 100%; }
+      nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+      }
+      .menu {
+        justify-content: center;
+        width: 100%;
+      }
       .dropdown-content {
         position: fixed;
         top: auto;
@@ -780,40 +767,105 @@
         width: 90%;
         max-width: 400px;
       }
-      .hero { padding: 40px 15px; }
-      .hero-tags { padding: 12px 20px; }
-      .products-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; }
-      .wholesale-grid { grid-template-columns: 1fr; }
-      .about-section, .contact-section { padding: 25px; }
-      .stats { grid-template-columns: 1fr; gap: 10px; }
-      .stat { padding: 15px; }
-      .category-filter { gap: 8px; }
-      .filter-btn { padding: 8px 15px; font-size: 13px; }
+      .hero {
+        padding: 40px 15px;
+      }
+      .hero-tags {
+        padding: 12px 20px;
+      }
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 15px;
+      }
+      .wholesale-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-section,
+      .contact-section {
+        padding: 25px;
+      }
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .stat {
+        padding: 15px;
+      }
+      .category-filter {
+        gap: 8px;
+      }
+      .filter-btn {
+        padding: 8px 15px;
+        font-size: 13px;
+      }
     }
 
     @media screen and (max-width: 480px) {
-      .menu { flex-wrap: wrap; gap: 10px; }
-      .menu > a, .dropdown > a { font-size: 13px; }
-      .product-image { height: 160px; font-size: 40px; }
-      .product-details { padding: 15px; }
-      .product-name { font-size: 16px; }
-      .product-price { font-size: 18px; }
-      .wholesale-card { padding: 25px 15px; }
-      .wholesale-card h3 { font-size: 20px; }
-      .contact-item { flex-wrap: wrap; }
-      .contact-item i { width: 30px; font-size: 20px; }
-      .filter-btn { padding: 6px 12px; font-size: 12px; }
+      .menu {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .menu > a,
+      .dropdown > a {
+        font-size: 13px;
+      }
+      .product-image {
+        height: 160px;
+        font-size: 40px;
+      }
+      .product-details {
+        padding: 15px;
+      }
+      .product-name {
+        font-size: 16px;
+      }
+      .product-price {
+        font-size: 18px;
+      }
+      .wholesale-card {
+        padding: 25px 15px;
+      }
+      .wholesale-card h3 {
+        font-size: 20px;
+      }
+      .contact-item {
+        flex-wrap: wrap;
+      }
+      .contact-item i {
+        width: 30px;
+        font-size: 20px;
+      }
+      .filter-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
     }
 
-    .cart-items::-webkit-scrollbar { width: 6px; }
-    .cart-items::-webkit-scrollbar-track { background: var(--border); border-radius: 10px; }
-    .cart-items::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 10px; }
+    .cart-items::-webkit-scrollbar {
+      width: 6px;
+    }
+    .cart-items::-webkit-scrollbar-track {
+      background: var(--border);
+      border-radius: 10px;
+    }
+    .cart-items::-webkit-scrollbar-thumb {
+      background: var(--secondary);
+      border-radius: 10px;
+    }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .product-card { animation: fadeIn 0.5s ease-out; }
+    .product-card {
+      animation: fadeIn 0.5s ease-out;
+    }
   </style>
 </head>
 <body>
@@ -983,29 +1035,106 @@
 </footer>
 
 <script>
-  const CLOUDINARY_BASE = 'https://res.cloudinary.com/demo/image/upload/v1';
-  
+  // ===== PRODUITS AVEC PRIX CORRIGÉS SELON VOS CAPTURES =====
   const products = [
-    { id: 1, name: 'Boubou homme brodé', category: 'Homme', subcategory: 'Boubou', price: 55000, icon: 'fa-user-tie', cloudinaryId: 'boubou-homme-1' },
-    { id: 2, name: 'Boubou homme cérémonie', category: 'Homme', subcategory: 'Boubou', price: 65000, icon: 'fa-user-tie', cloudinaryId: 'boubou-homme-2' },
-    { id: 3, name: 'Ensemble homme 3 pièces', category: 'Homme', subcategory: 'Ensemble', price: 75000, icon: 'fa-user-tie', cloudinaryId: 'ensemble-homme-1' },
-    { id: 4, name: 'Jalaba homme', category: 'Homme', subcategory: 'Jalaba', price: 45000, icon: 'fa-user-tie', cloudinaryId: 'jalaba-homme-1' },
-    { id: 5, name: 'Boubou femme brodé', category: 'Femme', subcategory: 'Boubou', price: 45000, icon: 'fa-fan', cloudinaryId: 'boubou-femme-1' },
-    { id: 6, name: 'Boubou femme cérémonie', category: 'Femme', subcategory: 'Boubou', price: 55000, icon: 'fa-fan', cloudinaryId: 'boubou-femme-2' },
-    { id: 7, name: 'Ensemble femme 2 pièces', category: 'Femme', subcategory: 'Ensemble', price: 48000, icon: 'fa-fan', cloudinaryId: 'ensemble-femme-1' },
-    { id: 8, name: 'Jalaba femme', category: 'Femme', subcategory: 'Jalaba', price: 42000, icon: 'fa-fan', cloudinaryId: 'jalaba-femme-1' },
-    { id: 9, name: 'Boubou enfant garçon', category: 'Enfant', subcategory: 'Boubou', price: 25000, icon: 'fa-child', cloudinaryId: 'boubou-enfant-garcon' },
-    { id: 10, name: 'Boubou enfant fille', category: 'Enfant', subcategory: 'Boubou', price: 25000, icon: 'fa-child', cloudinaryId: 'boubou-enfant-fille' },
-    { id: 11, name: 'Ensemble enfant', category: 'Enfant', subcategory: 'Ensemble', price: 28000, icon: 'fa-child', cloudinaryId: 'ensemble-enfant-1' },
-    { id: 12, name: 'Jalaba enfant', category: 'Enfant', subcategory: 'Jalaba', price: 22000, icon: 'fa-child', cloudinaryId: 'jalaba-enfant-1' },
-    { id: 13, name: 'Montre luxe', category: 'Accessoire', price: 12500, icon: 'fa-clock', cloudinaryId: 'montre-luxe' },
-    { id: 14, name: 'Lunettes de soleil', category: 'Accessoire', price: 8900, icon: 'fa-sun', cloudinaryId: 'lunettes-soleil' },
-    { id: 15, name: 'Sac en cuir', category: 'Accessoire', price: 18500, icon: 'fa-bag-shopping', cloudinaryId: 'sac-cuir' },
-    { id: 16, name: 'Ceinture homme', category: 'Accessoire', price: 7500, icon: 'fa-belt', cloudinaryId: 'ceinture-homme' }
+    // Robes femme (prix de vos captures : 5500F, 9000F)
+    { 
+      id: 1, 
+      name: 'Robe femme simple', 
+      category: 'Femme', 
+      subcategory: 'Robe', 
+      price: 5500, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&auto=format'
+    },
+    { 
+      id: 2, 
+      name: 'Robe femme élégante', 
+      category: 'Femme', 
+      subcategory: 'Robe', 
+      price: 9000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format'
+    },
+    
+    // Jallaba Enfants (prix : 17000F)
+    { 
+      id: 3, 
+      name: 'Jallaba Enfant', 
+      category: 'Enfant', 
+      subcategory: 'Jalaba', 
+      price: 17000, 
+      icon: 'fa-child',
+      image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&auto=format'
+    },
+    
+    // Ensemble femme (prix : 10000F)
+    { 
+      id: 4, 
+      name: 'Ensemble femme', 
+      category: 'Femme', 
+      subcategory: 'Ensemble', 
+      price: 10000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format'
+    },
+    
+    // Autres produits avec prix standards
+    { 
+      id: 5, 
+      name: 'Boubou homme brodé', 
+      category: 'Homme', 
+      subcategory: 'Boubou', 
+      price: 25000, 
+      icon: 'fa-user-tie',
+      image: 'https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?w=400&auto=format'
+    },
+    { 
+      id: 6, 
+      name: 'Boubou homme cérémonie', 
+      category: 'Homme', 
+      subcategory: 'Boubou', 
+      price: 35000, 
+      icon: 'fa-user-tie',
+      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format'
+    },
+    { 
+      id: 7, 
+      name: 'Jalaba homme', 
+      category: 'Homme', 
+      subcategory: 'Jalaba', 
+      price: 22000, 
+      icon: 'fa-user-tie',
+      image: 'https://images.unsplash.com/photo-1545048702-79362596cdb9?w=400&auto=format'
+    },
+    { 
+      id: 8, 
+      name: 'Boubou femme brodé', 
+      category: 'Femme', 
+      subcategory: 'Boubou', 
+      price: 28000, 
+      icon: 'fa-fan',
+      image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format'
+    },
+    { 
+      id: 9, 
+      name: 'Montre luxe', 
+      category: 'Accessoire', 
+      price: 12500, 
+      icon: 'fa-clock',
+      image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400&auto=format'
+    },
+    { 
+      id: 10, 
+      name: 'Lunettes de soleil', 
+      category: 'Accessoire', 
+      price: 8900, 
+      icon: 'fa-sun',
+      image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&auto=format'
+    }
   ];
 
   let cart = [];
-
   const cartIcon = document.getElementById('cartIcon');
   const cartPanel = document.getElementById('cartPanel');
   const closeCart = document.getElementById('closeCart');
@@ -1013,24 +1142,6 @@
   const cartTotal = document.getElementById('cartTotal');
   const cartCount = document.getElementById('cartCount');
   const productsGrid = document.getElementById('productsGrid');
-
-  const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        if (img.dataset.src) {
-          img.src = img.dataset.src;
-          img.classList.add('loaded');
-          img.onload = () => img.classList.add('loaded');
-          imageObserver.unobserve(img);
-        }
-      }
-    });
-  }, { rootMargin: '50px' });
-
-  function getImageUrl(product) {
-    return `${CLOUDINARY_BASE}/${product.cloudinaryId}.jpg`;
-  }
 
   function openCart() { cartPanel.classList.add('show'); }
   function closeCartPanel() { cartPanel.classList.remove('show'); }
@@ -1045,73 +1156,100 @@
   function displayProducts(filterCategory = null) {
     productsGrid.innerHTML = '';
     let filteredProducts = products;
+    
     if (filterCategory) {
-      filteredProducts = products.filter(p => p.category === filterCategory || p.subcategory === filterCategory);
+      filteredProducts = products.filter(p => 
+        p.category === filterCategory || p.subcategory === filterCategory
+      );
     }
+
     if (filteredProducts.length === 0) {
-      productsGrid.innerHTML = '<div style="text-align: center; padding: 50px; color: var(--text-light);">Aucun produit</div>';
+      productsGrid.innerHTML = '<div style="text-align: center; padding: 50px;">Aucun produit dans cette catégorie</div>';
       return;
     }
-    filteredProducts.forEach(product => {
+
+    filteredProducts.forEach(p => {
       const card = document.createElement('div');
       card.className = 'product-card';
-      const imageUrl = getImageUrl(product);
       card.innerHTML = `
         <div class="product-image">
-          <img data-src="${imageUrl}" alt="${product.name}" class="lazy-image" loading="lazy">
-          <i class="fas ${product.icon}"></i>
+          <img src="${p.image}" alt="${p.name}" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="product-details">
-          <div class="product-category">${product.category} ${product.subcategory ? '· ' + product.subcategory : ''}</div>
-          <div class="product-name">${product.name}</div>
-          <div class="product-price">${product.price.toLocaleString()} CFA</div>
-          <button class="add-btn" onclick="addToCart(${product.id})"><i class="fas fa-cart-plus"></i> Ajouter</button>
+          <div class="product-category">${p.category} ${p.subcategory ? '· ' + p.subcategory : ''}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-price">${p.price.toLocaleString()} CFA</div>
+          <button class="add-btn" onclick="addToCart(${p.id})"><i class="fas fa-cart-plus"></i> Ajouter</button>
         </div>
       `;
       productsGrid.appendChild(card);
-      const img = card.querySelector('img');
-      if (img) imageObserver.observe(img);
     });
+
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
     if (filterCategory) {
-      const btnText = { 'Homme': 'Hommes', 'Femme': 'Femmes', 'Enfant': 'Enfants', 'Boubou': 'Boubous', 'Ensemble': 'Ensembles', 'Jalaba': 'Jalabas', 'Accessoire': 'Accessoires' }[filterCategory] || filterCategory;
-      const activeBtn = Array.from(document.querySelectorAll('.filter-btn')).find(btn => btn.textContent.trim() === btnText);
+      const btnText = {
+        'Homme': 'Hommes', 'Femme': 'Femmes', 'Enfant': 'Enfants',
+        'Boubou': 'Boubous', 'Ensemble': 'Ensembles', 'Jalaba': 'Jalabas', 'Accessoire': 'Accessoires'
+      }[filterCategory] || filterCategory;
+      const activeBtn = Array.from(document.querySelectorAll('.filter-btn')).find(
+        btn => btn.textContent.trim() === btnText
+      );
       if (activeBtn) activeBtn.classList.add('active');
     } else {
       document.querySelector('.filter-btn:first-child').classList.add('active');
     }
   }
 
-  window.showAllProducts = () => { displayProducts(); document.getElementById('produits').scrollIntoView({ behavior: 'smooth' }); };
-  window.filterByCategory = (category) => { displayProducts(category); document.getElementById('produits').scrollIntoView({ behavior: 'smooth' }); };
-  window.addToCart = (productId) => {
-    const product = products.find(p => p.id === productId);
-    if (product) { cart.push({ ...product, cartId: Date.now() + Math.random() }); updateCart(); openCart(); }
+  window.showAllProducts = () => displayProducts();
+  window.filterByCategory = (cat) => displayProducts(cat);
+
+  window.addToCart = (id) => {
+    const p = products.find(p => p.id === id);
+    if (p) { 
+      cart.push({...p, cartId: Date.now() + Math.random()}); 
+      updateCart(); 
+      openCart(); 
+    }
   };
-  window.removeFromCart = (cartId) => { cart = cart.filter(item => item.cartId !== cartId); updateCart(); };
+
+  window.removeFromCart = (cartId) => { 
+    cart = cart.filter(i => i.cartId !== cartId); 
+    updateCart(); 
+  };
 
   function updateCart() {
     cartCount.textContent = cart.length;
-    if (cart.length === 0) {
-      cartItems.innerHTML = '<div style="text-align: center; padding: 20px; color: #6e5c4b;">Votre panier est vide</div>';
+    if (!cart.length) {
+      cartItems.innerHTML = '<div style="text-align: center; padding: 20px;">Votre panier est vide</div>';
       cartTotal.textContent = '0 CFA';
       return;
     }
     let html = '', total = 0;
-    cart.forEach(item => {
-      total += item.price;
-      html += `<div class="cart-item"><div class="cart-item-icon"><i class="fas ${item.icon}"></i></div><div class="cart-item-info"><div class="cart-item-title">${item.name}</div><div class="cart-item-price">${item.price.toLocaleString()} CFA</div></div><button class="cart-item-remove" onclick="removeFromCart(${item.cartId})"><i class="fas fa-trash-alt"></i></button></div>`;
+    cart.forEach(i => {
+      total += i.price;
+      html += `
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <strong>${i.name}</strong><br>
+            ${i.price.toLocaleString()} CFA
+          </div>
+          <button class="cart-item-remove" onclick="removeFromCart(${i.cartId})">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      `;
     });
     cartItems.innerHTML = html;
     cartTotal.textContent = total.toLocaleString() + ' CFA';
   }
 
   document.getElementById('checkoutBtn').addEventListener('click', () => {
-    if (cart.length === 0) return alert('Votre panier est vide');
-    let message = '*Nouvelle commande Rassoul Shop Tidianiya*%0A%0A';
-    cart.forEach(item => message += `• ${item.name} : ${item.price.toLocaleString()} CFA%0A`);
-    message += `%0A*Total : ${cart.reduce((acc, i) => acc + i.price, 0).toLocaleString()} CFA*`;
-    window.open(`https://wa.me/221774397427?text=${message}`, '_blank');
+    if (!cart.length) return alert('Votre panier est vide');
+    let msg = '*Nouvelle commande Rassoul Shop Tidianiya*%0A%0A';
+    cart.forEach(i => msg += `• ${i.name} : ${i.price.toLocaleString()} CFA%0A`);
+    const total = cart.reduce((acc, i) => acc + i.price, 0);
+    msg += `%0A*Total : ${total.toLocaleString()} CFA*`;
+    window.open(`https://wa.me/221774397427?text=${msg}`, '_blank');
   });
 
   window.contactWholesale = (type) => {
