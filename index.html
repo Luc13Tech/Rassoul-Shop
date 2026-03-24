@@ -466,3 +466,10 @@ function toggleMenu(){const n=document.getElementById('mnav'),h=document.getElem
 function toast(msg){const t=document.getElementById('tst');t.textContent=msg;t.classList.add('up');setTimeout(()=>t.classList.remove('up'),2600)}
 window.addEventListener('scroll',()=>document.getElementById('hdr').classList.toggle('compact',scrollY>60));
 function observe(){const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.08});documen
+                   window.addEventListener("scroll",function(){document.getElementById("hdr").classList.toggle("compact",scrollY>60);});
+function observe(){var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:0.08});document.querySelectorAll(".rv:not(.in)").forEach(function(el){io.observe(el)});}
+(function(){var done=false;function hide(){if(done)return;done=true;document.getElementById("loader").classList.add("out");observe();}setTimeout(hide,2500);document.addEventListener("DOMContentLoaded",function(){setTimeout(hide,1000);});})();
+render("all");
+</script>
+</body>
+</html>
